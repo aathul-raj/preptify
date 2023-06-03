@@ -1,0 +1,152 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: auto;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; 
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start; 
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center; 
+}
+
+.logo-img{
+  height: auto;
+  width: 150px;
+  margin-top: 25%;
+  left: 0;
+  margin-left: 40%
+}
+
+.home-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+
+}
+
+.slogan {
+  text-align: left;
+  margin: 20px 0;
+  color: white;
+  font-size: 4rem;
+}
+
+.highlight {
+  color: rgb(0, 255, 187);  /* Adjust color as needed */
+}
+
+.mission-statement {
+  text-align: left;
+  margin: 20px 0;
+  color: gray
+}
+
+.button-container {
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  margin-top: 5%;
+}
+
+.get-started-button,
+.learn-more-button {
+  padding: 10px 20px;
+  border-radius: 41px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  
+}
+
+.get-started-button {
+  background: linear-gradient(to bottom, rgb(0, 255, 187), rgb(28, 240, 255));
+  color: black;
+  padding: 10px 20px;
+  border-radius: 41px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  font-weight: bolder;
+}
+
+.learn-more-button {
+  background-color: rgb(33, 33, 33);
+  color: white;
+  border: 1px solid #00ffbf;
+}
+
+.ai-img {
+  flex-basis: 50%; 
+  max-width: 500px;
+}
+
+.footer {
+  display: flex;
+  justify-content: right;
+  color: gray;
+  padding: 20px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid gray; 
+  padding-right: 10%;
+  bottom: -70px; 
+
+}
+
+.footer button {
+  background: none;
+  border: none;
+  color: gray;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+.text-container {
+  flex-basis: 50%;
+}
+
+.auth-buttons-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 10%;
+  margin-top: 45px;
+  
+}
+
+.log-in-button,
+.sign-up-button {
+  margin-left: 10px;
+  color: #00ffbf;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 1.2rem;
+
+}
