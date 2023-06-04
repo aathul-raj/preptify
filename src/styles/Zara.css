@@ -18,12 +18,12 @@ main{
 
 .hidden {
   opacity: 0;
-  transition: opacity 1s ease-in;
+  transition: opacity 1.5s ease-in;
 }
 
 .visible {
   opacity: 1;
-  transition: opacity 1s ease-in;
+  transition: opacity 1.5s ease-in;
 }
 
 .container{
@@ -63,7 +63,7 @@ main{
   height: 25vh;
   width: 55vw;
   align-items: center;
-  border: 2px solid white;
+  border: 2px solid #282828;
   border-radius: 50px;
   background: #151516;
   padding: 0rem 4rem;
