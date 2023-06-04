@@ -10,6 +10,8 @@ import Logo from "../img/preptify_cropped.png";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   let navigate = useNavigate();
 
   const auth = getAuth();
@@ -20,6 +22,7 @@ function Login() {
       // User is logged in, redirect to dashboard or show a message
       navigate("/"); // for now redirect to home
     } catch (error) {
+      setErrorMessage("Failed to log in. Please try again");
       console.error("Failed to log in", error);
     }
   };
@@ -60,6 +63,8 @@ function Login() {
             />
           </div>
         </div>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
+
         <button className="login-button" onClick={handleLogin}>
           login
         </button>

@@ -15,6 +15,7 @@
     flex-direction: column;
     justify-content: space-between;
     width: 40%;
+    margin-bottom: 20px;
 
 }
 
@@ -98,3 +99,8 @@ label {
     color: #15D59F;
     text-decoration: underline;
 }
+
+.error-message {
+    color: red;
+    font-weight: bold;
+  }
