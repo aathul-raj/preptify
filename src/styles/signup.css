@@ -126,3 +126,8 @@ label {
     color: #15D59F;
     text-decoration: underline;
 }
+
+.error-message {
+    color: red;
+    font-weight: bold;
+  }

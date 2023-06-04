@@ -12,13 +12,14 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
 
   const auth = getAuth();
 
   const handleSignup = async () => {
     if (password !== confirmPassword) {
-      console.error("Passwords do not match");
+      setErrorMessage("Passwords do not match");
       return;
     }
     try {
@@ -26,6 +27,7 @@ function Signup() {
       // User is signed up, redirect to dashboard or show a message
       navigate("/"); // for now redirect to home
     } catch (error) {
+      setErrorMessage("Failed to sign up. Please try again");
       console.error("Failed to sign up", error);
     }
   };
@@ -96,6 +98,8 @@ function Signup() {
             />
           </div>
         </div>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
+
         <button className="signup-button" onClick={handleSignup}>
           sign up
         </button>
