@@ -2,21 +2,21 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Mic from '../img/mic.png';
 
-function MicButton({ setTranscript }) {
+function MicButton({ setTranscript, isLoading }) {
   const [isListening, setIsListening] = useState(false);
   const [userResponse, setUserResponse] = useState("");
   const mediaRecorder = useRef(null);
   const socketRef = useRef(null);
 
-  useEffect(() => {
-    axios.get('http://localhost:5001/api/start-interview')
-      .then(response => {
-        setTranscript(response.data.response);
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }, []);
+  // useEffect(() => {
+  //   axios.get('http://localhost:5001/api/start-interview')
+  //     .then(response => {
+  //       setTranscript(response.data.response);
+  //     })
+  //     .catch(err => {
+  //       console.error(err);
+  //     });
+  // }, []);
 
   const toggleListening = () => {
     console.log("TOGGLE")
@@ -79,7 +79,7 @@ function MicButton({ setTranscript }) {
 
   return (
     <img 
-      className="mic-img" 
+      className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} 
       src={Mic} 
       onClick={toggleListening} 
     />
