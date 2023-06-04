@@ -4,7 +4,7 @@ import Logo from "../img/preptify_cropped.png";
 import { Link } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../back-end/initFirebase";
+import { auth } from "../back-end/firebase";
 
 function Signup() {
   const [firstName, setFirstName] = useState("");
