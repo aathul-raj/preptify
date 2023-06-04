@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { auth } from "../initFirebase";
+import { auth } from "../back-end/initFirebase";
 
 import "../styles/login.css";
 import Logo from "../img/preptify_cropped.png";
