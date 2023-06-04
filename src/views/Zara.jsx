@@ -32,7 +32,7 @@ function Zara() {
             <Title />
             <Subheading />
           </div>
-          <img className="ai-img" src={AIImage} />
+          {isLoading ? <Preloader/> : <img className={`ai-img ${isLoading ? 'hidden' : 'visible'}`} src={AIImage} />}
           <Transcript className={isLoading ? 'hidden' : 'visible'} transcript={transcript} isLoading={isLoading}/>
         </div>
         <MicButton className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} setTranscript={setTranscript} isLoading={isLoading}/>

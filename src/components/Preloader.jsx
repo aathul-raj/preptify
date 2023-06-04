@@ -1,35 +1,22 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import "../styles/Preloader.css";
 
-export default function Preloader(){
-    const canvasRef = useRef(null);
+const LoadingAnimation = () => {
+    let dots = [];
 
-    // useEffect(() => {
-    //     let canvas = canvasRef.current;
-    //     let ctx = canvas.getContext('2d');
-    //     let j = 0, pixSize = 2, pixCount = 50;
+    for (let x = 0; x < 16; x++) {
+        let delay = '0s';
+        if (x % 4 === 1) delay = '.1s';
+        else if (x % 4 === 2) delay = '.2s';
+        else if (x % 4 === 3) delay = '.3s';
+        else if (x % 4 === 0 && x !== 0 && x !== 15) delay = '.4s';
+        if (x === 11 || x === 14) delay = '.5s';
+        if (x === 15) delay = '.6s';
 
-    //     const interval = setInterval(() => {
-    //         // Clear the canvas before each new drawing
-    //         ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //         j = 0;
-    //         for (let r = 0; r < pixCount; r++){
-    //             for(var i = 0; i < pixCount; i++){
-    //                 if (i % pixCount === 0) {
-    //                     j++
-    //                 }
+        dots.push(<div style={{animationDelay: delay}} key={x} />);
+    }
 
-    //                 ctx.fillStyle = 'hsl(' + 360 * Math.random() + ', 50%, 50%)';
-    //                 ctx.fillRect(i * pixSize, j * pixSize, 20, 20);
-    //             }
-    //         }
-    //     }, 150);
-    //     return () => clearInterval(interval);
-    // }, []);
+    return <div className="loading">{dots}</div>
+};
 
-    return (
-        <div className="drawing_container">
-            <canvas ref={canvasRef} className="canvas"></canvas>
-        </div>
-    );
-}
+export default LoadingAnimation;
