@@ -16,6 +16,16 @@ main{
   justify-content: center;
 }
 
+.hidden {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
 .container{
   margin: 0 auto;
   display: flex;
@@ -45,7 +55,7 @@ main{
   width: 22rem;
   max-width: 25rem;
 }
-/* poop */
+
 .transcript{
   font-family: 'Roboto', sans-serif;
   font-size: 27px;
