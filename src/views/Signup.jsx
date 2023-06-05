@@ -25,7 +25,7 @@ function Signup() {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       // User is signed up, redirect to dashboard or show a message
-      navigate("/"); // for now redirect to home
+      navigate("/dashboard");
     } catch (error) {
       setErrorMessage("Failed to sign up. Please try again");
       console.error("Failed to sign up", error);
