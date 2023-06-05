@@ -16,7 +16,7 @@ main{
   align-items: center;
   text-align: center;
   position: relative;
-  min-height: 90vh;
+  min-height: 100vh;
 }
 
 .hidden {
