@@ -20,12 +20,6 @@ function Home() {
             >
               log in
             </button>
-            <button
-              className="sign-up-button"
-              onClick={() => navigate("/signup")}
-            >
-              sign up
-            </button>
           </div>
         </div>
         <div className="home-container">
