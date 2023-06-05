@@ -14,7 +14,9 @@ function Zara() {
   const [isLoading, setIsLoading] = useState(true); // State to track loading status
 
   useEffect(() => {
-    axios.get('http://localhost:5001/api/start-interview')
+    axios.post('http://localhost:5001/api/start-interview', {
+      role: 'fe-react'
+    })
       .then(response => {
         setTranscript(response.data.response);
         setIsLoading(false); // Set loading to false once data is received
