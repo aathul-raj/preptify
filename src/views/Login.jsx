@@ -20,7 +20,7 @@ function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       // User is logged in, redirect to dashboard or show a message
-      navigate("/"); // for now redirect to home
+      navigate("/dashboard");
     } catch (error) {
       setErrorMessage("Failed to log in. Please try again");
       console.error("Failed to log in", error);
