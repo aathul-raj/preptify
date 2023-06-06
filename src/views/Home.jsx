@@ -41,7 +41,12 @@ function Home() {
               >
                 get started
               </button>
-              <button className="learn-more-button">learn more</button>
+              <button
+                onClick={() => navigate("/learn-more")}
+                className="learn-more-button"
+              >
+                learn more
+              </button>
             </div>
           </div>
 
