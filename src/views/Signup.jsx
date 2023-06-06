@@ -4,6 +4,8 @@ import Logo from "../img/preptify_cropped.png";
 import { Link } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+
 import { auth } from "../back-end/firebase";
 
 function Signup() {
@@ -23,7 +25,18 @@ function Signup() {
       return;
     }
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      const credentials = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = credentials.user;
+
+      // set user display name after creating user
+      await updateProfile(user, {
+        displayName: `${firstName} ${lastName}`,
+      });
+
       // User is signed up, redirect to dashboard or show a message
       navigate("/dashboard");
     } catch (error) {
