@@ -113,7 +113,7 @@
     justify-content: right;
     color: gray;
     padding: 20px 0;
-    position: absolute;
+    position: inherit;
     bottom: 0;
     width: 100%;
     border-top: 1px solid gray; 
