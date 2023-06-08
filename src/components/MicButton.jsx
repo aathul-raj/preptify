@@ -1,22 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Mic from '../img/mic.png';
 
 function MicButton({ setTranscript, isLoading }) {
   const [isListening, setIsListening] = useState(false);
   const [userResponse, setUserResponse] = useState("");
+  const navigate = useNavigate()
   const mediaRecorder = useRef(null);
   const socketRef = useRef(null);
-
-  // useEffect(() => {
-  //   axios.get('http://localhost:5001/api/start-interview')
-  //     .then(response => {
-  //       setTranscript(response.data.response);
-  //     })
-  //     .catch(err => {
-  //       console.error(err);
-  //     });
-  // }, []);
 
   const toggleListening = () => {
     console.log("TOGGLE")
@@ -66,8 +58,13 @@ function MicButton({ setTranscript, isLoading }) {
       axios.post('http://localhost:5001/api/interview', {
         response: userResponse
       }).then(response => {
-        console.log(`Server Response: ${response.data.response}`)
-        setTranscript(response.data.response)
+        if (typeof response.data.response === 'object' && response.data.response !== null){
+          navigate("/", {replace: true })
+        }
+        else {
+          console.log(`Server Response: ${response.data.response}`)
+          setTranscript(response.data.response)
+        }
       })
       .catch(err => {
         console.error(err)
@@ -81,7 +78,7 @@ function MicButton({ setTranscript, isLoading }) {
     <img 
       className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} 
       src={Mic} 
-      onClick={toggleListening} 
+      onClick={toggleListening}
     />
   )
 }

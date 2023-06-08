@@ -36,6 +36,7 @@ let prompt = {"fe-react": `I want you to act as a seasoned software engineering 
 let conversation_history;
 let question_counter;
 let hasStarted = false;
+let isDone = false;
 let feedback = {};
 
 async function interview_question(user_response='') {
@@ -53,11 +54,6 @@ async function interview_question(user_response='') {
   for (const line of conversation_history){
     role_count.push(line.role)
   }
-
-// If start-interview is hit twice, return original response
-  // if (role_count.length >= 2 && !user_response && hasStarted){
-  //   return conversation_history[conversation_history.length -1].content
-  // }
 
   try {
     const response = await openai.createChatCompletion({
@@ -90,7 +86,7 @@ async function interview_question(user_response='') {
         feedback[key] = isNaN(Number(value)) ? value : Number(value);
       });
 
-      console.log(`feedback: ${feedback}`)
+      isDone = true
     }
 
     assistant_message = assistant_message.replace(/Interviewer: /g, "")
@@ -102,7 +98,9 @@ async function interview_question(user_response='') {
   } catch(error) {
     console.error(error);
   }
-
+  if (isDone){
+    return feedback
+  }
   return assistant_message;
 }
 
