@@ -9,6 +9,10 @@ import PuzzleImg from "../img/puzzle.png";
 import ConfidenceImg from "../img/confidence.png";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import StatueImg from "../img/roman-statue.png";
+import CareersImg from "../img/careers.png";
+import FeaturesImg from "../img/features.png";
+import SquiggleImg from "../img/squiggle.png";
 
 function Home() {
   const navigate = useNavigate();
@@ -30,15 +34,17 @@ function Home() {
           </div>
         </div>
         <div className="home-container">
+          <img className="statue-img" src={StatueImg} alt="Roman Statue" />
+
           <div className="text-container">
             <h1 className="slogan">
               elevate your <span className="highlight">interview</span>, elevate
               your career.
             </h1>
             <h2 className="mission-statement">
-              experience personalized, ai-powered interview preparation designed
-              to hone your skills, boost your confidence, and propel your career
-              to new heights.
+              Supercharge your career with Zara, our mock interview AI. Claim
+              your first three sessions{" "}
+              <span className="highlight">FOR FREE</span> - start today!
             </h2>
 
             <div className="button-container">
@@ -56,80 +62,73 @@ function Home() {
               </button>
             </div>
           </div>
-
-          <img className="ai-img" src={AIImage} alt="AI" />
         </div>
         <div className="learn-more-container">
-          <div className="block-1">
-            <img className="learn-more-ai-img" src={AIImage} alt="AI" />
-            <div className="block-1-content">
-              <h1>
-                empowering careers, <br /> one{" "}
+          <div className="home-block-1">
+            <div className="text-container">
+              <div className="intro-text">
+                empowering careers, one{" "}
                 <span className="highlight">interview</span> at a time.
-              </h1>
-              <h2>
-                At Preptify, our mission is to provide individuals with the
-                tools and resources they need to excel in their careers. Through
-                our AI-powered mock interviews and personalized feedback, we aim
-                to empower individuals to confidently navigate the interview
-                process and achieve professional success.
-              </h2>
+              </div>
+              <div className="intro-text-2">
+                We help you achieve career excellence through our AI-enhanced
+                interview tool, Zara.
+              </div>
+              <div className="feature-container">
+                {/* <img className="icon" src={CareersImg}></img> */}
+                <h2 className="feature-text">
+                  Streamline your interview preparation with our AI-enhanced
+                  interview tool, Zara.
+                </h2>
+              </div>
+              <div className="feature-container">
+                {/* <img className="icon" src={ChatIconImg}></img> */}
+                <h2 className="feature-text">
+                  Gain the skills and confidence you need to excel in your
+                  career.
+                </h2>
+              </div>
+              <div className="feature-container">
+                {/* <img className="icon" src={ImagineIconImg}></img> */}
+                <h2 className="feature-text">
+                  Unlock your potential through personalized interview guidance
+                  and support
+                </h2>
+              </div>
             </div>
+            <img className="learn-more-ai-img" src={CareersImg} alt="AI" />
           </div>
-          <div className="block-2">
-            <div className="block-2-content">
-              <h1>
-                the <span className="highlight">problem</span> we face.
-              </h1>
-              <h2>
-                Many individuals face significant challenges when preparing for
-                job interviews: limited realistic practice opportunities,
-                inadequate feedback and guidance, and confidence and performance
-                anxiety. Preptify, our innovative career prep startup, provides
-                a comprehensive solution to address these pressing issues.
-              </h2>
-            </div>
-            <img className="puzzle-img" src={PuzzleImg} alt="Problem" />
-          </div>
+          <div className="home-block-2">
+            <img className="features-img" src={FeaturesImg} alt="AI" />
 
-          <div className="block-3">
-            <h1>
-              how we <span className="highlight">solve</span> it.
-            </h1>
-            <div className="solution-container">
-              <div className="solution-block">
-                <img className="solutions-img" src={DumbellImg} alt="Skills" />
+            <div className="text-container">
+              <div className="intro-text">
+                our
+                <span className="highlight"> features</span>.
+              </div>
+              <div className="intro-text-2">
+                Discover a trove of innovative features meticulously crafted to
+                catapult you towards acing your impending job interview.
+              </div>
 
-                <h3>
-                  <span className="highlight">realistic</span> practice
-                </h3>
-                <h2>
+              <div className="feature-container">
+                {/* <img className="icon" src={ImgIconImg}></img> */}
+                <h2 className="feature-text">
                   Zara creates authentic interview scenarios, allowing users to
-                  practice, refine answers, and gain confidence.
+                  practice and refined answers.
                 </h2>
               </div>
-              <div className="solution-block">
-                <img className="solutions-img" src={SkillsImg} alt="Skills" />
-
-                <h3>
-                  <span className="highlight">personalized</span> feedback
-                </h3>
-                <h2>
-                  Our AI Zara analyzes user responses, providing detailed
-                  feedback to enhance interview skills.
+              <div className="feature-container">
+                {/* <img className="icon" src={ChatIconImg}></img> */}
+                <h2 className="feature-text">
+                  By analyzing user responses, we provide detailed feedback at
+                  the end of every interview.
                 </h2>
               </div>
-              <div className="solution-block">
-                <img
-                  className="solutions-img"
-                  src={ConfidenceImg}
-                  alt="Skills"
-                />
+              <div className="feature-container">
+                {/* <img className="icon" src={ImagineIconImg}></img> */}
 
-                <h3>
-                  <span className="highlight">confidence</span> building
-                </h3>
-                <h2>
+                <h2 className="feature-text">
                   Preptify offers a safe environment to practice, helping users
                   overcome anxiety and develop interview skills for optimal
                   performance.
@@ -137,10 +136,34 @@ function Home() {
               </div>
             </div>
           </div>
-          <div className="learn-more-button-container">
-            <button className="get-started" onClick={() => navigate("/signup")}>
-              Get Started
-            </button>
+
+          <div className="home-block-3">
+            <div className="step-container">
+              <h1 className="intro-text">
+                Take the first step towards interview success and{" "}
+                <span className="highlight">unlock</span> your career potential
+                with Zara <span className="highlight">today</span>.
+              </h1>
+              <img
+                className="squiggle-img"
+                src={SquiggleImg}
+                alt="Squiggle"
+              ></img>
+              <div>
+                <button
+                  className="get-started-button"
+                  onClick={() => navigate("/signup")}
+                >
+                  get started
+                </button>
+                <button
+                  className="learn-more-button"
+                  onClick={() => navigate("/pricing")}
+                >
+                  pricing
+                </button>
+              </div>
+            </div>
           </div>
         </div>
         <div className="footer">

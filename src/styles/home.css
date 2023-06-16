@@ -42,7 +42,7 @@ body {
 
 .home-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   width: 100%;
   margin: auto;
@@ -66,7 +66,7 @@ body {
 .mission-statement {
   text-align: left;
   margin: 20px 0;
-  color: gray
+  color: white
 }
 
 .button-container {
@@ -76,36 +76,43 @@ body {
   margin-top: 5%;
 }
 
-.get-started-button,
-.learn-more-button {
+.get-started-button, .learn-more-button {
+  background: white;
+  color: black;
   padding: 10px 20px;
   border-radius: 41px;
   border: none;
   cursor: pointer;
-  font-size: 1rem;
-  
+  flex: none;
+  white-space: nowrap;
+  width: 120px;  /* Adjust this as needed */
+  text-align: center;  /* To center the text inside the buttons */
+  margin-top: 20px;
+  font-weight: bolder;
 }
 
+
 .get-started-button {
-  background: linear-gradient(to bottom, rgb(0, 255, 187), rgb(28, 240, 255));
+  background: white;
   color: black;
   padding: 10px 20px;
   border-radius: 41px;
   border: none;
   cursor: pointer;
   margin-right: 20px;
-  font-weight: bolder;
+  flex: none;
+  white-space: nowrap;
 }
 
 .learn-more-button {
-  background-color: rgb(33, 33, 33);
-  color: white;
-  border: 1px solid #00ffbf;
+  background-color: #15D59F;
+  color: black;
+  /* border: 1px solid #00ffbf; */
 }
 
-.ai-img {
+.statue-img {
   flex-basis: 50%; 
-  max-width: 500px;
+  max-width: 400px;
 }
 
 .footer {
@@ -131,6 +138,8 @@ body {
 
 .text-container {
   flex-basis: 50%;
+  margin: 40px;
+
 }
 
 .auth-buttons-container {
@@ -144,13 +153,81 @@ body {
 
 .log-in-button,
 .sign-up-button {
-  margin-left: 10px;
-  color: #00ffbf;
-  background-color: transparent;
+  color: black ;
+  background-color: white;
+
+
+  padding: 10px 20px;
+  border-radius: 41px;
   border: none;
   cursor: pointer;
-  font-weight: bolder;
-  font-size: 1.2rem;
+  font-size: 1rem;
 
 }
 
+.intro-text {
+  color: white;
+  font-size: 3rem;
+  font-weight:bold ;
+}
+
+.intro-text-2 {
+  text-align: left;
+  margin: 20px 0;
+  color: white;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.feature-text {
+  color: white;
+  font-size: 1rem;
+  font-weight:lighter ;
+  margin-bottom: 20px;
+}
+
+.home-block-1, .home-block-2, .home-block-3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+  margin-bottom: 80px;
+}
+
+.step-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  background-color: #252525;
+  color: white;
+  padding: 30px;
+  border-radius: 25px;
+  width: 80%;
+  
+}
+
+.step-container button {
+  /* background: white; */
+  color: black;
+  padding: 10px 20px;
+  border-radius: 41px;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+  flex: none;
+}
+
+.features-img {
+  transform: rotate(320deg);
+  max-width: 20rem; /* prevent the image from becoming too large */
+  height: auto; /* maintain the aspect ratio of the image */
+
+}
+
+.squiggle-img {
+  height: 10rem;
+  transform: translateY(-12rem);
+
+
+}
