@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Mic from '../img/mic.png';
 
-function MicButton({ setTranscript, isLoading }) {
+function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
   const [isListening, setIsListening] = useState(false);
   const [userResponse, setUserResponse] = useState("");
   const navigate = useNavigate()
@@ -59,7 +59,9 @@ function MicButton({ setTranscript, isLoading }) {
         response: userResponse
       }).then(response => {
         if (typeof response.data.response === 'object' && response.data.response !== null){
-          navigate("/", {replace: true })
+          setIsDone(true)
+          setFeedback(response.data.response)
+          // navigate("/feedback/", {replace: true })
         }
         else {
           console.log(`Server Response: ${response.data.response}`)
