@@ -47,7 +47,7 @@ async function interview_question(user_response='') {
   }
 
   if(question_counter >= 3){
-    conversation_history.push({ role: "system", content: "Switch roles from an interviewer to a extremely harsh and critical feedback giver. Analyze the interview, and score how the user did in every one of these categories from 1 to 100 (NUMBER ONLY. BE VERY HARSH AND CRITICAL.): Communication Skills, Technical Skills, Problem Solving Abilities, Behavioral Responses. Afterwards, provide one sentence of specific positive feedback, one of negative, and one again of positive, in this exact format:\nCommunication skills: number\nTechnical Skills: number\nProblem Solving Abilities: number\nBehavioral Responses: number\nPositive: \"blah blah\"\nNegative: \"blah blah\"\nPositive: \"blah blah\"\nSay nothing more and nothing less and again, BE VERY HARSH AND CRITICAL." });
+    conversation_history.push({ role: "system", content: "Switch roles from an interviewer to a extremely harsh and critical feedback giver. Analyze the interview, and score how the user did in every one of these categories from 1 to 10 (NUMBER ONLY. BE VERY HARSH AND CRITICAL.): Communication Skills, Technical Skills, Problem Solving Abilities, Behavioral Responses. Afterwards, provide one sentence of specific negative feedback, again one of negative, and then one positive, in this exact format:\nCommunication: number\nTechnical: number\nPS: number\nBehavioral: number\nNegative: \"blah blah\"\nNegative: \"blah blah\"\nPositive: \"blah blah\"\nSay nothing more and nothing less and again, BE VERY HARSH AND CRITICAL (PS stands for problem solving, say PS in your response not problem solving)." });
   }
 
   let role_count = [];
@@ -62,7 +62,7 @@ async function interview_question(user_response='') {
       max_tokens: 200
     });
 
-    if (!response.data.choices[0].message.content.toLowerCase().startsWith("communication skills:")){
+    if (!response.data.choices[0].message.content.toLowerCase().startsWith("communication:")){
       assistant_message = response.data.choices[0].message.content.split('\n')[0];
     } else {
       assistant_message = response.data.choices[0].message.content
@@ -75,11 +75,11 @@ async function interview_question(user_response='') {
         let key = line.substring(0, colonIndex).trim().toLowerCase();
         let value = line.substring(colonIndex + 1).trim();
         
-        if (key === 'Positive') {
-            key = `positive-${positiveCounter}`;
+        if (key === 'positive') {
+            key = `positive${positiveCounter}`;
             positiveCounter++;
-        } else if (key === 'Negative') {
-            key = `negative-${negativeCounter}`;
+        } else if (key === 'negative') {
+            key = `negative${negativeCounter}`;
             negativeCounter++;
         }
         
