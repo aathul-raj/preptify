@@ -13,6 +13,12 @@ import StatueImg from "../img/roman-statue.png";
 import CareersImg from "../img/careers.png";
 import FeaturesImg from "../img/features.png";
 import SquiggleImg from "../img/squiggle.png";
+import BookImg from "../img/book.png";
+import CheckImg from "../img/check.png";
+import ClockImg from "../img/clock-circular-outline.png";
+import IdeaImg from "../img/idea.png";
+import ShieldImg from "../img/shield.png";
+import SpeechImg from "../img/speech-bubble.png";
 
 function Home() {
   const navigate = useNavigate();
@@ -75,21 +81,21 @@ function Home() {
                 interview tool, Zara.
               </div>
               <div className="feature-container">
-                {/* <img className="icon" src={CareersImg}></img> */}
+                <img className="icon" src={BookImg}></img>
                 <h2 className="feature-text">
                   Streamline your interview preparation with our AI-enhanced
                   interview tool, Zara.
                 </h2>
               </div>
               <div className="feature-container">
-                {/* <img className="icon" src={ChatIconImg}></img> */}
+                <img className="icon" src={SpeechImg}></img>
                 <h2 className="feature-text">
                   Gain the skills and confidence you need to excel in your
                   career.
                 </h2>
               </div>
               <div className="feature-container">
-                {/* <img className="icon" src={ImagineIconImg}></img> */}
+                <img className="icon" src={CheckImg}></img>
                 <h2 className="feature-text">
                   Unlock your potential through personalized interview guidance
                   and support
@@ -112,21 +118,21 @@ function Home() {
               </div>
 
               <div className="feature-container">
-                {/* <img className="icon" src={ImgIconImg}></img> */}
+                <img className="icon" src={ClockImg}></img>
                 <h2 className="feature-text">
                   Zara creates authentic interview scenarios, allowing users to
                   practice and refined answers.
                 </h2>
               </div>
               <div className="feature-container">
-                {/* <img className="icon" src={ChatIconImg}></img> */}
+                <img className="icon" src={IdeaImg}></img>
                 <h2 className="feature-text">
                   By analyzing user responses, we provide detailed feedback at
                   the end of every interview.
                 </h2>
               </div>
               <div className="feature-container">
-                {/* <img className="icon" src={ImagineIconImg}></img> */}
+                <img className="icon" src={ShieldImg}></img>
 
                 <h2 className="feature-text">
                   Preptify offers a safe environment to practice, helping users
