@@ -6,7 +6,6 @@ import Mic from '../img/mic.png';
 function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
   const [isListening, setIsListening] = useState(false);
   const [userResponse, setUserResponse] = useState("");
-  const navigate = useNavigate()
   const mediaRecorder = useRef(null);
   const socketRef = useRef(null);
 

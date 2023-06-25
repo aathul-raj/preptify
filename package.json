@@ -10,7 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@google-cloud/speech": "^5.5.0",
+    "@ramonak/react-progress-bar": "^5.0.3",
+    "@visx/axis": "^3.1.0",
+    "@visx/gradient": "^3.0.0",
+    "@visx/grid": "^3.0.1",
+    "@visx/group": "^3.0.0",
+    "@visx/mock-data": "^3.0.0",
+    "@visx/scale": "^3.0.0",
+    "@visx/shape": "^3.0.0",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "firebase": "^9.22.1",
@@ -19,6 +30,8 @@
     "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
+    "react-select": "^5.7.3",
+    "recharts": "^2.7.1",
     "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {

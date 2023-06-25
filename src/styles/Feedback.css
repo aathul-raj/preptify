@@ -160,11 +160,11 @@ body {
     padding: .35rem;
 }
 
-.negative::marker{
+.negative-feedback::marker{
     color: #D16142;
 }
 
-.positive::marker{
+.positive-feedback::marker{
     color: #15D59F;
 }
 
