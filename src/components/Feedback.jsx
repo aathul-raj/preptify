@@ -3,6 +3,7 @@ import Category from './Category'
 import Confetti from '../img/confetti.png'
 import React, { useEffect } from 'react'
 import CountUp from 'react-countup';
+import { useNavigate } from "react-router-dom";
 
 export default function Feedback( {feedback} ){
     let positive = feedback.positive1
@@ -13,6 +14,12 @@ export default function Feedback( {feedback} ){
     let commScore = feedback.communication
     let techScore = feedback.technical
     let score = (behaviorScore + problemScore + commScore + techScore) / 4
+
+    let navigate = useNavigate();
+
+    function handleClick() {
+        navigate(`/dashboard`);
+    }
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -56,13 +63,13 @@ export default function Feedback( {feedback} ){
             </div>
             <div className="comments-container">
                 <ul>
-                    <li className="negative">{negativeOne}</li>
-                    <li className="negative">{negativeTwo}</li>
-                    <li className="positive">{positive}</li>
+                    <li className="negative-feedback">{negativeOne}</li>
+                    <li className="negative-feedback">{negativeTwo}</li>
+                    <li className="positive-feedback">{positive}</li>
                 </ul>
             </div>
         </div>
         <h2 className="notice">All scores are out of 10</h2>
-        <button>Dashboard</button>
+        <button onClick={handleClick}>Dashboard</button>
     </div>
 }

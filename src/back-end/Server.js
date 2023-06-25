@@ -35,8 +35,10 @@ let prompt = {"fe-react": `I want you to act as a seasoned software engineering 
 
 let conversation_history;
 let question_counter;
+let numQuestions;
 let hasStarted = false;
-let isDone = false;
+let isDone;
+let role;
 let feedback = {};
 
 async function interview_question(user_response='') {
@@ -46,7 +48,7 @@ async function interview_question(user_response='') {
     conversation_history.push({ role: "user", content: user_response });
   }
 
-  if(question_counter >= 3){
+  if(question_counter >= numQuestions){
     conversation_history.push({ role: "system", content: "Switch roles from an interviewer to a extremely harsh and critical feedback giver. Analyze the interview, and score how the user did in every one of these categories from 1 to 10 (NUMBER ONLY. BE VERY HARSH AND CRITICAL.): Communication Skills, Technical Skills, Problem Solving Abilities, Behavioral Responses. Afterwards, provide one sentence of specific negative feedback, again one of negative, and then one positive, in this exact format:\nCommunication: number\nTechnical: number\nPS: number\nBehavioral: number\nNegative: \"blah blah\"\nNegative: \"blah blah\"\nPositive: \"blah blah\"\nSay nothing more and nothing less and again, BE VERY HARSH AND CRITICAL (PS stands for problem solving, say PS in your response not problem solving)." });
   }
 
@@ -105,16 +107,25 @@ async function interview_question(user_response='') {
 }
 
 app.post('/api/start-interview', async (req, res) => {
-  const role = req.body.role;
+
+  role = req.body.role;
+  numQuestions = req.body.questions;
+
+  // Initialize a new conversation history.
   conversation_history = [
-    {  role: "system", content: `When you are talking, make sure everything you say is in one paragraph unless specified. ${prompt[role]}`}
+    { role: "system", content: `When you are talking, make sure everything you say is in one paragraph unless specified. ${prompt[role]}`}
   ];
+
+  // Reset variables.
   question_counter = 0;
-  if (!hasStarted) {
-    hasStarted = true; // Set it to true as the interview has now started
-    const assistant_message = await interview_question();
-    res.send({ response: assistant_message });
-  }
+  isDone = false;
+  feedback = {};
+
+  // Fetch the first question.
+  const assistant_message = await interview_question();
+
+  // Send the first question back to the client.
+  res.send({ response: assistant_message });
 });
 
 app.post('/api/interview', async (req, res) => {
