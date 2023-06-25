@@ -183,7 +183,7 @@ body {
   color: white;
   font-size: 1rem;
   font-weight:lighter ;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
 }
 
 .home-block-1, .home-block-2, .home-block-3 {
@@ -229,5 +229,17 @@ body {
   height: 10rem;
   transform: translateY(-12rem);
 
+
+}
+
+.icon {
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.feature-container {
+  display: flex;
+  align-items: center;
+  height: 100%; /* Adjust the height as needed */
 
 }
