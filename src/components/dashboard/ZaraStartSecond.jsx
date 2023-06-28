@@ -2,9 +2,30 @@ import "../../styles/Dashboard.css";
 import BackButton from '../../img/icons/back-button.png'
 import NextButton from '../../img/icons/next-button.png'
 import Select from 'react-select';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function ZaraStartSecond( {setIndex, selectedOptions, setSelectedOptions} ){
+
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [screenHeight, setScreenHeight] = useState(window.innerHeight);
+
+    let fontSize = '20px'
+    useEffect(() => {
+        const handleResize = () => {
+        setScreenWidth(window.innerWidth);
+        setScreenHeight(window.innerHeight);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+        window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    if (screenWidth < 1450){
+        fontSize='10px'
+    }
 
     const industryOptions = [
         { value: 'software-engineering', label: 'Software Engineering' },
@@ -36,7 +57,7 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
         singleValue: (provided) => ({
             ...provided,
             color: 'white',
-            fontSize: '20px',
+            fontSize: {fontSize},
             fontFamily: 'Roboto',
             padding: '10px',
         }),
@@ -88,7 +109,7 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
     }
 
     const interviewing = '\ninterviewing'
-    const working = '\nworking'
+    const you = '\nyou'
     
 
     return (
@@ -97,7 +118,7 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
             <h2 className="zara-h2">Interview Setup</h2>
             <div className="question">
                 <div className="zara-text">
-                    <p>What industry are you<span> {working} </span> in?</p>    
+                    <p>What industry are{you}<span> working </span> in?</p>    
                 </div>
                 <Select className="zara-dropdown" styles={customStyles} name="industry" id="industry" options={industryOptions} value={industryOptions.find(option => option.value === selectedOptions.industry)} onChange={option => handleSelect(option, 'industry')}/>
             </div>

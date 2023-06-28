@@ -1,14 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import AIImage from "../img/preptify-ai.png";
+import React, { useEffect, useState } from 'react'
 import "../styles/home.css";
 import Logo from "../img/preptify_cropped.png";
 import "../styles/learn-more.css";
-import SkillsImg from "../img/skills.png";
-import DumbellImg from "../img/dumbbell.png";
-import PuzzleImg from "../img/puzzle.png";
-import ConfidenceImg from "../img/confidence.png";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
 import StatueImg from "../img/roman-statue.png";
 import CareersImg from "../img/careers.png";
 import FeaturesImg from "../img/features.png";
@@ -22,6 +16,31 @@ import SpeechImg from "../img/speech-bubble.png";
 
 function Home() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      document.querySelectorAll(".parallax-home").forEach((move, index) => {
+        var movingValue = move.getAttribute("data-value");
+        var x = (e.clientX * movingValue) / 250;
+        var y = (e.clientY * movingValue) / 250;
+        var rotation;
+
+        if (index === 0) {
+            rotation = (((e.clientX + e.clientY) * movingValue) / 500); // Offset rotation for the first image
+          } else {
+            rotation = (((e.clientX + e.clientY) * movingValue) / 500) + 25;
+        }
+
+        move.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${rotation}deg)`;
+      });
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+}, []);
 
   return (
     <>
@@ -40,35 +59,41 @@ function Home() {
           </div>
         </div>
         <div className="home-container">
-          <img className="statue-img" src={StatueImg} alt="Roman Statue" />
-
-          <div className="text-container">
-            <h1 className="slogan">
-              elevate your <span className="highlight">interview</span>, elevate
-              your career.
-            </h1>
-            <h2 className="mission-statement">
-              Supercharge your career with Zara, our mock interview AI. Claim
-              your first three sessions{" "}
-              <span className="highlight">FOR FREE</span> - start today!
-            </h2>
-
-            <div className="button-container">
-              <button
-                className="get-started-button"
-                onClick={() => navigate("/signup")}
-              >
-                get started
-              </button>
-              <button
-                onClick={() => navigate("/")}
-                className="learn-more-button"
-              >
-                pricing
-              </button>
+          <div className="home-content">
+          <img className="statue-img parallax-home" src={StatueImg} alt="Roman Statue" data-value=".4"/>
+            <div className="text-container">
+              <div className="slogan-container">
+                <h1 className="slogan">
+                  elevate your <span className="highlight">interview,</span>
+                </h1>
+                <h1 className="slogan">
+                  elevate your career
+                </h1>
+              </div>
+              <h2 className="mission-statement">
+                Supercharge your career with Zara, our mock interview AI. Claim
+                your first three sessions
+                <span className="highlight"> FOR FREE</span> - start today!
+              </h2>
+              <div className="button-container">
+                <button
+                  className="get-started-button"
+                  onClick={() => navigate("/signup")}
+                >
+                  get started
+                </button>
+                <button
+                  onClick={() => navigate("/")}
+                  className="learn-more-button"
+                >
+                  pricing
+                </button>
+              </div>
             </div>
           </div>
+          <div className="scroll-down"></div>
         </div>
+        
         <div className="learn-more-container">
           <div className="home-block-1">
             <div className="text-container">
@@ -145,7 +170,7 @@ function Home() {
 
           <div className="home-block-3">
             <div className="step-container">
-              <h1 className="intro-text">
+              <h1 className="intro-text text-bottom">
                 Take the first step towards interview success and{" "}
                 <span className="highlight">unlock</span> your career potential
                 with Zara <span className="highlight">today</span>.

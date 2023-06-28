@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -42,14 +45,20 @@ body {
 
 .home-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  height: 100vh;
   margin: auto;
   flex-wrap: wrap;
-  padding-left: 3%;
   min-height: 90vh;
+  font-family: 'Poppins';
+}
 
+.home-content{
+  display: flex;
+  justify-content: center;
 }
 
 .slogan {
@@ -59,12 +68,50 @@ body {
   font-size: 4rem;
 }
 
+.slogan-container {
+  line-height: 4rem;
+}
+
 .highlight {
   color: rgb(0, 255, 187);  /* Adjust color as needed poop*/
 }
 
+.scroll-down {
+  margin-top: 10rem;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  z-index: 1;
+  text-decoration: none;
+  text-shadow: 0;
+  width: 13px;
+  height: 13px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -webkit-transform: translate(-50%, 0) rotate(45deg);
+  animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+}
+
+@keyframes fade_move_down {
+  0% {
+        transform: translate(0, -20px) rotate(45deg);
+        opacity: 0;
+  }
+  50% {
+        opacity: 1;
+  }
+  100% {
+        transform: translate(0, 20px) rotate(45deg);
+        opacity: 0;
+  }
+}
+
+
+
 .mission-statement {
+  font-family: 'Poppins';
   text-align: left;
+  font-size: 35px;
   margin: 20px 0;
   color: white
 }
@@ -73,7 +120,6 @@ body {
   display: flex;
   justify-content: left;
   width: 100%;
-  margin-top: 5%;
 }
 
 .get-started-button, .learn-more-button {
@@ -85,10 +131,14 @@ body {
   cursor: pointer;
   flex: none;
   white-space: nowrap;
-  width: 120px;  /* Adjust this as needed */
   text-align: center;  /* To center the text inside the buttons */
   margin-top: 20px;
   font-weight: bolder;
+  transition: all 0.55s ease-in-out;
+}
+
+.get-started-button:hover, .learn-more-button:hover{
+  transform: scale(1.05);
 }
 
 
@@ -111,11 +161,13 @@ body {
 }
 
 .statue-img {
+  align-self: center;
   flex-basis: 50%; 
   max-width: 400px;
 }
 
 .footer {
+  font-family: 'Poppins';
   display: flex;
   justify-content: right;
   color: gray;
@@ -139,7 +191,6 @@ body {
 .text-container {
   flex-basis: 50%;
   margin: 40px;
-
 }
 
 .auth-buttons-container {
@@ -155,8 +206,7 @@ body {
 .sign-up-button {
   color: black ;
   background-color: white;
-
-
+  transition: all 0.55s ease-in-out;
   padding: 10px 20px;
   border-radius: 41px;
   border: none;
@@ -165,10 +215,18 @@ body {
 
 }
 
+.log-in-button:hover{
+  transform: scale(1.1);
+}
+
 .intro-text {
   color: white;
   font-size: 3rem;
   font-weight:bold ;
+}
+
+.text-bottom{
+  font-size: 40px;
 }
 
 .intro-text-2 {
@@ -204,7 +262,6 @@ body {
   padding: 30px;
   border-radius: 25px;
   width: 80%;
-  
 }
 
 .step-container button {
@@ -227,9 +284,7 @@ body {
 
 .squiggle-img {
   height: 10rem;
-  transform: translateY(-12rem);
-
-
+  transform: translateY(-10rem);
 }
 
 .icon {
@@ -241,5 +296,48 @@ body {
   display: flex;
   align-items: center;
   height: 100%; /* Adjust the height as needed */
-
 }
+
+/* Responsive */
+
+
+@media(max-width: 1450px){
+  .slogan{
+    font-size: 3rem;
+  }
+
+  .mission-statement{
+    font-size: 23px;
+  }
+
+  .statue-img{
+    max-width: 300px;
+  }
+
+  .scroll-down{
+    margin-top: 5rem;
+  }
+
+  .text-bottom{
+    font-size: 30px;
+  }
+  
+  .squiggle-img{
+    transform: translateY(-8rem);
+  }
+}
+
+@media(max-width: 1000px){
+  .text-bottom{
+    font-size: 25px;
+  }
+
+  .step-container{
+    width: 100%;
+  }
+
+  .get-started-button, .learn-more-button{
+    font-size: 20px;
+  }
+}
+

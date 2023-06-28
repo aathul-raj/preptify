@@ -105,6 +105,26 @@ main{
   max-width: 3rem;
 }
 
+@media(max-width: 750px){
+  .transcript{
+    width: 90vw;
+    font-size: 24px;
+    height: 20rem;
+  }
+
+  .heading-text{
+    font-size: 1.5rem;
+  }
+
+  .subheading-text{
+    font-size: 1rem;
+  }
+
+  .ai-img{
+    width: 13rem;
+  }
+}
+
 /* .logo {
   position: fixed;
   right: 0;
