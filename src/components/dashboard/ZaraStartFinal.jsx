@@ -101,8 +101,8 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
         })
     }
 
-    const questions = '\nquestions'
-    const difficulty = '\ndifficulty'
+    const should = '\nshould'
+    const interview = '\ninterview'
     
 
     return (
@@ -111,13 +111,13 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             <h2 className="zara-h2">Interview Setup</h2>
             <div className="question">
                 <div className="zara-text">
-                    <p>What should the interview<span> {difficulty}</span> be?</p>    
+                    <p>What should the{interview}<span> difficulty</span> be?</p>    
                 </div>
                 <Select className="zara-dropdown" styles={customStyles} name="difficulty" id="difficulty" options={difficultyOptions} value={difficultyOptions.find(option => option.value === selectedOptions.difficulty)} onChange={option => handleSelect(option, 'difficulty')}/>
             </div>
             <div className="question">
                 <div className="zara-text">
-                    <p>How many<span> {questions}</span> should be asked?</p>
+                    <p>How many<span> questions</span>{should} be asked?</p>
                 </div>
                 <Select className="zara-dropdown" styles={customStyles} name="questions" menuPlacement="top" id="questions" options={numQuestions} value={numQuestions.find(option => option.value === selectedOptions.questions)} onChange={option => handleSelect(option, 'questions')}/>
             </div>

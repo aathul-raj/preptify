@@ -47,8 +47,8 @@ export default function Feedback( {feedback} ){
     }, []);
     
     return <div className="feedback-container">
-        <img src={Confetti} className="parallax confetti-1" data-value="1.5"/>
-        <img src={Confetti} className="parallax confetti-2" data-value="1.5"/>
+        <img src={Confetti} className="parallax confetti-1" data-value=".5"/>
+        <img src={Confetti} className="parallax confetti-2" data-value=".5"/>
         <h1 className="zara"><span className="green">Z</span>ARA</h1>
         <div className="top-text">
             <h2 className="completed">Interview <span className="green">Completed!</span></h2>
