@@ -105,6 +105,22 @@ main{
   max-width: 3rem;
 }
 
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.mic-img.pulse {
+  animation: pulse 1s infinite;
+}
+
 @media(max-width: 750px){
   .transcript{
     width: 90vw;
