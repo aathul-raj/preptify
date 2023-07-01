@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Mic from '../img/mic.png';
+import Mic from '../img/microphone.png';
 
 function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
   const [isListening, setIsListening] = useState(false);
@@ -56,6 +56,8 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
       console.log('POSTING')
       axios.post('http://localhost:5001/api/interview', {
         response: userResponse
+      }, {
+        withCredentials: true
       }).then(response => {
         if (typeof response.data.response === 'object' && response.data.response !== null){
           setIsDone(true)
@@ -71,13 +73,14 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
         console.error(err)
       })
 
+
       setIsListening(false)
     }
 }
 
   return (
     <img 
-      className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} 
+      className={`mic-img ${isListening ? 'pulse' : ''} ${isLoading ? 'hidden' : 'visible'}`} 
       src={Mic} 
       onClick={toggleListening}
     />

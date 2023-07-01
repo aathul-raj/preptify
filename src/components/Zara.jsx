@@ -24,6 +24,8 @@ function Zara( {setIsDone, setFeedback} ) {
     axios.post('http://localhost:5001/api/start-interview', {
       role: role,
       questions: questions
+    }, {
+      withCredentials: true
     })
       .then(response => {
         console.log(response.data.response)
