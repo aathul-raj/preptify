@@ -189,7 +189,6 @@ function Home() {
                 </button>
                 <button
                   className="learn-more-button"
-                  onClick={() => navigate("/pricing")}
                 >
                   pricing
                 </button>
