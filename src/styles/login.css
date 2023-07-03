@@ -68,7 +68,7 @@ label {
     font-size: 18px;
 }
 
-.header {
+/* .header {
     display: flex;
     justify-content: flex-start; 
     width: 100%;
@@ -76,7 +76,8 @@ label {
 
 .logo-container {
     display: flex;
-    align-items: center; 
+    align-items: center;
+    justify-content: center;
 }
 
 .logo-img {
@@ -84,7 +85,7 @@ label {
     width: 150px;
     margin-top: 25%;
     left: 0;
-}
+} */
 
 .main-container {
     width: 100vw;

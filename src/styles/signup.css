@@ -93,7 +93,7 @@ label {
 .name-group > input:last-child {
     margin-right: 0;
 }
-
+/* 
 .header {
     display: flex;
     justify-content: flex-start; 
@@ -110,8 +110,8 @@ label {
     width: 150px;
     margin-top: 25%;
     left: 0;
-    /* margin-left: 40% */
-  }
+    margin-left: 40%
+  } */
 
 .main-container {
     width: 100vw;
