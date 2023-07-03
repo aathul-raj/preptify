@@ -4,13 +4,13 @@ import Next from '../../img/icons/next.png'
 import Select from 'react-select';
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import { getAuth } from "firebase/auth";
+import { auth } from '../../back-end/firebase';
 import { doc, getDoc, getFirestore } from "firebase/firestore";
 import { useState, useEffect } from "react";
 
 export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions, setError, setFadeOut} ){
     const db = getFirestore();
-    const auth = getAuth();
+
     const user = auth.currentUser;
     let navigate = useNavigate();
 

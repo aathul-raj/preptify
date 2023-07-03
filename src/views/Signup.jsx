@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "../styles/signup.css";
 import Logo from "../img/preptify_cropped.png";
 import { Link } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
-
 import { auth } from "../back-end/firebase";
 
 function Signup() {
@@ -25,6 +24,7 @@ function Signup() {
       return;
     }
     try {
+      await setPersistence(auth, browserLocalPersistence);
       const credentials = await createUserWithEmailAndPassword(
         auth,
         email,

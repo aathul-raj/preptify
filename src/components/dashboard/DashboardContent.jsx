@@ -1,15 +1,14 @@
 import Header from './Header'
 import Start from './Start'
 import Analytics from './Analytics'
-import { getAuth } from "firebase/auth";
+import { auth } from '../../back-end/firebase';
 import React, { useEffect, useState } from 'react'
 
 export default function DashboardContent(){
     const [error, setError] = useState("");
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [fadeOut, setFadeOut] = useState(false);
-
-    const auth = getAuth();
+    
     const user = auth.currentUser;
     var firstName = user.displayName.split(' ')[0];
     firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);

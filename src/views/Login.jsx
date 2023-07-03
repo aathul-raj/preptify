@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../back-end/firebase";
 
@@ -16,6 +16,7 @@ function Login() {
 
   const handleLogin = async () => {
     try {
+      await setPersistence(auth, browserLocalPersistence);
       await signInWithEmailAndPassword(auth, email, password);
       // User is logged in, redirect to dashboard or show a message
       navigate("/dashboard");

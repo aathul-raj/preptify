@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../styles/signup.css";
 import Logo from "../img/preptify_cropped.png";
 import { Link } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
