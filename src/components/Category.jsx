@@ -1,5 +1,4 @@
 import "../styles/Feedback.css";
-import React, { useState, useEffect } from 'react'
 import CountUp from 'react-countup';
 
 export default function Category( {category, score} ){

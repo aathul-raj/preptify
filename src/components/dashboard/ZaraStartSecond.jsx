@@ -1,4 +1,4 @@
-import "../../styles/Dashboard.css";
+import "../../styles/dashboard.css";
 import BackButton from '../../img/icons/back-button.png'
 import NextButton from '../../img/icons/next-button.png'
 import Select from 'react-select';
