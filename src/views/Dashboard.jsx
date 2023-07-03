@@ -1,6 +1,6 @@
 import DashboardContent from "../components/dashboard/DashboardContent";
 import Sidebar from "../components/dashboard/Sidebar";
-import "../styles/Dashboard.css";
+import "../styles/dashboard.css";
 import { useNavigate } from 'react-router-dom';
 import { getAuth } from "firebase/auth";
 import { useEffect, useState } from "react";
