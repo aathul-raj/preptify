@@ -3,7 +3,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC-cjmEFn8wi2T9x-qdd27gYqDIl4OSfMs",
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
     authDomain: "preptify-7467a.firebaseapp.com",
     projectId: "preptify-7467a",
     storageBucket: "preptify-7467a.appspot.com",

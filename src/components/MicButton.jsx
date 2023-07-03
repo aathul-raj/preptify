@@ -50,7 +50,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
       navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         mediaStream.current = stream; // Save the stream
         mediaRecorder.current = new MediaRecorder(stream);
-        socketRef.current = new WebSocket('wss://api.deepgram.com/v1/listen?smart_format=true', ['token', '29f733e066377ee7fa0c4d4114a9483ecf7cfa31']);
+        socketRef.current = new WebSocket('wss://api.deepgram.com/v1/listen?smart_format=true', ['token', import.meta.env.VITE_DEEPGRAM_API_KEY]);
         socketRef.current.onopen = () => {
           console.log({ event: 'onopen' });
           mediaRecorder.current.addEventListener('dataavailable', handleDataAvailable);
