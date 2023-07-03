@@ -5,7 +5,7 @@ import { Configuration, OpenAIApi } from 'openai';
 import session from 'express-session';
 
 const configuration = new Configuration({
-    apiKey: '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',
+    apiKey: import.meta.env.OPENAI_API_KEY,
   });
 const openai = new OpenAIApi(configuration);
 
