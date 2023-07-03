@@ -6,6 +6,89 @@
   padding: 1rem 0;
 }
 
+.popup-overlay {
+  z-index: 200;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.5s ease;
+}
+
+.popup-content {
+  border-radius: 25px;
+  background-color: #151517;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 210;
+  padding: 3rem;
+  max-width: 80%;
+  max-height: 80%;
+  overflow: auto;
+  font-family: 'Poppins';
+}
+
+.popup-text{
+  margin: 0 15rem;
+  padding: 0 2rem;
+  border: 2px solid white;
+  border-radius: 15px;
+}
+
+.popup-important{
+  color: #c6c6c6;
+}
+
+.popup-content h2{
+  font-size: 2.3rem;
+}
+
+.popup-text p{
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Poppins';
+}
+
+.error-popup {
+  position: fixed;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #d7441c;
+  color: white;
+  font-family: 'Poppins';
+  font-size: 1.2rem;
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 1000;  /* ensure popup is above everything else */
+  animation: fade-in 0.5s;
+  opacity: 1;
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-out {
+  animation: fade-out 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-out {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 .sidebar-wrapper{
   background-color: #0E0F12;
   padding: 1rem;
@@ -406,6 +489,24 @@
 /* Responsive */
 
 @media(max-width: 1450px){
+
+  .popup-content{
+    padding: 1rem;
+    max-width: 90vw;
+    max-height: 85vw;
+  }
+
+  .popup-text{
+    margin: 0 1rem 2rem 1rem;
+  }
+
+  .popup-content h2{
+    font-size: 30px;
+  }
+
+  .popup-content button{
+    margin-bottom: 1rem;
+  }
 
   .zara-heading{
     font-size: 4rem;

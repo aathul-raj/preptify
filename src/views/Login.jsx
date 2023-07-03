@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../back-end/firebase";
 
@@ -13,8 +13,6 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState("");
 
   let navigate = useNavigate();
-
-  const auth = getAuth();
 
   const handleLogin = async () => {
     try {

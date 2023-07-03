@@ -5,7 +5,9 @@ import { getAuth } from "firebase/auth";
 import React, { useEffect, useState } from 'react'
 
 export default function DashboardContent(){
+    const [error, setError] = useState("");
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+    const [fadeOut, setFadeOut] = useState(false);
 
     const auth = getAuth();
     const user = auth.currentUser;
@@ -22,7 +24,6 @@ export default function DashboardContent(){
     useEffect(() => {
         const handleResize = () => {
         setScreenWidth(window.innerWidth);
-        setScreenHeight(window.innerHeight);
         };
 
         window.addEventListener('resize', handleResize);
@@ -33,9 +34,14 @@ export default function DashboardContent(){
     }, []);
 
     return <div className="dashboard-content">
+        {error && 
+                <div className={`error-popup ${fadeOut ? 'fade-out' : ''}`}>
+                    <span>{error}</span>
+                </div>
+        }
         <Header firstName={firstName}/>
         <div className="content-container">
-            <Start/>
+            <Start setError={setError} setFadeOut={setFadeOut}/>
             {screenWidth > 750 ? <Analytics/> : null}
         </div>
     </div>

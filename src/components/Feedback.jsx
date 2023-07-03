@@ -4,8 +4,13 @@ import Confetti from '../img/confetti.png'
 import React, { useEffect } from 'react'
 import CountUp from 'react-countup';
 import { useNavigate } from "react-router-dom";
+import { doc, updateDoc, increment, getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 export default function Feedback( {feedback} ){
+    const db = getFirestore();
+    const auth = getAuth();
+    const currentUser = auth.currentUser;
     let positive = feedback.positive1
     let negativeOne = feedback.negative1
     let negativeTwo = feedback.negative2
@@ -22,6 +27,12 @@ export default function Feedback( {feedback} ){
     }
 
     useEffect(() => {
+
+        const userRef = doc(db, 'users', currentUser.uid);
+        updateDoc(userRef, {
+            interviewsCompleted: increment(1)
+        });
+
         const handleMouseMove = (e) => {
           document.querySelectorAll(".parallax").forEach((move, index) => {
             var movingValue = move.getAttribute("data-value");

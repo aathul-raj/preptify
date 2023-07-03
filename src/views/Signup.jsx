@@ -3,6 +3,7 @@ import "../styles/signup.css";
 import Logo from "../img/preptify_cropped.png";
 import { Link } from "react-router-dom";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import { updateProfile } from "firebase/auth";
 
@@ -16,8 +17,7 @@ function Signup() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   let navigate = useNavigate();
-
-  const auth = getAuth();
+  const db = getFirestore();
 
   const handleSignup = async () => {
     if (password !== confirmPassword) {
@@ -31,7 +31,7 @@ function Signup() {
         password
       );
       const user = credentials.user;
-
+      await setDoc(doc(db, "users", user.uid), { tutorialShown: false, interviewsCompleted: 0 });
       // set user display name after creating user
       await updateProfile(user, {
         displayName: `${firstName} ${lastName}`,
