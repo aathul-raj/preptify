@@ -4,17 +4,49 @@ import Next from '../../img/icons/next.png'
 import Select from 'react-select';
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
+import { useState, useEffect } from "react";
 
-
-export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions} ){
-
+export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions, setError, setFadeOut} ){
+    const db = getFirestore();
+    const auth = getAuth();
+    const user = auth.currentUser;
     let navigate = useNavigate();
 
+    const [interviewsCompleted, setInterviewsCompleted] = useState(0);
+
+    useEffect(() => {
+        const fetchInterviewsCompleted = async () => {
+            const docRef = doc(db, "users", user.uid);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                setInterviewsCompleted(docSnap.data().interviewsCompleted);
+            } else {
+                console.log("No such document!");
+            }
+        }
+
+        fetchInterviewsCompleted();
+    }, [user]);
+
     function handleClick() {
-        // Convert the object to a query string
-        const queryParam = new URLSearchParams(selectedOptions).toString();
-    
-        navigate(`/interview?${queryParam}`);
+        if(interviewsCompleted < 3) {
+            // Convert the object to a query string
+            const queryParam = new URLSearchParams(selectedOptions).toString();
+        
+            navigate(`/interview?${queryParam}`);
+        } else {
+            setError("Interview limit reached. Please provide your feedback via the Google form.")
+            setTimeout(() => {
+                setFadeOut(true); // trigger fade-out
+                setTimeout(() => {
+                    setError(""); // reset error after 5 seconds
+                    setFadeOut(false); // reset fade-out
+                }, 500);
+            }, 5000);
+        }
     }
     
 
