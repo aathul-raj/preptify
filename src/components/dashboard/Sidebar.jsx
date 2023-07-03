@@ -1,6 +1,6 @@
 import Menu from '../../img/icons/dashboard.png'
 import Basket from '../../img/icons/basket.png'
-import Info from '../../img/icons/info.png'
+import Info from '../../img/info.png'
 import Settings from '../../img/icons/settings.png'
 
 export default function Sidebar(){
