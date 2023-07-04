@@ -25,7 +25,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
     socketRef.current.close();
     setIsListening(false);
     console.log('POSTING')
-    axios.post('http://Zara-interview-server-env.eba-nratkpzm.us-east-2.elasticbeanstalk.com/api/interview', {
+    axios.post('https://zara-server.preptify.com/api/interview', {
       response: userResponse
     }, {
       withCredentials: true
