@@ -145,3 +145,9 @@ label {
     color: red;
     font-weight: bold;
   }
+
+  @media(max-width: 750px){
+    .signup-text{
+        font-size: .85rem;
+    }
+  }
