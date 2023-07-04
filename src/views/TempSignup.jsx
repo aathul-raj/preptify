@@ -71,8 +71,8 @@ function TempSignup() {
       </div>
       <div className="signup-container">
         <div className="signup-text">
-            <h1>Sorry, but we're currently only open to beta testers.</h1>
-            <h1>Keep checking back!</h1>
+            <h1>We're currently in closed beta.</h1>
+            <a href="https://forms.gle/gCwzHAWK6kZkJmPU8" target="_blank">Apply to be a beta tester by filling out this form.</a>
         </div>
         <p className="login-link">
           already have an account? <a href="/login">log in</a>

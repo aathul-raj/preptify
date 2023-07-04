@@ -25,6 +25,16 @@
     margin-bottom: 2rem;
 }
 
+.signup-text a{
+    text-decoration: none;
+    color: #36D09B;
+    font-size: 1.5rem;
+}
+
+.signup-text a:hover{
+    text-decoration: underline;
+}
+
 .input-group {
     display: flex;
     justify-content: space-between;
