@@ -21,7 +21,7 @@ function Zara( {setIsDone, setFeedback} ) {
   const questions = queryParam.get('questions')
 
   useEffect(() => {
-    axios.post('http://Zara-interview-server-env.eba-nratkpzm.us-east-2.elasticbeanstalk.com/api/start-interview', {
+    axios.post('https://zara-server.preptify.com/api/start-interview', {
       role: role,
       questions: questions
     }, {
