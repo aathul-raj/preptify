@@ -10,8 +10,12 @@ export default function DashboardContent(){
     const [fadeOut, setFadeOut] = useState(false);
     
     const user = auth.currentUser;
-    var firstName = user.displayName.split(' ')[0];
-    firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    if (user.displayName) {
+        var firstName = user.displayName.split(' ')[0];
+        firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    } else{
+        firstName = 'Tester'
+    }
     console.log(user)
 
     if(user != null){
