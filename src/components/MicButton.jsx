@@ -1,15 +1,26 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import Mic from '../img/microphone.png';
+import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { auth } from '../back-end/firebase';
 
-function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
+function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setInterviewLog }) {
+
+  const db = getFirestore();
+
+  const updateInterviewLog = async (newLogEntry) => {
+    const userDoc = doc(db, 'users', auth.currentUser.uid);
+    await updateDoc(userDoc, {
+      interviewLog: arrayUnion(newLogEntry), // pass the object directly
+    });
+  };
+
   const [isListening, setIsListening] = useState(false);
   const [userResponse, setUserResponse] = useState("");
   const mediaRecorder = useRef(null);
   const mediaStream = useRef(null); // to save the stream
   const socketRef = useRef(null);
   const transcriptTimer = useRef(null);
-
   const handleDataAvailable = (event) => {
     if (event.data.size > 0 && socketRef.current && socketRef.current.readyState === 1) {
       socketRef.current.send(event.data);
@@ -25,17 +36,30 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback }) {
     socketRef.current.close();
     setIsListening(false);
     console.log('POSTING')
-    axios.post('https://zara-server.preptify.com/api/interview', {
+    axios.post('http://zara-server.preptify.com/api/interview', {
       response: userResponse
     }, {
       withCredentials: true
     }).then(response => {
+      setInterviewLog((prevInterviewLog) => {
+        const newInterviewLog = [...prevInterviewLog, {'User' : userResponse}]
+        // Update interviewLog in Firestore
+        updateInterviewLog({'User' : userResponse});
+        setUserResponse("")
+        return newInterviewLog;
+      })
       if (typeof response.data.response === 'object' && response.data.response !== null){
         setIsDone(true);
         setFeedback(response.data.response);
       }
       else {
-        console.log(`Server Response: ${response.data.response}`);
+        setInterviewLog((prevInterviewLog) => {
+          const newInterviewLog = [...prevInterviewLog, {'Server' : response.data.response}]
+          // Update interviewLog in Firestore
+          updateInterviewLog({'Server' : response.data.response});
+
+          return newInterviewLog;
+        })
         setTranscript(response.data.response);
       }
     })
