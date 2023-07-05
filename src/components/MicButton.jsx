@@ -36,7 +36,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setInterv
     socketRef.current.close();
     setIsListening(false);
     console.log('POSTING')
-    axios.post('https://zara-server.preptify.com/api/interview', {
+    axios.post(`${import.meta.env.VITE_SERVER_URL}/api/interview`, {
       response: userResponse
     }, {
       withCredentials: true

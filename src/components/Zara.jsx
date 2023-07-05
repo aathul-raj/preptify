@@ -56,7 +56,7 @@ function Zara( {setIsDone, setFeedback} ) {
         })
         // zara-server.preptify.com
         // localhost:5001
-        axios.post('https://zara-server.preptify.com/api/start-interview', {
+        axios.post(`${import.meta.env.VITE_SERVER_URL}/api/start-interview`, {
           role: role,
           questions: questions
         }, {
