@@ -3,7 +3,7 @@
 
 .dashboard-container{
   display: flex;
-  padding: 1rem 0;
+  height: 100vh;
 }
 
 .popup-overlay {
@@ -126,7 +126,6 @@
   flex-grow: 1;
   padding: 0 2rem;
   margin-right: 1rem;
-  height: 100%;
   background-color: #0E0F12;
   display: flex;
   flex-direction: column;
@@ -134,7 +133,7 @@
 
 .dashboard-container{
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .header{
@@ -149,7 +148,12 @@
 }
 
 .welcome-text h2{
+  font-size: 1.6vw;
   color: #979797;
+}
+
+.welcome-text h1{
+  font-size: 2.5vw;
 }
 
 .welcome-text span{
@@ -166,8 +170,9 @@
 .content-container{
   flex-grow: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
   grid-template-rows: 1fr 1fr 1fr;
+  grid-auto-columns: 1fr;
   grid-template-areas: 
     "A B E E"
     "A C G G"
@@ -182,7 +187,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+  height: 21.5vh;
   transition: all 0.55s ease-in-out;
 }
 
@@ -229,7 +235,7 @@
 }
 
 .start-zara-main{
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 .start-zara-second{
@@ -345,7 +351,7 @@
 
 .tile-heading{
   cursor: default;
-  font-size: 22px;
+  font-size: 1.1vw;
   font-family: 'Poppins';
 }
 
@@ -353,13 +359,13 @@
   cursor: default;
   font-family: 'Roboto';
   color: #979797;
-  font-size: 20px;
+  font-size: .9vw;
 }
 
 .tile-score{
   cursor: default;
   font-family: 'Roboto';
-  font-size: 75px;
+  font-size: 3.5vw;
   display: flex;
   justify-content: center;
 }
@@ -383,9 +389,12 @@
 }
 
 .carousel-screens {
-  height: 5rem;
+  font-size: 1.2vw;
+  height: 3rem;
   font-family: 'Poppins';
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .carousel-indicators {
@@ -448,9 +457,9 @@
 
 .progress-text{
   cursor: default;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   font-family: 'Poppins';
-  font-size: 23px;
+  font-size: .9vw;
   display: flex;
   justify-content: space-between;
 }
@@ -458,12 +467,20 @@
 /* Chart */
 
 .chart-text{
-  font-size: 12px;
-  cursor: default;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+}
+
+.chart-text h2{
+  font-size: 1vw;
+  cursor: default;
   font-family: 'Poppins';
+}
+
+.legend span{
+  font-size: 1vw;
 }
 
 .legend{
@@ -484,12 +501,19 @@
 }
 
 .start-button{
+  font-size: 1.5vw;
+  padding: 20px;
   align-self: center;
 }
 
 /* Responsive */
 
 @media(max-width: 1450px){
+
+  .blob{
+    max-width: 150px;
+    max-height: 150px;
+  }
 
   .popup-content{
     padding: 1rem;
@@ -511,34 +535,6 @@
 
   .zara-heading{
     font-size: 4rem;
-  }
-
-  .progress-text{
-    font-size: 15px;
-  }
-
-  .tile-score{
-    font-size: 50px;
-  }
-
-  .tile-heading{
-    font-size: 17px;
-  }
-
-  .tile-subheading{
-    font-size: 14px;
-  }
-
-  .progress-container{
-    height: 30px;
-  }
-
-  .carousel-screens{
-    font-size: 1.1rem;
-  }
-
-  .start-button{
-    font-size: 1.2rem;
   }
 
   .zara-h2{
