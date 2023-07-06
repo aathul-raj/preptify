@@ -1,13 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Zara from "./components/Zara.jsx";
 import Home from "./views/Home.jsx";
 import Signup from "./views/Signup.jsx";
 import TempSignup from "./views/TempSignup.jsx";
 import Login from "./views/Login.jsx";
 import Dashboard from "./views/Dashboard.jsx";
 import Interview from "./views/Interview.jsx";
+import { inject } from '@vercel/analytics';
 
 export default function App() {
+  inject();
   return (
     <Router>
       <Routes>
