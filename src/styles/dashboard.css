@@ -122,6 +122,11 @@
   width: 40px;
 }
 
+.logout img{
+  margin-left: 8px;
+  width: 30px;
+}
+
 .dashboard-content{
   flex-grow: 1;
   padding: 0 2rem;
@@ -164,6 +169,7 @@
   align-self: center;
   width: 52px;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 /* Dashboard Main Content */
@@ -183,12 +189,12 @@
   color: #fff;
   border-radius: 25px;
   background-color: #222328;
-  margin: 1rem;
+  margin: 0 .5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 1.5rem;
-  height: 21.5vh;
+  height: 23.9vh;
   transition: all 0.55s ease-in-out;
 }
 
@@ -214,7 +220,7 @@
 .zara-heading{
     cursor: default;
     font-style: 'Roboto';
-    font-size: 5rem;
+    font-size: 5vw;
     font-style: italic;
     font-weight: 600;
     color: #fff;
@@ -227,7 +233,7 @@
   color: #fff;
   border-radius: 25px;
   background: linear-gradient(120deg, rgba(20, 21, 25, 1) 0%, rgba(21, 21, 25, 0.6) 25%, rgba(21, 160, 122, 0.3) 85%, rgba(21, 160, 122, 0.2) 100%);
-  margin: 1rem;
+  margin: 0 .5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -264,14 +270,14 @@
 .zara-h2{
   margin-top: 0;
   font-family: 'Poppins';
-  font-size: 40px;
+  font-size: 1.5vw;
   margin-bottom: 0px;
   text-align: center;
 }
 
 .zara-text{
   font-family: 'Poppins';
-  font-size: 25px;
+  font-size: 1.2vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -290,6 +296,7 @@
 .zara-dropdown{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .buttons{
@@ -300,8 +307,8 @@
 
 .buttons img{
   transition: all 0.55s ease-in-out;
-  margin: 3rem .5rem;
-  padding: 0;
+  /* margin: 3rem .5rem; */
+  padding: 1.5rem .5rem;
 }
 
 .buttons img:hover{
@@ -510,6 +517,15 @@
 
 @media(max-width: 1450px){
 
+  .chart-text h2{
+    font-size: 1rem;
+  }
+  .tile-heading{
+    font-size: 1rem;
+  }
+  .tile-subheading{
+    font-size: .9rem;
+  }
   .blob{
     max-width: 150px;
     max-height: 150px;
@@ -533,21 +549,8 @@
     margin-bottom: 1rem;
   }
 
-  .zara-heading{
-    font-size: 4rem;
-  }
-
-  .zara-h2{
-    font-size: 25px;
-  }
-
-  .zara-text{
-    font-size: 20px;
-  }
-
   .buttons img{
-    max-width: 2.5rem;
-    margin: 1.5rem .5rem;
+    width: 3.5rem;
   }
 }
 
@@ -559,6 +562,18 @@
 
 
 @media(max-width: 750px){
+
+  .sidebar-wrapper{
+    align-items: flex-start;
+  }
+  .sidebar-container{
+    height: 70%;
+  }
+
+  .dashboard-content{
+    padding: 0;
+  }
+
   .blob{
     max-width: 8rem;
     max-height: 8rem;
@@ -574,17 +589,37 @@
     display: flex;
   }
 
-  .start-zara-main, .start-zara-second, .start-zara-final{
-    width: 100%;
-    height: 100%;
+  .zara-heading{
+    margin-top: 1rem;
   }
 
-  .welcome-text{
+  .start-zara-main, .start-zara-second, .start-zara-final{
+    width: 100%;
+    height: 65%;
+  }
+
+  .welcome-text h2{
+    font-size: 1rem;
+  }
+
+  .welcome-text h1{
+    font-size: 1rem;
+  }
+
+  .zara-h2{
+    font-size: 1.3rem;
+  }
+
+  .zara-text{
     font-size: .75rem;
   }
 
+  .buttons img{
+    padding: 1rem .5rem 0;
+  }
+
   .bird-logo{
-    width: 40px;
+    width: 35px;
   }
 
   .content-container{

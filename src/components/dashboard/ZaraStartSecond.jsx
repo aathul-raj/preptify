@@ -7,13 +7,11 @@ import React, { useState, useEffect } from 'react';
 export default function ZaraStartSecond( {setIndex, selectedOptions, setSelectedOptions} ){
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-    const [screenHeight, setScreenHeight] = useState(window.innerHeight);
 
-    let fontSize = '20px'
+    let fontSize = '20'
     useEffect(() => {
         const handleResize = () => {
         setScreenWidth(window.innerWidth);
-        setScreenHeight(window.innerHeight);
         };
 
         window.addEventListener('resize', handleResize);
@@ -24,7 +22,7 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
     }, []);
 
     if (screenWidth < 1450){
-        fontSize='10px'
+        fontSize='100'
     }
 
     const industryOptions = [
@@ -44,7 +42,7 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
     ]
 
     const customStyles = {
-        control: (provided, state) => ({
+        control: (provided) => ({
             ...provided,
             backgroundColor: 'transparent',
             borderColor: 'white',
@@ -52,7 +50,8 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
             borderWidth: '2px',
             width: 'max-content',
             color: 'white',
-            cursor: "pointer"
+            cursor: "pointer",
+            margin: '0 10px'
         }),
         singleValue: (provided) => ({
             ...provided,
@@ -114,7 +113,7 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
 
     return (
         <div className="start-zara-second">
-            <h1 className="zara"><span className="green">Z</span>ARA</h1>
+            <h1 className="zara-heading"><span className="green">Z</span>ARA</h1>
             <h2 className="zara-h2">Interview Setup</h2>
             <div className="question">
                 <div className="zara-text">
