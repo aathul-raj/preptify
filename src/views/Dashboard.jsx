@@ -13,7 +13,6 @@ export default function Dashboard(){
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('useeffect')
     auth.onAuthStateChanged(user => {
       if (!user) {
         navigate('/login');

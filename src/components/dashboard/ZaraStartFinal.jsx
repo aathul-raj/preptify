@@ -77,12 +77,13 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             borderWidth: '2px',
             width: 'max-content',
             color: 'white',
-            cursor: "pointer"
+            cursor: "pointer",
+            margin: '0 10px'
         }),
         singleValue: (provided) => ({
             ...provided,
             color: 'white',
-            fontSize: '20px',
+            fontSize: 17,
             fontFamily: 'Roboto',
             padding: '10px',
         }),
@@ -139,7 +140,7 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
 
     return (
         <div className="start-zara-final">
-            <h1 className="zara"><span className="green">Z</span>ARA</h1>
+            <h1 className="zara-heading"><span className="green">Z</span>ARA</h1>
             <h2 className="zara-h2">Interview Setup</h2>
             <div className="question">
                 <div className="zara-text">

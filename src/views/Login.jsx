@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,14 @@ function Login() {
   const [errorMessage, setErrorMessage] = useState("");
 
   let navigate = useNavigate();
+
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      if (user){
+        navigate('/dashboard')
+      }
+    })
+  }, [])
 
   const handleLogin = async () => {
     try {
