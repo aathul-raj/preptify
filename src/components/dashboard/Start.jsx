@@ -1,7 +1,8 @@
+import { useState } from "react";
 import ZaraStartFinal from "./ZaraStartFinal";
 import ZaraStartMain from "./ZaraStartMain";
 import ZaraStartSecond from "./ZaraStartSecond";
-import { useState } from "react";
+
 
 export default function Start({ setError, setFadeOut}){
     const [index, setIndex] = useState(0)

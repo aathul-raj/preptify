@@ -15,7 +15,6 @@ export default function Graph(){
       ];
     
     let firstDay = data[0].day;
-
     const minScore = Math.min(...data.map(item => item.score));
     const maxScore = Math.max(...data.map(item => item.score));
     const yAxisTicks = Array.from({length: maxScore - minScore + 1}, (_, i) => minScore + i);

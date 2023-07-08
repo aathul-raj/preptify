@@ -1,5 +1,5 @@
-import Blob from '../../img/blob.png'
 import { useEffect } from "react";
+import DashboardImages from '../../constants/DashboardImages'
 
 export default function ZaraStartMain( {setIndex} ){
 
@@ -28,16 +28,18 @@ export default function ZaraStartMain( {setIndex} ){
         };
     }, []);
 
-    return <div className="start-zara-main">
-    <h1 className="zara-heading"><span className="green">Z</span>ARA</h1>
-    <div className="blob-container" style={{ position: 'relative', height: '200px', width: '200px' }}> {/* container for parallax element */}
-        <img src={Blob} className="parallax blob" data-value=".5" style={{ position: 'absolute', height: '100%', width: '100%' }}/>
-    </div>
-    <button
+    return (
+      <div className="start-zara-main">
+        <h1 className="zara-heading"><span className="green">Z</span>ARA</h1>
+        <div className="blob-container" style={{ position: 'relative', height: '200px', width: '200px' }}>
+            <img src={DashboardImages.blob} className="parallax blob" data-value=".5" style={{ position: 'absolute', height: '100%', width: '100%' }}/>
+        </div>
+        <button
           className="start-button"
           onClick={() => setIndex((prevIndex) => prevIndex + 1)}
-        >
+          >
           Setup Interview
         </button>
-</div>
+      </div>
+    )
 }

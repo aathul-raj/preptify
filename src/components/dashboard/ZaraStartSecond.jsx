@@ -1,14 +1,30 @@
-import "../../styles/dashboard.css";
-import BackButton from '../../img/icons/back-button.png'
-import NextButton from '../../img/icons/next-button.png'
-import Select from 'react-select';
 import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
+import DashboardImages from '../../constants/DashboardImages'
+import "../../styles/dashboard.css";
 
 export default function ZaraStartSecond( {setIndex, selectedOptions, setSelectedOptions} ){
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-
     let fontSize = '20'
+    const industryOptions = [
+        { value: 'software-engineering', label: 'Software Engineering' },
+        // { value: 'business', label: 'Business' },
+    ];
+    const roleOptions = [
+        { value: 'basic', label: "Undecided" },
+        { value: 'fe-react', label: 'Front-end React Dev' },
+        { value: 'be-nodejs', label: 'Back-end Node Dev' },
+        { value: 'fullstack-node-react', label: 'Fullstack Dev' },
+        { value: 'security-engineering', label: 'Security Engineer' },
+        { value: 'data-engineering', label: 'Data Engineer' },
+        { value: 'cloud-engineering', label: 'Cloud Engineer' },
+        { value: 'cpp-engineering', label: 'C++ Dev' },
+    ]
+    const interviewing = '\ninterviewing'
+    const you = '\nyou'
+
+
     useEffect(() => {
         const handleResize = () => {
         setScreenWidth(window.innerWidth);
@@ -24,23 +40,7 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
     if (screenWidth < 1450){
         fontSize='100'
     }
-
-    const industryOptions = [
-        { value: 'software-engineering', label: 'Software Engineering' },
-        // { value: 'business', label: 'Business' },
-    ];
-
-    const roleOptions = [
-        { value: 'basic', label: "Undecided" },
-        { value: 'fe-react', label: 'Front-end React Dev' },
-        { value: 'be-nodejs', label: 'Back-end Node Dev' },
-        { value: 'fullstack-node-react', label: 'Fullstack Dev' },
-        { value: 'security-engineering', label: 'Security Engineer' },
-        { value: 'data-engineering', label: 'Data Engineer' },
-        { value: 'cloud-engineering', label: 'Cloud Engineer' },
-        { value: 'cpp-engineering', label: 'C++ Dev' },
-    ]
-
+    
     const customStyles = {
         control: (provided) => ({
             ...provided,
@@ -107,10 +107,6 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
         })
     }
 
-    const interviewing = '\ninterviewing'
-    const you = '\nyou'
-    
-
     return (
         <div className="start-zara-second">
             <h1 className="zara-heading"><span className="green">Z</span>ARA</h1>
@@ -128,8 +124,8 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
                 <Select className="zara-dropdown" styles={customStyles} name="roles" menuPlacement="top" id="roles" options={roleOptions} value={roleOptions.find(option => option.value === selectedOptions.role)} onChange={option => handleSelect(option, 'role')}/>
             </div>
             <div className="buttons">
-                <img src={BackButton} onClick={() => setIndex((prevIndex) => prevIndex - 1)}/>
-                <img src={NextButton} onClick={() => setIndex((prevIndex) => prevIndex + 1)}/>
+                <img src={DashboardImages.back} onClick={() => setIndex((prevIndex) => prevIndex - 1)}/>
+                <img src={DashboardImages.next} onClick={() => setIndex((prevIndex) => prevIndex + 1)}/>
             </div>
         </div>
     );

@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../back-end/firebase";
-
+import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
+import EntryImages from "../constants/EntryImages";
 import "../styles/login.css";
-import Logo from "../img/preptify_cropped.png";
+
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -33,12 +31,13 @@ function Login() {
       console.error("Failed to log in", error);
     }
   };
+
   return (
     <div className="main-container">
       <div className="header">
         <div className="logo-container">
           <Link to="/">
-            <img className="logo-img" src={Logo} alt="logo" />
+            <img className="logo-img" src={EntryImages.logo} alt="logo" />
           </Link>
         </div>
       </div>
