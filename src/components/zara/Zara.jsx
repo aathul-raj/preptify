@@ -5,7 +5,7 @@ import Subheading from "./Subheading";
 import Transcript from "./Transcript";
 import MicButton from "./MicButton";
 import Preloader from "./Preloader";
-import { auth } from '../../back-end/firebase';
+import { auth } from '../../back-end/Firebase';
 import axios from 'axios';
 import { getFirestore, doc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
