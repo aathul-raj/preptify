@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from "../back-end/firebase";
+import { auth } from "../back-end/Firebase";
 import { signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
 import EntryImages from "../constants/EntryImages";
-import "../styles/login.css";
+import "../styles/Login.css";
 
 
 function Login() {

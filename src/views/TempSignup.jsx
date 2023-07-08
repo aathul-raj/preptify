@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import EntryImages from "../constants/EntryImages";
-import "../styles/signup.css";
+import "../styles/Signup.css";
 
 function TempSignup() {
   return (

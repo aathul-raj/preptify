@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import DashboardContent from "../components/dashboard/DashboardContent";
 import Sidebar from "../components/dashboard/Sidebar";
 import Popup from '../components/Popup'
-import { auth } from '../back-end/firebase';
+import { auth } from '../back-end/Firebase';
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
-import "../styles/dashboard.css";
+import "../styles/Dashboard.css";
 
 export default function Dashboard(){
   const db = getFirestore();

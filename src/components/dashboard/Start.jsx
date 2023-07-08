@@ -3,7 +3,6 @@ import ZaraStartFinal from "./ZaraStartFinal";
 import ZaraStartMain from "./ZaraStartMain";
 import ZaraStartSecond from "./ZaraStartSecond";
 
-
 export default function Start({ setError, setFadeOut}){
     const [index, setIndex] = useState(0)
     const [selectedOptions, setSelectedOptions] = useState({

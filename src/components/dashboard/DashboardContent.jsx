@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import Start from './Start'
 import Analytics from './Analytics'
-import { auth } from '../../back-end/firebase';
+import { auth } from '../../back-end/Firebase';
 
 export default function DashboardContent(){
     const [error, setError] = useState("");

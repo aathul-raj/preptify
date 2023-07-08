@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { auth } from "../back-end/firebase";
+import { auth } from "../back-end/Firebase";
 import { createUserWithEmailAndPassword, setPersistence, browserLocalPersistence, updateProfile } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import EntryImages from "../constants/EntryImages";
-import "../styles/signup.css";
+import "../styles/Signup.css";
 
 function Signup() {
   const [firstName, setFirstName] = useState("");

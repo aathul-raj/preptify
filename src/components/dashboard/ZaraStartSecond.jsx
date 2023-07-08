@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import DashboardImages from '../../constants/DashboardImages'
-import "../../styles/dashboard.css";
+import "../../styles/Dashboard.css";
 
 export default function ZaraStartSecond( {setIndex, selectedOptions, setSelectedOptions} ){
 
