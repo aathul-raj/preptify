@@ -1,31 +1,31 @@
 import React, { useState, useRef } from 'react';
-import axios from 'axios';
-import Mic from '../img/microphone.png';
+import { auth } from '../../back-end/Firebase';
 import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
-import { auth } from '../back-end/firebase';
+import axios from 'axios';
+import ZaraImages from '../../constants/ZaraImages';
 
-function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setInterviewLog }) {
+function MicButton({ setTranscript, isLoading, setIsDone, setFeedback}) {
 
   const db = getFirestore();
-
-  const updateInterviewLog = async (newLogEntry) => {
-    const userDoc = doc(db, 'users', auth.currentUser.uid);
-    await updateDoc(userDoc, {
-      interviewLog: arrayUnion(newLogEntry), // pass the object directly
-    });
-  };
-
   const [isListening, setIsListening] = useState(false);
   const [userResponse, setUserResponse] = useState("");
   const mediaRecorder = useRef(null);
   const mediaStream = useRef(null); // to save the stream
   const socketRef = useRef(null);
   const transcriptTimer = useRef(null);
+
+  const updateInterviewLog = async (newLogEntry) => {
+    const userDoc = doc(db, 'users', auth.currentUser.uid);
+    await updateDoc(userDoc, {
+      interviewLog: arrayUnion(newLogEntry), // pass the object directly
+    })
+  }
+  
   const handleDataAvailable = (event) => {
     if (event.data.size > 0 && socketRef.current && socketRef.current.readyState === 1) {
       socketRef.current.send(event.data);
     }
-  };
+  }
 
   const stopListening = () => {
     console.log("Stopping to listen...")
@@ -41,25 +41,16 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setInterv
     }, {
       withCredentials: true
     }).then(response => {
-      setInterviewLog((prevInterviewLog) => {
-        const newInterviewLog = [...prevInterviewLog, {'User' : userResponse}]
-        // Update interviewLog in Firestore
-        updateInterviewLog({'User' : userResponse});
-        setUserResponse("")
-        return newInterviewLog;
-      })
+      // Update interviewLog in Firestore
+      updateInterviewLog({'User' : userResponse});
+      setUserResponse("")
       if (typeof response.data.response === 'object' && response.data.response !== null){
         setIsDone(true);
         setFeedback(response.data.response);
       }
       else {
-        setInterviewLog((prevInterviewLog) => {
-          const newInterviewLog = [...prevInterviewLog, {'Server' : response.data.response}]
-          // Update interviewLog in Firestore
-          updateInterviewLog({'Server' : response.data.response});
-
-          return newInterviewLog;
-        })
+        // Update interviewLog in Firestore
+        updateInterviewLog({'Server' : response.data.response});
         setTranscript(response.data.response);
       }
     })
@@ -112,7 +103,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setInterv
   return (
     <img 
       className={`mic-img ${isListening ? 'pulse' : ''} ${isLoading ? 'hidden' : 'visible'}`} 
-      src={Mic} 
+      src={ZaraImages.mic} 
       onClick={toggleListening}
     />
   )

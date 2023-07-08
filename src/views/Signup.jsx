@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import "../styles/signup.css";
-import Logo from "../img/preptify_cropped.png";
-import { Link } from "react-router-dom";
-import { createUserWithEmailAndPassword, setPersistence, browserLocalPersistence } from "firebase/auth";
+import { useNavigate, Link } from "react-router-dom";
+import { auth } from "../back-end/Firebase";
+import { createUserWithEmailAndPassword, setPersistence, browserLocalPersistence, updateProfile } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
-import { updateProfile } from "firebase/auth";
-import { auth } from "../back-end/firebase";
+import EntryImages from "../constants/EntryImages";
+import "../styles/Signup.css";
 
 function Signup() {
   const [firstName, setFirstName] = useState("");
@@ -55,17 +53,15 @@ function Signup() {
         setErrorMessage("Failed to sign up. Please try again");
         console.log(errorMessage);
       }
-
-      // setErrorMessage("Failed to sign up. Please try again");
-      // console.error("Failed to sign up", error);
     }
   };
+  
   return (
     <div className="main-container">
       <div className="header">
         <div className="logo-container">
           <Link to="/">
-            <img className="logo-img" src={Logo} alt="logo" />
+            <img className="logo-img" src={EntryImages.logo} alt="logo" />
           </Link>
         </div>
       </div>

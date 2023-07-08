@@ -1,8 +1,9 @@
-import "../styles/Feedback.css";
 import CountUp from 'react-countup';
+import "../../styles/Feedback.css";
 
 export default function Category( {category, score} ){
     const words = category.split(" ");
+    
     return <div className="category">
         <div className="category-name">
             <h3>{words[0]}</h3>

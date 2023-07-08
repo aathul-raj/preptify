@@ -1,28 +1,13 @@
+import React, { useEffect, useState } from 'react'
 import Header from './Header'
 import Start from './Start'
 import Analytics from './Analytics'
-import { auth } from '../../back-end/firebase';
-import React, { useEffect, useState } from 'react'
+import { auth } from '../../back-end/Firebase';
 
 export default function DashboardContent(){
     const [error, setError] = useState("");
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [fadeOut, setFadeOut] = useState(false);
-    
-    const user = auth.currentUser;
-    if (user.displayName) {
-        var firstName = user.displayName.split(' ')[0];
-        firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
-    } else{
-        firstName = 'Tester'
-    }
-    console.log(user)
-
-    if(user != null){
-        console.log(user.email);
-    } else{
-        console.log('not logged in')
-    }
 
     useEffect(() => {
         const handleResize = () => {
@@ -35,6 +20,10 @@ export default function DashboardContent(){
         window.removeEventListener('resize', handleResize);
         };
     }, []);
+
+    const user = auth.currentUser;
+    var firstName = user.displayName.split(' ')[0];
+    firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
 
     return <div className="dashboard-content">
         {error && 

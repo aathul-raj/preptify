@@ -3,11 +3,8 @@ import React, { useState, useEffect } from "react";
 export default function Carousel( {feedback} ){
     const [currentScreen, setCurrentScreen] = useState(0);
     const screens = feedback;
-
-    const handleClick = (index) => {
-        setCurrentScreen(index);
-    }
-
+    let color = 'negative'
+    
     useEffect(() => {
         const timer = setInterval(() => {
         setCurrentScreen((currentScreen + 1) % screens.length);
@@ -15,7 +12,9 @@ export default function Carousel( {feedback} ){
         return () => clearInterval(timer);
     }, [currentScreen]);
 
-    let color = 'negative'
+    const handleClick = (index) => {
+        setCurrentScreen(index);
+    }
     
     return (
         <div className="carousel">

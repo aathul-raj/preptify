@@ -1,18 +1,7 @@
+import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
-import React, { useEffect, useState } from 'react'
-import "../styles/home.css";
-import Logo from "../img/preptify_cropped.png";
-import "../styles/learn-more.css";
-import StatueImg from "../img/roman-statue.png";
-import CareersImg from "../img/careers.png";
-import FeaturesImg from "../img/features.png";
-import SquiggleImg from "../img/squiggle.png";
-import BookImg from "../img/book.png";
-import CheckImg from "../img/check.png";
-import ClockImg from "../img/clock-circular-outline.png";
-import IdeaImg from "../img/idea.png";
-import ShieldImg from "../img/shield.png";
-import SpeechImg from "../img/speech-bubble.png";
+import HomeImages from '../constants/HomeImages.jsx';
+import "../styles/Home.css";
 
 function Home() {
   const navigate = useNavigate();
@@ -40,14 +29,14 @@ function Home() {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-}, []);
+  }, []);
 
   return (
     <>
       <main>
         <div className="header">
           <div className="logo-container">
-            <img className="logo-img" src={Logo} alt="logo" />
+            <img className="logo-img" src={HomeImages.logo} alt="logo" />
           </div>
           <div className="auth-buttons-container">
             <button
@@ -60,7 +49,7 @@ function Home() {
         </div>
         <div className="home-container">
           <div className="home-content">
-          <img className="statue-img parallax-home" src={StatueImg} alt="Roman Statue" data-value=".4"/>
+          <img className="statue-img parallax-home" src={HomeImages.statue} alt="Roman Statue" data-value=".4"/>
             <div className="text-container">
               <div className="slogan-container">
                 <h1 className="slogan">
@@ -106,31 +95,31 @@ function Home() {
                 interview tool, Zara.
               </div>
               <div className="feature-container">
-                <img className="icon" src={BookImg}></img>
+                <img className="icon" src={HomeImages.book}></img>
                 <h2 className="feature-text">
                   Streamline your interview preparation with our AI-enhanced
                   interview tool, Zara.
                 </h2>
               </div>
               <div className="feature-container">
-                <img className="icon" src={SpeechImg}></img>
+                <img className="icon" src={HomeImages.speech}></img>
                 <h2 className="feature-text">
                   Gain the skills and confidence you need to excel in your
                   career.
                 </h2>
               </div>
               <div className="feature-container">
-                <img className="icon" src={CheckImg}></img>
+                <img className="icon" src={HomeImages.check}></img>
                 <h2 className="feature-text">
                   Unlock your potential through personalized interview guidance
                   and support
                 </h2>
               </div>
             </div>
-            <img className="learn-more-ai-img" src={CareersImg} alt="AI" />
+            <img className="learn-more-ai-img" src={HomeImages.careers} alt="AI" />
           </div>
           <div className="home-block-2">
-            <img className="features-img" src={FeaturesImg} alt="AI" />
+            <img className="features-img" src={HomeImages.features} alt="AI" />
 
             <div className="text-container">
               <div className="intro-text">
@@ -143,21 +132,21 @@ function Home() {
               </div>
 
               <div className="feature-container">
-                <img className="icon" src={ClockImg}></img>
+                <img className="icon" src={HomeImages.clock}></img>
                 <h2 className="feature-text">
                   Zara creates authentic interview scenarios, allowing users to
                   practice and refined answers.
                 </h2>
               </div>
               <div className="feature-container">
-                <img className="icon" src={IdeaImg}></img>
+                <img className="icon" src={HomeImages.idea}></img>
                 <h2 className="feature-text">
                   By analyzing user responses, we provide detailed feedback at
                   the end of every interview.
                 </h2>
               </div>
               <div className="feature-container">
-                <img className="icon" src={ShieldImg}></img>
+                <img className="icon" src={HomeImages.shield}></img>
 
                 <h2 className="feature-text">
                   Preptify offers a safe environment to practice, helping users
@@ -177,7 +166,7 @@ function Home() {
               </h1>
               <img
                 className="squiggle-img"
-                src={SquiggleImg}
+                src={HomeImages.squiggle}
                 alt="Squiggle"
               ></img>
               <div>

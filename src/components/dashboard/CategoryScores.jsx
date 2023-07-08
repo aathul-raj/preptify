@@ -1,5 +1,4 @@
 import ProgressBar from "./ProgressBar"
-// import ProgressBar from "@ramonak/react-progress-bar";
 
 export default function CategoryScores(){
     return (

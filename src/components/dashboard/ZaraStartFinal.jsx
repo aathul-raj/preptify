@@ -1,20 +1,34 @@
-import "../../styles/dashboard.css";
-import BackButton from '../../img/icons/back-button.png'
-import Next from '../../img/icons/next.png'
-import Select from 'react-select';
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from '../../back-end/firebase';
+import { auth } from '../../back-end/Firebase';
 import { doc, getDoc, getFirestore } from "firebase/firestore";
-import { useState, useEffect } from "react";
+import Select from 'react-select';
+import DashboardImages from "../../constants/DashboardImages";
+import "../../styles/Dashboard.css";
 
 export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions, setError, setFadeOut} ){
     const db = getFirestore();
-
     const user = auth.currentUser;
     let navigate = useNavigate();
-
     const [interviewsCompleted, setInterviewsCompleted] = useState(0);
+    const difficultyOptions = [
+        { value: 'dynamic', label: 'Dynamic' },
+    ];
+    const numQuestions = [
+        { value: '1', label: "1" },
+        { value: '2', label: '2' },
+        { value: '3', label: '3' },
+        { value: '4', label: '4' },
+        { value: '5', label: '5' },
+        { value: '6', label: '6' },
+        { value: '7', label: '7' },
+        { value: '8', label: '8' },
+        { value: '9', label: '9' },
+        { value: '10', label: '10' },
+    ]
+    const should = '\nshould'
+    const interview = '\ninterview'
+
 
     useEffect(() => {
         const fetchInterviewsCompleted = async () => {
@@ -31,7 +45,7 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
         fetchInterviewsCompleted();
     }, [user]);
 
-    function handleClick() {
+    function handleStartInterview() {
         if(interviewsCompleted < 3) {
             // Convert the object to a query string
             const queryParam = new URLSearchParams(selectedOptions).toString();
@@ -48,28 +62,18 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             }, 5000);
         }
     }
-    
 
-    const difficultyOptions = [
-        { value: 'dynamic', label: 'Dynamic' },
-        // { value: 'business', label: 'Business' },
-    ];
-
-    const numQuestions = [
-        { value: '1', label: "1" },
-        { value: '2', label: '2' },
-        { value: '3', label: '3' },
-        { value: '4', label: '4' },
-        { value: '5', label: '5' },
-        { value: '6', label: '6' },
-        { value: '7', label: '7' },
-        { value: '8', label: '8' },
-        { value: '9', label: '9' },
-        { value: '10', label: '10' },
-    ]
+    const handleSelect = (selectedOption, name) => {
+        setSelectedOptions((prevOptions) => {
+            return {
+                ...prevOptions,
+                [name] : selectedOption.value
+            }
+        })
+    }
 
     const customStyles = {
-        control: (provided, state) => ({
+        control: (provided) => ({
             ...provided,
             backgroundColor: 'transparent',
             borderColor: 'white',
@@ -123,20 +127,6 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             },
         }),
     };
-    
-
-    const handleSelect = (selectedOption, name) => {
-        setSelectedOptions((prevOptions) => {
-            return {
-                ...prevOptions,
-                [name] : selectedOption.value
-            }
-        })
-    }
-
-    const should = '\nshould'
-    const interview = '\ninterview'
-    
 
     return (
         <div className="start-zara-final">
@@ -155,8 +145,8 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
                 <Select className="zara-dropdown" styles={customStyles} name="questions" menuPlacement="top" id="questions" options={numQuestions} value={numQuestions.find(option => option.value === selectedOptions.questions)} onChange={option => handleSelect(option, 'questions')}/>
             </div>
             <div className="buttons">
-                <img src={BackButton} onClick={() => setIndex((prevIndex) => prevIndex - 1)}/>
-                <img src={Next} onClick={handleClick}/>
+                <img src={DashboardImages.back} onClick={() => setIndex((prevIndex) => prevIndex - 1)}/>
+                <img src={DashboardImages.start} onClick={handleStartInterview}/>
             </div>
         </div>
     );

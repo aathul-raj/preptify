@@ -1,11 +1,11 @@
-import "../styles/Feedback.css";
-import Category from './Category'
-import Confetti from '../img/confetti.png'
 import React, { useEffect } from 'react'
-import CountUp from 'react-countup';
 import { useNavigate } from "react-router-dom";
+import Category from './Category'
 import { doc, updateDoc, increment, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
+import CountUp from 'react-countup';
+import ZaraImages from '../../constants/ZaraImages';
+import "../../styles/Feedback.css";
 
 export default function Feedback( {feedback} ){
     const db = getFirestore();
@@ -19,15 +19,9 @@ export default function Feedback( {feedback} ){
     let commScore = feedback.communication
     let techScore = feedback.technical
     let score = (behaviorScore + problemScore + commScore + techScore) / 4
-
     let navigate = useNavigate();
 
-    function handleClick() {
-        navigate(`/dashboard`);
-    }
-
     useEffect(() => {
-
         const userRef = doc(db, 'users', currentUser.uid);
         updateDoc(userRef, {
             interviewsCompleted: increment(1)
@@ -57,9 +51,13 @@ export default function Feedback( {feedback} ){
         };
     }, []);
     
+    function handleClick() {
+        navigate(`/dashboard`);
+    }
+    
     return <div className="feedback-container">
-        <img src={Confetti} className="parallax confetti-1" data-value=".5"/>
-        <img src={Confetti} className="parallax confetti-2" data-value=".5"/>
+        <img src={ZaraImages.confetti} className="parallax confetti-1" data-value=".5"/>
+        <img src={ZaraImages.confetti} className="parallax confetti-2" data-value=".5"/>
         <h1 className="zara"><span className="green">Z</span>ARA</h1>
         <div className="top-text">
             <h2 className="completed">Interview <span className="green">Completed!</span></h2>

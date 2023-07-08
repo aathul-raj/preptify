@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/Preloader.css";
+import "../../styles/Preloader.css";
 
 const LoadingAnimation = () => {
     let dots = [];
