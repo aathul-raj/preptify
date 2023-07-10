@@ -36,7 +36,7 @@ main{
   align-items: center;
   text-align: center;
   position: relative;
-  min-height: 90vh;
+  min-height: 85vh;
   max-width: 55vw;
   justify-content: space-evenly;
 }
@@ -102,10 +102,6 @@ main{
   margin: .3rem;
 }
 
-.mic-img{
-  max-width: 3rem;
-}
-
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -116,10 +112,6 @@ main{
   100% {
     transform: scale(1);
   }
-}
-
-.mic-img.pulse {
-  animation: pulse 1s infinite;
 }
 
 @media(max-width: 750px){
