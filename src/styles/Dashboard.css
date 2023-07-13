@@ -100,8 +100,8 @@
 .sidebar-container{
   padding-top: 1rem;
   border-radius: 25px;
-  height: 100%;
   background: linear-gradient(-40deg, rgba(20, 21, 25, 1) 0%, rgba(21, 21, 25, 0.6) 25%, rgba(21, 160, 122, 0.15) 85%, rgba(21, 160, 122, 0.1) 100%);
+  height: 100%;
 }
 
 .sidebar-item{
@@ -130,7 +130,7 @@
 .dashboard-content{
   flex-grow: 1;
   padding: 0 2rem;
-  margin-right: 1rem;
+  /* margin-right: 1rem; */
   background-color: #0E0F12;
   display: flex;
   flex-direction: column;
@@ -563,15 +563,47 @@
 
 @media(max-width: 750px){
 
-  .sidebar-wrapper{
-    align-items: flex-start;
+  .dashboard-container {
+    flex-direction: column-reverse; 
+    width: 90vw;
+    display: flex;
+    justify-content: center;
   }
-  .sidebar-container{
-    height: 70%;
+
+  .sidebar-wrapper {
+    width: 100%; /* Makes sidebar full width */
+    position: fixed; /* Makes sidebar fixed at the bottom */
+    bottom: 0; /* Aligns the sidebar at the bottom */
+    flex-direction: row; /* Change the direction to row */
+    display: flex;
+    align-items: center;
+    left: 0
+
+  }
+  .sidebar-container {
+    padding-top: 1rem;
+    border-radius: 25px;
+    background: linear-gradient(-40deg, rgba(20, 21, 25, 1) 0%, rgba(21, 21, 25, 0.6) 25%, rgba(21, 160, 122, 0.15) 85%, rgba(21, 160, 122, 0.1) 100%);
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row; /* Layout items horizontally */
+    width: 100%;
+  }
+
+  .sidebar-item{
+    flex: 1; /* Add this line to distribute space evenly among the items */
+    text-align: center; /* Add this line to center the text */
   }
 
   .dashboard-content{
+    /* Adjust the bottom padding to prevent content from being covered by the bottom bar */
+    padding-bottom: 3rem; /* adjust this value based on the height of your bottom bar */
     padding: 0;
+    margin-right: none;
+    display: flex;
+    justify-content: center;
   }
 
   .blob{
