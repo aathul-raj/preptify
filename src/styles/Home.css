@@ -180,7 +180,7 @@ body {
   bottom: 0;
   width: 100%;
   border-top: 1px solid gray; 
-  padding-right: 5%;
+  /* padding-right: 5%; */
 
 }
 
@@ -342,6 +342,10 @@ body {
 }
 
 @media(max-width: 750px){
+  .footer {
+    justify-content: center;
+  }
+
   body{
     flex-direction: column;
     justify-content: space-around;
@@ -397,12 +401,18 @@ body {
   .home-block-1{
     display: flex;
     flex-direction: column;
+    padding: 40px;
   }
 
   .home-block-2{
     margin-top: 5rem;
     display: flex;
     flex-direction: column;
+    padding: 40px;
+  }
+
+  .home-block-3{
+    padding: 40px;
   }
 
   .features-img{
