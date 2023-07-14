@@ -366,12 +366,11 @@
   cursor: default;
   font-size: 1.4vw;
   font-family: 'Poppins';
-  
 }
 
 .pro-button{
   width: 13rem;
-  font-size: 1.8em;
+  font-size: 1.5vw;
 }
 
 .tile-subheading{
