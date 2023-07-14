@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import Category from './Category'
-import { doc, updateDoc, increment, getFirestore } from "firebase/firestore";
+import { doc, updateDoc, getDoc, increment, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import CountUp from 'react-countup';
 import ZaraImages from '../../constants/ZaraImages';
 import "../../styles/Feedback.css";
 
-export default function Feedback( {feedback} ){
-    const db = getFirestore();
-    const auth = getAuth();
-    const currentUser = auth.currentUser;
+export default function Feedback( {feedback, responseTimes} ){
+    const db = getFirestore()
+    const auth = getAuth()
+    const currentUser = auth.currentUser
     let positive = feedback.positive1
     let negativeOne = feedback.negative1
     let negativeTwo = feedback.negative2
@@ -19,12 +19,15 @@ export default function Feedback( {feedback} ){
     let commScore = feedback.communication
     let techScore = feedback.technical
     let score = (behaviorScore + problemScore + commScore + techScore) / 4
-    let navigate = useNavigate();
-
+    let navigate = useNavigate()
+    const responseTimeSum = responseTimes.reduce((a, b) => a + b, 0);
+    const questionCount = responseTimes.length
+    
     useEffect(() => {
         const userRef = doc(db, 'users', currentUser.uid);
         updateDoc(userRef, {
-            interviewsCompleted: increment(1)
+            interviewsCompleted: increment(1),
+            recentFeedback: {...feedback, "overallScore": score, "responseTime" : responseTimeSum}
         });
 
         const handleMouseMove = (e) => {
@@ -52,7 +55,67 @@ export default function Feedback( {feedback} ){
     }, []);
     
     function handleClick() {
-        navigate(`/dashboard`);
+        navigate(`/dashboard`, { replace: true })
+        updateFeedbackSummary({...feedback, "overallScore": score, "responseTime" : responseTimeSum})
+    }
+
+    async function updateFeedbackSummary(recentFeedback){
+        const userRef = doc(db, 'users', currentUser.uid);
+        const userDoc = await getDoc(userRef);
+        let userData = userDoc.data();
+        let newFeedbackSummary = {}
+        if (!userData.feedbackSummary) {
+            newFeedbackSummary = {
+                ps: { total: 0, count: 0 },
+                technical: { total: 0, count: 0 },
+                communication: { total: 0, count: 0 },
+                behavioral: { total: 0, count: 0 },
+                overallScore: { total: 0, count: 0 },
+                responseTime: { total: 0, count: 0},
+                negative1: "",
+                negative2: "",
+                positive1: "",
+              }
+        } else {
+            newFeedbackSummary = {...userData.feedbackSummary}
+        }
+        
+        console.log(newFeedbackSummary)
+        for (let key in recentFeedback) {
+            if (key == "responseTime") {
+                newFeedbackSummary[key] = {
+                    ...newFeedbackSummary[key],
+                    total: responseTimeSum + newFeedbackSummary[key].total,
+                    count: questionCount + newFeedbackSummary[key].count
+                }
+            }
+            else if (typeof recentFeedback[key] === "number") {
+                newFeedbackSummary[key] = {
+                    ...newFeedbackSummary[key],
+                    total: recentFeedback[key] + newFeedbackSummary[key].total,
+                    count: (newFeedbackSummary[key]?.count || 0) + 1
+                }
+            } else if (typeof recentFeedback[key] === "string") {
+              newFeedbackSummary[key] = recentFeedback[key]
+            }
+        }
+
+        let historicalScores = userData.historicalScores || []
+        historicalScores.push(score);
+
+        let historicalResponseTime = userData.historicalResponseTime || []
+        historicalResponseTime = [...historicalResponseTime, ...responseTimes]
+
+        if (historicalScores.length > 10) {
+            historicalScores.shift()
+            historicalResponseTime.shift()
+        }
+
+        updateDoc(userRef, {
+            feedbackSummary: newFeedbackSummary,
+            historicalScores: historicalScores,
+            historicalResponseTime: historicalResponseTime,
+        })
     }
     
     return <div className="feedback-container">
@@ -79,6 +142,6 @@ export default function Feedback( {feedback} ){
             </div>
         </div>
         <h2 className="notice">All scores are out of 10</h2>
-        <button onClick={handleClick}>Dashboard</button>
+        <button className="dashboard-button" onClick={handleClick}>Dashboard</button>
     </div>
 }

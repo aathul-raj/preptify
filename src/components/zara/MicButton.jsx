@@ -4,10 +4,9 @@ import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
-import ZaraImages from '../../constants/ZaraImages';
 import '../../styles/MicButton.css'
 
-function MicButton({ setTranscript, isLoading, setIsDone, setFeedback}) {
+function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes }) {
 
   const db = getFirestore();
   const [isListening, setIsListening] = useState(false);
@@ -16,6 +15,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback}) {
   const mediaStream = useRef(null); // to save the stream
   const socketRef = useRef(null);
   const transcriptTimer = useRef(null);
+  
 
   const updateInterviewLog = async (newLogEntry) => {
     const userDoc = doc(db, 'users', auth.currentUser.uid);
@@ -33,6 +33,12 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback}) {
   const stopListening = () => {
     console.log("Stopping to listen...")
     clearTimeout(transcriptTimer.current);
+    let startTime = responseTimes[responseTimes.length - 1]
+    let responseTime = Date.now() - startTime
+    setResponseTimes((prevResponseTimes) => {
+      prevResponseTimes[prevResponseTimes.length - 1] = responseTime / 1000
+      return prevResponseTimes
+    })
     mediaRecorder.current.removeEventListener('dataavailable', handleDataAvailable);
     mediaRecorder.current.stop();
     mediaStream.current.getTracks().forEach(track => track.stop()); // Stop the stream
@@ -55,6 +61,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback}) {
         // Update interviewLog in Firestore
         updateInterviewLog({'Server' : response.data.response});
         setTranscript(response.data.response);
+        setResponseTimes((prevResponseTimes) => [...prevResponseTimes, Date.now()])
       }
     })
     .catch(err => {

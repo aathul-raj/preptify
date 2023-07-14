@@ -21,7 +21,7 @@ export default function Dashboard(){
         setCurrentUser(user);
         console.log('fetching')
         // fetch the user's document from Firestore
-        getDoc(doc(db, "users", user.uid)).then(userDoc => {
+        getDoc(doc(db, "users", user.uid)).then(async userDoc => {
           if (userDoc.exists()) {
             console.log('user doc exists')
             const userData = userDoc.data();

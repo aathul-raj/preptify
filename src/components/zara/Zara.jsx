@@ -12,11 +12,11 @@ import { onAuthStateChanged } from "firebase/auth";
 import ZaraImages from "../../constants/ZaraImages";
 import "../../styles/Zara.css";
 
-function Zara( {setIsDone, setFeedback} ) {
+function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
   
-  let navigate = useNavigate();
+  let navigate = useNavigate()
   let location = useLocation()
-  const db = getFirestore();
+  const db = getFirestore()
   const [transcript, setTranscript] = useState("")
   const [isLoading, setIsLoading] = useState(true) // State to track loading status
   const queryParam = new URLSearchParams(location.search)
@@ -42,8 +42,9 @@ function Zara( {setIsDone, setFeedback} ) {
           .then(response => {
             updateInterviewLog({'Server' : response.data.response})
             setTranscript(response.data.response);
+            setResponseTimes([Date.now()])
             setIsLoading(false); // Set loading to false once data is received
-          })
+          }) 
           .catch(err => {
             console.error(err);
             // TODO: Create error for user
@@ -53,6 +54,8 @@ function Zara( {setIsDone, setFeedback} ) {
       }
     })
   }, []);
+
+  useEffect(() => {console.log(responseTimes)}, [responseTimes])
 
   const createUserInterviewLog = async () => {
     await setDoc(doc(db, 'users', auth.currentUser.uid), {
@@ -78,7 +81,7 @@ function Zara( {setIsDone, setFeedback} ) {
           {isLoading ? <Preloader/> : <img className={`ai-img ${isLoading ? 'hidden' : 'visible'}`} src={ZaraImages.ai} />}
           <Transcript className={isLoading ? 'hidden' : 'visible'} transcript={transcript} isLoading={isLoading}/>
         </div>
-        <MicButton className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback}/>
+        <MicButton className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes}/>
         </main>
     </>
   );

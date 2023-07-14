@@ -169,29 +169,16 @@ body {
     color: #15D59F;
 }
 
-button{
-    border-radius: 50px;
-    font-size: 1.5em;
-    font-family: 'Poppins';
-    padding: 1rem 2rem;
-    cursor: pointer;
-}
-
-
-button:active{
-    transition: .5s;
-    transform: scale(0.93);
-}
-
 @media(min-height: 900px){
 
     .feedback-content{
         margin-top: 1rem;
     }
     
-    button{
+    .dashboard-button{
         margin-top: 2rem;
     }
+
     .zara{
         margin-bottom: 2rem;
     }
