@@ -12,7 +12,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import ZaraImages from "../../constants/ZaraImages";
 import "../../styles/Zara.css";
 
-function Zara( {setIsDone, setFeedback} ) {
+function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
   
   let navigate = useNavigate();
   let location = useLocation()
@@ -42,8 +42,9 @@ function Zara( {setIsDone, setFeedback} ) {
           .then(response => {
             updateInterviewLog({'Server' : response.data.response})
             setTranscript(response.data.response);
+            setResponseTimes([Date.now()])
             setIsLoading(false); // Set loading to false once data is received
-          })
+          }) 
           .catch(err => {
             console.error(err);
             // TODO: Create error for user
@@ -78,7 +79,7 @@ function Zara( {setIsDone, setFeedback} ) {
           {isLoading ? <Preloader/> : <img className={`ai-img ${isLoading ? 'hidden' : 'visible'}`} src={ZaraImages.ai} />}
           <Transcript className={isLoading ? 'hidden' : 'visible'} transcript={transcript} isLoading={isLoading}/>
         </div>
-        <MicButton className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback}/>
+        <MicButton className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes}/>
         </main>
     </>
   );
