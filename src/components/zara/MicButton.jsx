@@ -29,7 +29,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
       socketRef.current.send(event.data);
     }
   }
-
+  // switching from live transcription
   const stopListening = () => {
     console.log("Stopping to listen...")
     clearTimeout(transcriptTimer.current);
