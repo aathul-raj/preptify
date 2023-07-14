@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { useLocation } from "react-router-dom";
 import Tile from "./Tile"
+import Pro from "./Pro"
 import RecentFeedback from "./RecentFeedback"
 import CategoryScores from "./CategoryScores"
 import Graph from "./Graph"
@@ -62,17 +63,22 @@ export default function Analytics(){
         let total = historicalScores.reduce((a, b) => a + b, 0);
         let totalWithoutLast = total - historicalScores[historicalScores.length - 1];
 
-        let responseTotal = historicalResponseTime.reduce((a,b) => a + b, 0)
-        let responseTotalWithoutLast = responseTotal - historicalResponseTime[historicalResponseTime.length - 1]
-
         let averageAll = total / historicalScores.length;
         let averageWithoutLast = totalWithoutLast / (historicalScores.length - 1);
 
-        let responseAverage = responseTotal / historicalResponseTime.length
-        let responseAverageWithoutLast = responseTotalWithoutLast / (historicalResponseTime.length - 1)
-
         percentChange = ((averageAll - averageWithoutLast) / averageWithoutLast * 100).toFixed(1);
-        responsePercentChange = ((responseAverage - responseAverageWithoutLast) / responseAverageWithoutLast * 100).toFixed(1)
+        
+        if (responseTime <= 60) {
+            let responseTotal = historicalResponseTime.reduce((a,b) => a + b, 0)
+            let responseTotalWithoutLast = responseTotal - historicalResponseTime[historicalResponseTime.length - 1]
+
+            let responseAverage = responseTotal / historicalResponseTime.length
+            let responseAverageWithoutLast = responseTotalWithoutLast / (historicalResponseTime.length - 1)
+
+            responsePercentChange = ((responseAverage - responseAverageWithoutLast) / responseAverageWithoutLast * 100).toFixed(1)
+        } else {
+            responseTime = "60+"
+        }
     }
 
     // TODO: Average word count per answer/most used words (I guess this means look into cleaning up user response whether with deepgram or some other apib )
@@ -85,7 +91,7 @@ export default function Analytics(){
         <Tile name="overall-score" heading="Overall Score" subheading={percentChange != "N/A" ? `${Math.abs(percentChange)}% ${percentChange > 0 ? "increase" : "decrease"} after last interview` : "N/A"} score={overallScore} status={`${percentChange > 0 ? "increase" : "decrease"}`}/>
         <Graph historicalScores={historicalScores}/>
         <RecentFeedback recentFeedback={recentFeedback}/>
-        <Tile name="minutes-per-day" heading="Minutes Interviewing Per Day" subheading="12% Increase from Last Week" score={52} status="increase"/>
+        <Pro/>
         <Tile name="interviews-completed" heading="Interviews Completed" subheading="Keep it going!" score={interviewCount} status="increase"/>
     </>
 }

@@ -21,6 +21,20 @@ body {
   scrollbar-width: none;
 }
 
+button{
+  border-radius: 50px;
+  font-size: 1.5em;
+  font-family: 'Poppins';
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: 1s ease;
+}
+
+
+button:hover{
+  transform: scale(1.03);
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -142,7 +156,7 @@ body {
 }
 
 .get-started-button:hover, .learn-more-button:hover{
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 
@@ -216,7 +230,7 @@ body {
 }
 
 .log-in-button:hover{
-  transform: scale(1.1);
+  transform: scale(1.02);
 }
 
 .intro-text {

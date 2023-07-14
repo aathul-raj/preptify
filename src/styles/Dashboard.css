@@ -31,15 +31,15 @@
   justify-content: center;
   z-index: 210;
   padding: 3rem;
-  max-width: 80%;
+  max-width: 50%;
   max-height: 80%;
   overflow: auto;
   font-family: 'Poppins';
 }
 
 .popup-text{
-  margin: 0 15rem;
   padding: 0 2rem;
+  margin-bottom: 2rem;
   border: 2px solid white;
   border-radius: 15px;
 }
@@ -180,9 +180,9 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-auto-columns: 1fr;
   grid-template-areas: 
-    "A B E E"
-    "A C G G"
-    "A D I J";
+    "A I E E"
+    "A B G G"
+    "A C D J";
 }
 
 .tile{
@@ -360,6 +360,18 @@
   cursor: default;
   font-size: 1.1vw;
   font-family: 'Poppins';
+}
+
+.pro-heading{
+  cursor: default;
+  font-size: 1.4vw;
+  font-family: 'Poppins';
+  
+}
+
+.pro-button{
+  width: 13rem;
+  font-size: 1.8em;
 }
 
 .tile-subheading{

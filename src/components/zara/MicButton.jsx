@@ -4,7 +4,6 @@ import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
-import ZaraImages from '../../constants/ZaraImages';
 import '../../styles/MicButton.css'
 
 function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes }) {
@@ -16,6 +15,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
   const mediaStream = useRef(null); // to save the stream
   const socketRef = useRef(null);
   const transcriptTimer = useRef(null);
+  
 
   const updateInterviewLog = async (newLogEntry) => {
     const userDoc = doc(db, 'users', auth.currentUser.uid);
@@ -29,7 +29,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
       socketRef.current.send(event.data);
     }
   }
-  // switching from live transcription
+
   const stopListening = () => {
     console.log("Stopping to listen...")
     clearTimeout(transcriptTimer.current);

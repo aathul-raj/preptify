@@ -55,7 +55,7 @@ export default function Feedback( {feedback, responseTimes} ){
     }, []);
     
     function handleClick() {
-        navigate(`/dashboard`)
+        navigate(`/dashboard`, { replace: true })
         updateFeedbackSummary({...feedback, "overallScore": score, "responseTime" : responseTimeSum})
     }
 
@@ -142,6 +142,6 @@ export default function Feedback( {feedback, responseTimes} ){
             </div>
         </div>
         <h2 className="notice">All scores are out of 10</h2>
-        <button onClick={handleClick}>Dashboard</button>
+        <button className="dashboard-button" onClick={handleClick}>Dashboard</button>
     </div>
 }

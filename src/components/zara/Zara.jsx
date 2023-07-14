@@ -14,9 +14,9 @@ import "../../styles/Zara.css";
 
 function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
   
-  let navigate = useNavigate();
+  let navigate = useNavigate()
   let location = useLocation()
-  const db = getFirestore();
+  const db = getFirestore()
   const [transcript, setTranscript] = useState("")
   const [isLoading, setIsLoading] = useState(true) // State to track loading status
   const queryParam = new URLSearchParams(location.search)
@@ -54,6 +54,8 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
       }
     })
   }, []);
+
+  useEffect(() => {console.log(responseTimes)}, [responseTimes])
 
   const createUserInterviewLog = async () => {
     await setDoc(doc(db, 'users', auth.currentUser.uid), {

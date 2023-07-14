@@ -36,7 +36,11 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                setInterviewsCompleted(docSnap.data().interviewsCompleted);
+                if (docSnap.data().interviewsCompleted){
+                    setInterviewsCompleted(docSnap.data().interviewsCompleted);
+                } else{
+                    setInterviewsCompleted(0)
+                }        
             } else {
                 console.log("No such document!");
             }
@@ -50,7 +54,7 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             // Convert the object to a query string
             const queryParam = new URLSearchParams(selectedOptions).toString();
         
-            navigate(`/interview?${queryParam}`);
+            navigate(`/interview?${queryParam}`, { state: { fromButton: true } });
         } else {
             setError("Interview limit reached. Please provide your feedback via the Google form.")
             setTimeout(() => {
