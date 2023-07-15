@@ -23,7 +23,7 @@ export default function Graph( {historicalScores} ){
 
     return <div className="score-progress tile">
         <div className="chart-text">
-            <h2>Progress</h2>
+            <h1>Progress</h1>
             <div className="legend">
                 <div className="legend-circle"></div>
                 <span>Recent Interview Scores</span>

@@ -153,11 +153,13 @@
 }
 
 .welcome-text h2{
+  font-weight: normal;
   font-size: 1.6vw;
   color: #979797;
 }
 
 .welcome-text h1{
+  font-weight: normal;
   font-size: 2.5vw;
 }
 
@@ -357,6 +359,7 @@
 }
 
 .tile-heading{
+  font-weight: normal;
   cursor: default;
   font-size: 1.1vw;
   font-family: 'Poppins';
@@ -364,6 +367,7 @@
 
 .pro-heading{
   cursor: default;
+  font-weight: normal;
   font-size: 1.4vw;
   font-family: 'Poppins';
 }
@@ -495,8 +499,9 @@
   width: 100%;
 }
 
-.chart-text h2{
-  font-size: 1vw;
+.chart-text h1{
+  font-weight: normal;
+  font-size: 1.1vw;
   cursor: default;
   font-family: 'Poppins';
 }
