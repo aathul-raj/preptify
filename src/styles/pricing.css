@@ -170,3 +170,59 @@
 
 }
 
+@media (max-width: 768px) {
+  .main-container {
+    height: auto;
+  }
+
+  .call-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .call-text {
+    margin-top: 10rem; /* Adjust this value to move the call text up or down on mobile */
+  }
+
+  .call-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .call-text h2 {
+    font-size: 1.2rem;
+  }
+
+  .pricing-container {
+    flex-direction: column;
+    margin-top: 9rem; /* Adjust this value to move the pricing container up or down on mobile */
+  }
+
+  .pricing-box {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .toggle-button {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .feature-list {
+    font-size: 0.9rem;
+  }
+
+  .basic-highlight,
+  .premium-highlight,
+  .enterprise-highlight {
+    font-size: 1.5rem;
+  }
+
+  .log-in-button {
+    margin-bottom: 20px;
+  }
+
+  .price-text {
+    font-size: 2rem;
+  }
+}
+
