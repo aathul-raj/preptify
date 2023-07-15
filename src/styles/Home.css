@@ -129,9 +129,13 @@ button:hover{
 .mission-statement {
   font-family: 'Poppins';
   text-align: left;
-  font-size: 35px;
+  font-size: 30px;
   margin: 20px 0;
   color: white
+}
+
+.text-container h2{
+  font-weight: normal;
 }
 
 .button-container {

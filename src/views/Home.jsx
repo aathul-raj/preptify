@@ -63,8 +63,7 @@ function Home() {
                 <h1 className="slogan">elevate your career</h1>
               </div>
               <h2 className="mission-statement">
-                Supercharge your career with Zara, our mock interview AI. Claim
-                your first three sessions
+                Supercharge your career with Zara, our mock interview AI. Join our closed beta
                 <span className="highlight"> FOR FREE</span> - start today!
               </h2>
               <div className="button-container">
