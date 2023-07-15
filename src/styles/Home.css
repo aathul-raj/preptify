@@ -151,7 +151,6 @@ button:hover{
   white-space: nowrap;
   text-align: center;  /* To center the text inside the buttons */
   margin-top: 20px;
-  font-weight: bolder;
   transition: all 0.55s ease-in-out;
 }
 

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import HomeImages from '../constants/HomeImages.jsx';
+import HomeImages from "../constants/HomeImages.jsx";
 import "../styles/Home.css";
 
 function Home() {
@@ -15,9 +15,9 @@ function Home() {
         var rotation;
 
         if (index === 0) {
-            rotation = (((e.clientX + e.clientY) * movingValue) / 500); // Offset rotation for the first image
-          } else {
-            rotation = (((e.clientX + e.clientY) * movingValue) / 500) + 25;
+          rotation = ((e.clientX + e.clientY) * movingValue) / 500; // Offset rotation for the first image
+        } else {
+          rotation = ((e.clientX + e.clientY) * movingValue) / 500 + 25;
         }
 
         move.style.transform = `translateX(${x}px) translateY(${y}px) rotate(${rotation}deg)`;
@@ -49,15 +49,18 @@ function Home() {
         </div>
         <div className="home-container">
           <div className="home-content">
-          <img className="statue-img parallax-home" src={HomeImages.statue} alt="Roman Statue" data-value=".4"/>
+            <img
+              className="statue-img parallax-home"
+              src={HomeImages.statue}
+              alt="Roman Statue"
+              data-value=".4"
+            />
             <div className="text-container">
               <div className="slogan-container">
                 <h1 className="slogan">
                   elevate your <span className="highlight">interview,</span>
                 </h1>
-                <h1 className="slogan">
-                  elevate your career
-                </h1>
+                <h1 className="slogan">elevate your career</h1>
               </div>
               <h2 className="mission-statement">
                 Supercharge your career with Zara, our mock interview AI. Claim
@@ -72,7 +75,7 @@ function Home() {
                   get started
                 </button>
                 <button
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate("/pricing")}
                   className="learn-more-button"
                 >
                   pricing
@@ -82,7 +85,7 @@ function Home() {
           </div>
           <div className="scroll-down"></div>
         </div>
-        
+
         <div className="learn-more-container">
           <div className="home-block-1">
             <div className="text-container">
@@ -116,7 +119,11 @@ function Home() {
                 </h2>
               </div>
             </div>
-            <img className="learn-more-ai-img" src={HomeImages.careers} alt="AI" />
+            <img
+              className="learn-more-ai-img"
+              src={HomeImages.careers}
+              alt="AI"
+            />
           </div>
           <div className="home-block-2">
             <img className="features-img" src={HomeImages.features} alt="AI" />
@@ -176,11 +183,7 @@ function Home() {
                 >
                   get started
                 </button>
-                <button
-                  className="learn-more-button"
-                >
-                  pricing
-                </button>
+                <button className="learn-more-button">pricing</button>
               </div>
             </div>
           </div>
