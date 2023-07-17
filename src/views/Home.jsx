@@ -189,7 +189,7 @@ function Home() {
           </div>
         </div>
         <div className="footer">
-          <button onClick={() => navigate("/about")}> people </button>
+          <button onClick={() => navigate("/about")}> about </button>
           <button> faq </button>
           <button> contact </button>
         </div>
