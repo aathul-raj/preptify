@@ -7,6 +7,7 @@ import Login from "./views/Login.jsx";
 import Dashboard from "./views/Dashboard.jsx";
 import Interview from "./views/Interview.jsx";
 import Pricing from "./views/Pricing.jsx";
+import About from "./views/About.jsx";
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/beta-user-signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/interview" element={<Interview />} />
       </Routes>

@@ -63,7 +63,8 @@ function Home() {
                 <h1 className="slogan">elevate your career</h1>
               </div>
               <h2 className="mission-statement">
-                Supercharge your career with Zara, our mock interview AI. Join our closed beta
+                Supercharge your career with Zara, our mock interview AI. Join
+                our closed beta
                 <span className="highlight"> FOR FREE</span> - start today!
               </h2>
               <div className="button-container">
@@ -189,7 +190,7 @@ function Home() {
         </div>
         <div className="footer">
           <button> people </button>
-          <button> faq </button>
+          <button onClick={() => navigate("/about")}> faq </button>
           <button> contact </button>
         </div>
       </main>
