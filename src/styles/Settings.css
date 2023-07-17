@@ -43,12 +43,12 @@ h2{
 }
 
 .email-block-1 h1{
-    font-size: 1.6vw;
+    font-size: 1.3vw;
     color: #fff;
 }
 
 .email-block-1 h2{
-    font-size: 1.3vw;
+    font-size: 1vw;
     color: #7A7A7A;
 }
 
@@ -62,12 +62,12 @@ h2{
 }
 
 .toggle-text h1{
-    font-size: 1.6vw;
+    font-size: 1.3vw;
     color: #fff;
 }
 
 .toggle-text h2{
-    font-size: 1.3vw;
+    font-size: 1vw;
     color: #7A7A7A;
 }
 
@@ -124,12 +124,12 @@ input:checked[type="checkbox"]::after {
 }
 
 .billing-block-1 h1{
-    font-size: 1.6vw;
+    font-size: 1.3vw;
     color: #fff;
 }
 
 .billing-block-1 h2{
-    font-size: 1.3vw;
+    font-size: 1vw;
     color: #7A7A7A;
 }
 
@@ -153,15 +153,8 @@ input:checked[type="checkbox"]::after {
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.122);
 }
 
-.plan-container h3{
-    font-weight: normal;
-    font-size: 1.3vw;
-    color: #fff;
-    margin: 1rem 0 0 0;
-}
-
 .plan-container h1{
-    margin: 0;
+    margin: 1rem 0 0 0;
     font-weight: 700;
     font-size: 3.4vw;
     color: #fff;
@@ -178,7 +171,7 @@ input:checked[type="checkbox"]::after {
 
 .plan-container button{
     font-size: 1vw;
-    margin: 1.2rem 0;
+    margin: 1rem 0;
 }
 
 @media(max-width: 750px){

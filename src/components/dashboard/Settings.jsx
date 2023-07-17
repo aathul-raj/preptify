@@ -44,7 +44,6 @@ export default function Setting(){
                 </div>
                 <div className="billing-block-2">
                     <div className="plan-container">
-                        <h3>Upgrade Plan</h3>
                         <h1><span className="green">Z</span>ARA <span className="green">PRO</span></h1>
                         <h2>Advanced features for a comprehensive and more effective interview preparation experience</h2>
                         <button>Coming Soon</button>
