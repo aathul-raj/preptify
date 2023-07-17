@@ -189,8 +189,8 @@ function Home() {
           </div>
         </div>
         <div className="footer">
-          <button> people </button>
-          <button onClick={() => navigate("/about")}> faq </button>
+          <button onClick={() => navigate("/about")}> people </button>
+          <button> faq </button>
           <button> contact </button>
         </div>
       </main>

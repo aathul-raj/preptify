@@ -16,7 +16,7 @@ function About() {
 
   return (
     <>
-      <main>
+      <main className="about-main">
         <div className="header">
           <div className="logo-container">
             <img

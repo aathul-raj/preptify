@@ -1,3 +1,9 @@
+.about-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .about-container{
     display: flex;
     flex-direction: column; /* Stack the divs vertically. */
