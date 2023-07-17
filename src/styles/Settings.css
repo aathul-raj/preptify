@@ -158,13 +158,13 @@ input:checked[type="checkbox"]::after {
     font-weight: normal;
     font-size: 1.3vw;
     color: #fff;
-    margin-bottom: 0;
+    margin: 1rem 0 0 0;
 }
 
 .plan-container h1{
     margin: 0;
     font-weight: 700;
-    font-size: 4vw;
+    font-size: 3.4vw;
     color: #fff;
     font-style: italic;
     text-align: center;
@@ -179,7 +179,7 @@ input:checked[type="checkbox"]::after {
 
 .plan-container button{
     font-size: 1vw;
-    margin: 2rem;
+    margin: 1.2rem 0;
 }
 
 @media(max-width: 750px){
