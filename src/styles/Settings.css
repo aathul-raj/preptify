@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+body{
+    font-family: 'Poppins';
+}
+
+h1{
+    font-weight: normal;
+    cursor: default;
+}
+
+h2{
+    font-weight: normal;
+    cursor: default;
+}
+
+.welcome-text h1{
+    font-weight: normal;
+    font-size: 1.6vw;
+}
+
+.email-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-top: 3px solid #232323;
+    border-bottom: 3px solid #232323;
+    padding: 1rem 0;
+    margin: 0 1rem;
+}
+
+.email-block-1{
+    flex: 1.3;
+}
+
+.email-block-2{
+    flex: 2;
+    margin-left: 10rem;
+}
+
+.email-block-3{
+    flex: 2;
+}
+
+.email-block-1 h1{
+    font-size: 1.6vw;
+    color: #fff;
+}
+
+.email-block-1 h2{
+    font-size: 1.3vw;
+    color: #7A7A7A;
+}
+
+.toggle-container{
+    margin: 0 1rem;
+    display: flex;
+}
+
+.toggle-text{
+    width: 65%;
+}
+
+.toggle-text h1{
+    font-size: 1.6vw;
+    color: #fff;
+}
+
+.toggle-text h2{
+    font-size: 1.3vw;
+    color: #7A7A7A;
+}
+
+.check-box{
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+}
+
+input[type="checkbox"] {
+    position: relative;
+    appearance: none;
+    width: 50px;
+    height: 25px;
+    background: #ccc;
+    border-radius: 50px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+input:checked[type="checkbox"] {
+    background: #15D59F;
+}
+
+input[type="checkbox"]::after {
+    position: absolute;
+    content: "";
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+    transition: 0.4s;
+}
+
+input:checked[type="checkbox"]::after {
+    left: 50%;
+}
+
+.billing-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 2rem 0;
+    margin: 0 1rem;
+}
+
+.billing-block-1{
+    flex: 1;
+}
+
+.billing-block-1 h1{
+    font-size: 1.6vw;
+    color: #fff;
+}
+
+.billing-block-1 h2{
+    font-size: 1.3vw;
+    color: #7A7A7A;
+}
+
+.billing-block-2{
+    flex: 3;
+}
+
+.plan-container{
+    padding: 0 2rem;
+    margin-left: 8rem;
+    width: 40vw;
+    background-color: #18191D;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.55s ease-in-out;
+}
+
+.plan-container:hover{
+    transform: scale(1.008);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.122);
+}
+
+.plan-container h3{
+    font-weight: normal;
+    font-size: 1.3vw;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.plan-container h1{
+    margin: 0;
+    font-weight: 700;
+    font-size: 4vw;
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+}
+
+.plan-container h2{
+    margin: 0;
+    text-align: center;
+    font-size: 1.3vw;
+    color: #7A7A7A;
+}
+
+.plan-container button{
+    font-size: 1vw;
+    margin: 2rem;
+}
+
+@media(max-width: 750px){
+    .welcome-text h1{
+        font-size: 1.2rem;
+      }
+}

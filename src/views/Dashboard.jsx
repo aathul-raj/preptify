@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import DashboardContent from "../components/dashboard/DashboardContent";
+import Setting from "../components/dashboard/Settings";
 import Sidebar from "../components/dashboard/Sidebar";
 import Popup from '../components/Popup'
 import { auth } from '../back-end/Firebase';
@@ -9,6 +10,7 @@ import "../styles/Dashboard.css";
 
 export default function Dashboard(){
   const db = getFirestore();
+  const [activeItem, setActiveItem] = useState('dashboard');
   const [showPopup, setShowPopup] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
@@ -36,17 +38,25 @@ export default function Dashboard(){
     });
   }, []);
 
+  useEffect(() => {
+    console.log(activeItem)
+  }, [activeItem])
+
   const closePopup = () => {
     setShowPopup(false);
     if (currentUser) {
       // set the tutorialShown field to true
       setDoc(doc(db, "users", currentUser.uid), { tutorialShown: true }, { merge: true });
     }
-  };
+  }
+
+  const screens = { 'dashboard' : <DashboardContent/>,
+                      'settings' : <Setting/>
+}
   
   return currentUser ? <div className="dashboard-container">
-                  <Sidebar/>
-                  <DashboardContent/>
+                  <Sidebar activeItem={activeItem} setActiveItem={setActiveItem}/>
+                  {screens[activeItem]}
                   {showPopup && <Popup onClose={closePopup} />}
                 </div> : null
 }
