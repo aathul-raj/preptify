@@ -140,7 +140,6 @@ input:checked[type="checkbox"]::after {
 .plan-container{
     padding: 0 2rem;
     margin-left: 8rem;
-    width: 40vw;
     background-color: #18191D;
     border-radius: 15px;
     display: flex;
