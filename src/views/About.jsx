@@ -5,7 +5,7 @@ import HomeImages from "../constants/HomeImages.jsx";
 
 import OrganizationImage from "../img/organization.png";
 
-import "../styles/About.css";
+import "../styles/about.css";
 
 function About() {
   const navigate = useNavigate();
