@@ -1,0 +1,88 @@
+.about-container{
+    display: flex;
+    flex-direction: column; /* Stack the divs vertically. */
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+  }
+
+.logo-img:hover{
+    cursor: pointer;
+}
+
+.about-slogan {
+    text-align: left;
+    margin: 20px 0;
+    color: white;
+    font-size: 4rem;
+    font-weight: 600;
+  }
+
+
+.about-mission-statement {
+    font-family: 'Poppins';
+    text-align: left;
+    font-size: 30px;
+    margin: 20px 0;
+    color: white;
+    width: 80%;
+    font-weight: 400;
+    margin-bottom: 5rem;
+
+}
+
+.about-text-container {
+        flex-basis: 50%;
+        margin-top: 3rem;
+    
+}
+
+.organization-img {
+    align-self: center;
+    flex-basis: 50%; 
+    max-width: 450px;
+  }
+
+  * {
+    box-sizing: border-box;
+}
+
+@media (max-width: 800px) {
+    .about-content {
+        flex-direction: column;
+    }
+
+    .about-content div {
+        width: auto;
+        margin: 0;
+    }
+
+    .about-slogan {
+        font-size: 2rem;
+    }
+
+    .about-mission-statement {
+        font-size: 15px;
+    }
+
+    .about-container {
+        height:auto;
+        padding: none;
+        margin:none;
+        width: auto;
+    }
+    
+    .organization-img {
+        width: 16rem;
+
+      }
+}
+
+
+
