@@ -383,7 +383,6 @@
 }
 
 .active{
-  /* background-color: rgba(100, 100, 100, 0.1); */
   position: relative; /* important for placing the pseudo-element */
   border-radius: 5px;
 }

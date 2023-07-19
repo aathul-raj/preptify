@@ -1,11 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import "../styles/pricing.css";
 import Logo from "../img/preptify_cropped.png";
 import { Link, useNavigate } from "react-router-dom";
+import PricingImages from "../constants/PricingImages";
 
 function Pricing() {
   const navigate = useNavigate();
-  const [isAnnual, setIsAnnual] = useState(false);
+  const [active, setActive] = useState("monthly")
+  const priceSwitchRef = useRef(null);
+  const discountRef = useRef(null);
+
+  useEffect(() => {
+    // Get the bounding rectangles of the two elements
+    const priceSwitchRect = priceSwitchRef.current.getBoundingClientRect();
+  
+    // Calculate the vertical center of the price-switch container
+    const priceSwitchCenter = priceSwitchRect.top + priceSwitchRect.height / 2;
+  
+    // Apply the calculated top position to the confetti image
+    discountRef.current.style.position = 'absolute';
+    discountRef.current.style.top = `${priceSwitchCenter}px`;
+  }, []);
 
   return (
     <div className="main-container">
@@ -21,74 +36,95 @@ function Pricing() {
           </button>
         </div>
       </div>
-      <div className="call-container">
         <div className="call-text">
-          <h1>Invest in Yourself, Reap Rewards Forever</h1>
+          <h1>pricing plans</h1>
           <h2>
-            Level up your interviews today with Zara - our AI-powered SWE
-            interview assistant, designed to give you an edge.
+            Our pricing plans are designed to be affordable, flexible, and tailored to your unique needs.
           </h2>
+          <img className="discount" src={PricingImages.discount} alt="discount" ref={discountRef}/>
+          <img className="confetti c-1" src={PricingImages.confetti} alt="confetti" />
+          <img className="confetti c-2" src={PricingImages.confetti} alt="confetti" />
         </div>
-        <div className="price-switch-container">
-          <div className="pricing-button-container">
-            <button
-              className={isAnnual ? "toggle-button" : "toggle-button active"}
-              onClick={() => setIsAnnual(false)}
-            >
-              Monthly
-            </button>
-            <button
-              className={isAnnual ? "toggle-button active" : "toggle-button"}
-              onClick={() => setIsAnnual(true)}
-            >
-              Annual
-            </button>
-          </div>
+      <div className="price-switch" ref={priceSwitchRef}>
+        <div className={`price-tile monthly ${active == "monthly" ? "active-switch" : "not-active"}`} onClick={() => setActive("monthly")}>
+          <h2>monthly</h2>
         </div>
-        <div className="pricing-container">
-          <div className="pricing-box basic-box">
-            <h3 className="basic-highlight">Basic</h3>
-            <p className="price-text">Free</p>
-            <ul className="feature-list">
-              <li>Limited daily interviews</li>
-              <li>Standard analytics</li>
-              <li>Interview performance insights</li>
-              <li>Ads displayed on dashboard and during the interview</li>
-              <li>Access to all industry-based questions</li>
-            </ul>
-            <button
-              className="log-in-button"
-              onClick={() => navigate("/signup")}
-            >
-              Get Started
-            </button>
-          </div>
-          <div className="pricing-box premium-box">
-            <h3 className="premium-highlight">Premium</h3>
-            <p className="price-text">{isAnnual ? "$190/year" : "$17/month"}</p>
-            <ul className="feature-list">
-              <li>Unlimited access to interviews</li>
-              <li>Ad-free interface for uninterrupted preparation</li>
-              <li>
-                Access to "Interview answer perfecter", "Resume-Based
-                Interviewer", and "Next steps"
-              </li>
-              <li>Advanced Analytics</li>
-            </ul>
-            <a
-              href="mailto:preptifyco@gmail.com?subject=Premium%20Interest&body=I'm%20interested%20in%20Preptify's%20premium%20plan!"
-              target="_blank"
-            >
-              <button className="log-in-button">Coming Soon</button>
-            </a>
-          </div>
-          {/* <div className="pricing-box enterprise-box">
-            <h3 className="enterprise-highlight">Enterprise</h3>
-            <p>{isAnnual ? "" : ""}</p>
-            <button className="log-in-button">Contact Sales</button>
-          </div> */}
+        <div className={`price-tile yearly ${active == "yearly" ? "active-switch" : "not-active"}`} onClick={() => setActive("yearly")}>
+          <h2>yearly</h2>
         </div>
       </div>
+      <div className="pricing-container">
+        <div className="basic-card">
+          <div className="stars">
+            <img src={PricingImages.star} alt="star"/>
+          </div>
+          <div className="card-heading">
+            <h1>Basic</h1>
+            <h2>Basic mock interviews for quick practice</h2>
+          </div>
+          <h2 className="pricing">$0<span>/forever</span></h2>
+          <div className="line"></div>
+          <div className="features-container">
+            <h1>Features</h1>
+            <div className="feature">
+              <img src={PricingImages.check} alt="check"/>
+              <h2>Limited daily interviews</h2>
+            </div>
+            <div className="feature">
+            <img src={PricingImages.check} alt="check"/>
+              <h2>Standard Analytics</h2>
+            </div>
+            <div className="feature">
+              <img src={PricingImages.check} alt="check"/>
+              <h2>Interview Insights</h2>
+            </div>
+            <div className="feature">
+              <img src={PricingImages.check} alt="check"/>
+              <h2>Ad Supported</h2>
+            </div>
+          </div>
+          <button onClick={() => navigate('/signup')}>start</button>
+          <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
+        </div>
+        <div className="standard-card">
+        <div className="stars">
+            <img src={PricingImages.star} alt="star"/>
+            <img src={PricingImages.star} alt="star"/>
+          </div>
+          <div className="card-heading">
+            <h1>Standard</h1>
+            <h2>Additional features for detailed preparation</h2>
+          </div>
+          <h2 className="pricing">${active === "monthly" ? "9.99" : "189.99"}<span>/per month</span></h2>
+          <div className="line"></div>
+          <div className="features-container">
+            <h1>Features</h1>
+            <div className="feature"> 
+              <img src={PricingImages.check} alt="check"/>
+              <h2>Unlimited interviews</h2>
+            </div>
+            <div className="feature">
+              <img src={PricingImages.check} alt="check"/>
+              <h2>Advanced Analytics</h2>
+            </div>
+            <div className="feature">
+              <img src={PricingImages.check} alt="check"/>
+              <h2>Priority Support</h2>
+            </div>
+            <div className="feature">
+              <img src={PricingImages.check} alt="check"/>
+              <h2>Ad-Free Experience</h2>
+            </div>
+          </div>
+          <button>coming soon</button>
+          <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
+        </div>
+      </div>
+      <div className="footer">
+          <button> people </button>
+          <button> faq </button>
+          <button> contact </button>
+        </div>
     </div>
   );
 }
