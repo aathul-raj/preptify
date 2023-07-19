@@ -95,7 +95,7 @@ function Pricing() {
             <h1>Standard</h1>
             <h2>Additional features for detailed preparation</h2>
           </div>
-          <h2 className="pricing">${active === "monthly" ? "9.99" : "189.99"}<span>/per month</span></h2>
+          <h2 className="pricing">${active === "monthly" ? "9.99" : "189.99"}<span>/per {active === "monthly" ? "month" : "year"}</span></h2>
           <div className="line"></div>
           <div className="features-container">
             <h1>Features</h1>
