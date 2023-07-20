@@ -67,19 +67,15 @@ function Pricing() {
           <div className="features-container">
             <h1>Features</h1>
             <div className="feature">
-              <img src={PricingImages.check} alt="check"/>
               <h2>Limited daily interviews</h2>
             </div>
             <div className="feature">
-            <img src={PricingImages.check} alt="check"/>
               <h2>Standard Analytics</h2>
             </div>
             <div className="feature">
-              <img src={PricingImages.check} alt="check"/>
               <h2>Interview Insights</h2>
             </div>
             <div className="feature">
-              <img src={PricingImages.check} alt="check"/>
               <h2>Ad Supported</h2>
             </div>
           </div>
@@ -100,19 +96,15 @@ function Pricing() {
           <div className="features-container">
             <h1>Features</h1>
             <div className="feature"> 
-              <img src={PricingImages.check} alt="check"/>
               <h2>Unlimited interviews</h2>
             </div>
             <div className="feature">
-              <img src={PricingImages.check} alt="check"/>
               <h2>Advanced Analytics</h2>
             </div>
             <div className="feature">
-              <img src={PricingImages.check} alt="check"/>
               <h2>Priority Support</h2>
             </div>
             <div className="feature">
-              <img src={PricingImages.check} alt="check"/>
               <h2>Ad-Free Experience</h2>
             </div>
           </div>
