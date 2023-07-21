@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/Preloader.css";
+import styles from "../../styles/Preloader.module.css"
 
 const LoadingAnimation = () => {
     let dots = [];
@@ -16,7 +16,7 @@ const LoadingAnimation = () => {
         dots.push(<div style={{animationDelay: delay}} key={x} />);
     }
 
-    return <div className="loading">{dots}</div>
+    return <div className={styles["loading"]}>{dots}</div>
 };
 
 export default LoadingAnimation;

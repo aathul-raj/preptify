@@ -1,0 +1,101 @@
+/* Main Header */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3rem;
+}
+
+.logo-img{
+    cursor: pointer;
+    width: 160px;
+}
+
+.auth-buttons-container {
+    margin-right: 3rem;
+    display: flex;
+    align-items: center;
+}
+
+.log-in-button,
+.sign-up-button {
+  color: black ;
+  background-color: white;
+  transition: all 0.55s ease-in-out;
+  padding: 10px 20px;
+  border-radius: 41px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.log-in-button:hover{
+    transform: scale(1.02);
+}
+  
+/* Footer */
+
+.footer {
+    font-family: 'Poppins';
+    display: flex;
+    justify-content: right;
+    color: gray;
+    padding: 20px 0;
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+    border-top: 1px solid gray; 
+  }
+  
+.footer button {
+background: none;
+border: none;
+color: gray;
+cursor: pointer;
+font-weight: bolder;
+}
+
+/* Button */
+
+button{
+    border-radius: 50px;
+    font-size: 1.5em;
+    font-family: 'Poppins';
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: 1s ease;
+}
+  
+  
+button:hover{
+transform: scale(1.03);
+}
+
+@media(max-width: 750px){
+
+    .header{
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .footer {
+        justify-content: center;
+    }
+
+    .footer button{
+        font-size: 20px;
+    }
+
+    .logo-container{
+        margin-left: 1rem;
+    }
+}

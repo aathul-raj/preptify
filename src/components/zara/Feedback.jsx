@@ -5,7 +5,7 @@ import { doc, updateDoc, getDoc, increment, getFirestore } from "firebase/firest
 import { getAuth } from "firebase/auth";
 import CountUp from 'react-countup';
 import ZaraImages from '../../constants/ZaraImages';
-import "../../styles/Feedback.css";
+import styles from "../../styles/Feedback.module.css"
 
 export default function Feedback( {feedback, responseTimes} ){
     const db = getFirestore()
@@ -118,30 +118,32 @@ export default function Feedback( {feedback, responseTimes} ){
         })
     }
     
-    return <div className="feedback-container">
-        <img src={ZaraImages.confetti} className="parallax confetti-1" data-value=".5"/>
-        <img src={ZaraImages.confetti} className="parallax confetti-2" data-value=".5"/>
-        <h1 className="zara"><span className="green">Z</span>ARA</h1>
-        <div className="top-text">
-            <h2 className="completed">Interview <span className="green">Completed!</span></h2>
-            <h3 className="score">Overall Score: <span className="green"><CountUp end={score} duration={5} decimals={1} decimal={'.'} delay={1}/>/10</span></h3>
-        </div>
-        <div className="feedback-content">
-            <div className="category-container">
-                <Category category="Behavioral Responses" score={behaviorScore}/>
-                <Category category="Problem Solving" score={problemScore}/>
-                <Category category="Comm. Skills" score={commScore}/>
-                <Category category="Technical Skills" score={techScore}/>
+    return (
+        <div className={styles["feedback-container"]}>
+            <img src={ZaraImages.confetti} className={`${styles["parallax"]} ${styles["confetti-1"]}`} data-value=".5"/>
+            <img src={ZaraImages.confetti} className={`${styles["parallax"]} ${styles["confetti-2"]}`} data-value=".5"/>
+            <h1 className={styles["zara"]}><span className={styles["green"]}>Z</span>ARA</h1>
+            <div className={styles["top-text"]}>
+                <h2 className={styles["completed"]}>Interview <span className={styles["green"]}>Completed!</span></h2>
+                <h3 className={styles["score"]}>Overall Score: <span className={styles["green"]}><CountUp end={score} duration={5} decimals={1} decimal={'.'} delay={1}/>/10</span></h3>
             </div>
-            <div className="comments-container">
-                <ul>
-                    <li className="negative-feedback">{negativeOne}</li>
-                    <li className="negative-feedback">{negativeTwo}</li>
-                    <li className="positive-feedback">{positive}</li>
-                </ul>
+            <div className={styles["feedback-content"]}>
+                <div className={styles["category-container"]}>
+                    <Category category="Behavioral Responses" score={behaviorScore}/>
+                    <Category category="Problem Solving" score={problemScore}/>
+                    <Category category="Comm. Skills" score={commScore}/>
+                    <Category category="Technical Skills" score={techScore}/>
+                </div>
+                <div className={styles["comments-container"]}>
+                    <ul>
+                        <li className={styles["negative-feedback"]}>{negativeOne}</li>
+                        <li className={styles["negative-feedback"]}>{negativeTwo}</li>
+                        <li className={styles["positive-feedback"]}>{positive}</li>
+                    </ul>
+                </div>
             </div>
+            <h2 className={styles["notice"]}>All scores are out of 10</h2>
+            <button className={styles["dashboard-button"]} onClick={handleClick}>Dashboard</button>
         </div>
-        <h2 className="notice">All scores are out of 10</h2>
-        <button className="dashboard-button" onClick={handleClick}>Dashboard</button>
-    </div>
+    );
 }

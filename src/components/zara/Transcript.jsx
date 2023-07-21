@@ -1,9 +1,9 @@
 import Typewriter from 'typewriter-effect';
 import React from 'react';
 
-export default function Transcript({ transcript, isLoading }) {
+export default function Transcript({ transcript, isLoading, styles }) {
   return (
-    <div className={`text-server transcript ${isLoading ? 'hidden' : 'visible'}`}>
+    <div className={`${styles["text-server"]} ${styles["transcript"]} ${isLoading ? styles['hidden'] : styles['visible']}`}>
       {transcript && 
         <Typewriter
           key={transcript}

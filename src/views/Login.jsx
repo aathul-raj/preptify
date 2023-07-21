@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Footer from "../components/global/Footer"
 import { auth } from "../back-end/Firebase";
 import {
   signInWithEmailAndPassword,
@@ -7,7 +8,7 @@ import {
   browserLocalPersistence,
 } from "firebase/auth";
 import EntryImages from "../constants/EntryImages";
-import "../styles/Login.css";
+import styles from '../styles/Login.module.css'
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -36,20 +37,20 @@ function Login() {
   };
 
   return (
-    <div className="main-container">
-      <div className="header">
-        <div className="logo-container">
+    <div className={styles['main-container']}>
+      <div className={styles['header']}>
+        <div className={styles['logo-container']}>
           <Link to="/">
-            <img className="logo-img" src={EntryImages.logo} alt="logo" />
+            <img className={styles['logo-img']} src={EntryImages.logo} alt="logo" />
           </Link>
         </div>
       </div>
 
-      <div className="login-container">
-        <div className="login-input-group">
+      <div className={styles['login-container']}>
+        <div className={styles['login-input-group']}>
           <div>
             <label>
-              what is your <span className="highlight">email?</span>
+              what is your <span className={styles['highlight']}>email?</span>
             </label>
             <input
               type="email"
@@ -61,7 +62,7 @@ function Login() {
           </div>
           <div>
             <label>
-              what is your <span className="highlight">password?</span>
+              what is your <span className={styles['highlight']}>password?</span>
             </label>
             <input
               type="password"
@@ -72,17 +73,18 @@ function Login() {
             />
           </div>
         </div>
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
+        {errorMessage && <div className={styles['error-message']}>{errorMessage}</div>}
 
-        <button className="login-button" onClick={handleLogin}>
+        <button className={styles['login-button']} onClick={handleLogin}>
           login
         </button>
-        <p className="login-link">
+        <p className={styles['login-link']}>
           dont have an account? <a href="/signup">sign up</a>
         </p>
       </div>
+      <Footer/>
     </div>
-  );
+  )
 }
 
 export default Login;

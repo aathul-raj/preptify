@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef} from "react";
-import "../styles/pricing.css";
-import Logo from "../img/preptify_cropped.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import MainHeader from "../components/global/MainHeader"
+import Footer from "../components/global/Footer"
 import PricingImages from "../constants/PricingImages";
+import styles from "../styles/Pricing.module.css"
 
 function Pricing() {
   const navigate = useNavigate();
@@ -23,88 +24,77 @@ function Pricing() {
   }, []);
 
   return (
-    <div className="main-container">
-      <div className="header">
-        <div className="logo-container">
-          <Link to="/">
-            <img className="logo-img" src={Logo} alt="logo" />
-          </Link>
-        </div>
-        <div className="auth-buttons-container">
-          <button onClick={() => navigate("/login")} className="log-in-button">
-            log in
-          </button>
-        </div>
-      </div>
-        <div className="call-text">
+    <div className={styles["main-container"]}>
+      <MainHeader/>
+        <div className={styles["call-text"]}>
           <h1>pricing plans</h1>
           <h2>
             Our pricing plans are designed to be affordable, flexible, and tailored to your unique needs.
           </h2>
-          <img className="discount" src={PricingImages.discount} alt="discount" ref={discountRef}/>
-          <img className="confetti c-1" src={PricingImages.confetti} alt="confetti" />
-          <img className="confetti c-2" src={PricingImages.confetti} alt="confetti" />
+          <img className={styles["discount"]} src={PricingImages.discount} alt="discount" ref={discountRef}/>
+          <img className={styles["confetti"] + " " + styles["c-1"]} src={PricingImages.confetti} alt="confetti" />
+          <img className={styles["confetti"] + " " + styles["c-2"]} src={PricingImages.confetti} alt="confetti" />
         </div>
-      <div className="price-switch" ref={priceSwitchRef}>
-        <div className={`price-tile monthly ${active == "monthly" ? "active-switch" : "not-active"}`} onClick={() => setActive("monthly")}>
+      <div className={styles["price-switch"]} ref={priceSwitchRef}>
+        <div className={`${styles["price-tile"]} ${styles["monthly"]} ${active == "monthly" ? styles["active-switch"] : styles["not-active"]}`} onClick={() => setActive("monthly")}>
           <h2>monthly</h2>
         </div>
-        <div className={`price-tile yearly ${active == "yearly" ? "active-switch" : "not-active"}`} onClick={() => setActive("yearly")}>
+        <div className={`${styles["price-tile"]} ${styles["yearly"]} ${active == "yearly" ? styles["active-switch"] : styles["not-active"]}`} onClick={() => setActive("yearly")}>
           <h2>yearly</h2>
         </div>
       </div>
-      <div className="pricing-container">
-        <div className="basic-card">
-          <div className="stars">
+      <div className={styles["pricing-container"]}>
+        <div className={styles["basic-card"]}>
+          <div className={styles["stars"]}>
             <img src={PricingImages.star} alt="star"/>
           </div>
-          <div className="card-heading">
+          <div className={styles["card-heading"]}>
             <h1>Basic</h1>
             <h2>Basic mock interviews for quick practice</h2>
           </div>
-          <h2 className="pricing">$0<span>/forever</span></h2>
-          <div className="line"></div>
-          <div className="features-container">
+          <h2 className={styles["pricing"]}>$0<span>/forever</span></h2>
+          <div className={styles["line"]}></div>
+          <div className={styles["features-container"]}>
             <h1>Features</h1>
-            <div className="feature">
+            <div className={styles["feature"]}>
               <h2>Limited daily interviews</h2>
             </div>
-            <div className="feature">
+            <div className={styles["feature"]}>
               <h2>Standard Analytics</h2>
             </div>
-            <div className="feature">
+            <div className={styles["feature"]}>
               <h2>Interview Insights</h2>
             </div>
-            <div className="feature">
+            <div className={styles["feature"]}>
               <h2>Ad Supported</h2>
             </div>
           </div>
           <button onClick={() => navigate('/signup')}>start</button>
           <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
         </div>
-        <div className="standard-card">
-        <div className="stars">
+        <div className={styles["standard-card"]}>
+        <div className={styles["stars"]}>
             <img src={PricingImages.star} alt="star"/>
             <img src={PricingImages.star} alt="star"/>
           </div>
-          <div className="card-heading">
+          <div className={styles["card-heading"]}>
             <h1>Standard</h1>
             <h2>Additional features for detailed preparation</h2>
           </div>
-          <h2 className="pricing">${active === "monthly" ? "9.99" : "189.99"}<span>/per {active === "monthly" ? "month" : "year" }</span></h2>
-          <div className="line"></div>
-          <div className="features-container">
+          <h2 className={styles["pricing"]}>${active === "monthly" ? "9.99" : "189.99"}<span>/per {active === "monthly" ? "month" : "year" }</span></h2>
+          <div className={styles["line"]}></div>
+          <div className={styles["features-container"]}>
             <h1>Features</h1>
-            <div className="feature"> 
+            <div className={styles["feature"]}> 
               <h2>Unlimited interviews</h2>
             </div>
-            <div className="feature">
+            <div className={styles["feature"]}>
               <h2>Advanced Analytics</h2>
             </div>
-            <div className="feature">
+            <div className={styles["feature"]}>
               <h2>Priority Support</h2>
             </div>
-            <div className="feature">
+            <div className={styles["feature"]}>
               <h2>Ad-Free Experience</h2>
             </div>
           </div>
@@ -112,13 +102,9 @@ function Pricing() {
           <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
         </div>
       </div>
-      <div className="footer">
-          <button> people </button>
-          <button> faq </button>
-          <button> contact </button>
-        </div>
+      <Footer/>
     </div>
-  );
+)
 }
 
 export default Pricing;

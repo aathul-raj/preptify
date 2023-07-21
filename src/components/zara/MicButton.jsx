@@ -4,7 +4,7 @@ import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
-import '../../styles/MicButton.css'
+import styles from "../../styles/MicButton.module.css"
 
 function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes }) {
 
@@ -111,16 +111,10 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
   };
 
   return (
-    <button className={`btn ${isListening ? 'animate' : ''} ${isLoading ? 'hidden' : 'visible'}`} onClick={toggleListening}>
-      {/* <div className={`${isListening ? 'pulse-ring' : 'no-ring'}`}></div> */}
-      <div className="pulse-ring"></div>
+    <button className={`${styles["btn"]} ${isListening ? styles['animate'] : ''} ${isLoading ? styles['hidden'] : styles['visible']}`} onClick={toggleListening}>
+      <div className={styles["pulse-ring"]}></div>
       <FontAwesomeIcon icon={faMicrophone}/>
     </button>
-    // <img 
-    //   className={`mic-img ${isListening ? 'pulse' : ''} ${isLoading ? 'hidden' : 'visible'}`} 
-    //   src={ZaraImages.mic} 
-    //   onClick={toggleListening}
-    // />
   )
 }
 

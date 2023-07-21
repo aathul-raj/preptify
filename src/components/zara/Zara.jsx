@@ -10,7 +10,7 @@ import axios from 'axios';
 import { getFirestore, doc, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import ZaraImages from "../../constants/ZaraImages";
-import "../../styles/Zara.css";
+import styles from "../../styles/Zara.module.css"
 
 function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
   
@@ -73,15 +73,15 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
   return (
     <>   
         <main>
-        <div className="container">
-          <div className={`heading ${isLoading ? 'hidden' : 'visible'}`}>
-            <Title />
-            <Subheading />
+        <div className={styles["container"]}>
+          <div className={`${styles["heading"]} ${isLoading ? styles['hidden'] : styles['visible']}`}>
+            <Title styles={styles}/>
+            <Subheading styles={styles}/>
           </div>
-          {isLoading ? <Preloader/> : <img className={`ai-img ${isLoading ? 'hidden' : 'visible'}`} src={ZaraImages.ai} />}
-          <Transcript className={isLoading ? 'hidden' : 'visible'} transcript={transcript} isLoading={isLoading}/>
+          {isLoading ? <Preloader/> : <img className={`${styles["ai-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} src={ZaraImages.ai} />}
+          <Transcript className={isLoading ? styles['hidden'] : styles['visible']} transcript={transcript} isLoading={isLoading} styles={styles}/>
         </div>
-        <MicButton className={`mic-img ${isLoading ? 'hidden' : 'visible'}`} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes}/>
+        <MicButton className={`${styles["mic-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes}/>
         </main>
     </>
   );

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import DashboardImages from '../../constants/DashboardImages'
 
-export default function ZaraStartMain( {setIndex} ){
+export default function ZaraStartMain( {setIndex, styles} ){
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -29,13 +29,13 @@ export default function ZaraStartMain( {setIndex} ){
     }, []);
 
     return (
-      <div className="start-zara-main">
-        <h1 className="zara-heading"><span className="green">Z</span>ARA</h1>
-        <div className="blob-container" style={{ position: 'relative', height: '200px', width: '200px' }}>
-            <img src={DashboardImages.blob} className="parallax blob" data-value=".5" style={{ position: 'absolute', height: '100%', width: '100%' }}/>
+      <div className={styles["start-zara-main"]}>
+        <h1 className={styles["zara-heading"]}><span className={styles["green"]}>Z</span>ARA</h1>
+        <div className={styles["blob-container"]} style={{ position: 'relative', height: '200px', width: '200px' }}>
+            <img src={DashboardImages.blob} className={`${styles["parallax"]} ${styles["blob"]}`} data-value=".5" style={{ position: 'absolute', height: '100%', width: '100%' }}/>
         </div>
         <button
-          className="start-button"
+          className={styles["start-button"]}
           onClick={() => setIndex((prevIndex) => prevIndex + 1)}
           >
           Setup Interview

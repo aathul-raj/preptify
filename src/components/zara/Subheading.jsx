@@ -1,3 +1,3 @@
-export default function Subheading(){
-    return <h2 className="subheading-text">SWE Mock Interview</h2>
+export default function Subheading( {styles} ){
+    return <h2 className={styles["subheading-text"]}>SWE Mock Interview</h2>
 }

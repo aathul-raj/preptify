@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { doc, updateDoc, getDoc, increment, getFirestore } from "firebase/firestore";
-import '../../styles/Settings.css'
+import { updateDoc, getDoc } from "firebase/firestore";
+import styles from "../../styles/Settings.module.css"
 
 export default function ToggleSetting({heading, subheading, userRef, id}){
     const [isChecked, setChecked] = useState(false);
@@ -13,20 +13,22 @@ export default function ToggleSetting({heading, subheading, userRef, id}){
         });
     }
 
-    return <div className="toggle-container">
-        <div className="toggle-text">
-            <h1>{heading}</h1>
-            <h2>{subheading}</h2>
+    return (
+        <div className={styles["toggle-container"]}>
+            <div className={styles["toggle-text"]}>
+                <h1>{heading}</h1>
+                <h2>{subheading}</h2>
+            </div>
+            <div className={styles["check-box"]}>
+                <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={() => {
+                        setChecked(!isChecked)
+                        handleClick(id)
+                    }}
+                />
+            </div>
         </div>
-        <div className="check-box">
-            <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={() => {
-                    setChecked(!isChecked)
-                    handleClick(id)
-                }}
-            />
-        </div>
-    </div>
+    );
 }

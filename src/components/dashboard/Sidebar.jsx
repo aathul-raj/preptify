@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
-import Menu from '../../img/icons/dashboard.png'
-import Info from '../../img/info.png'
-import Settings from '../../img/icons/settings.png'
-import Logout from '../../img/icons/logout.png'
+import SidebarImages from "../../constants/SidebarImages";
+import styles from "../../styles/Dashboard.module.css"
 
 export default function Sidebar( {activeItem, setActiveItem} ){
 
@@ -37,19 +35,21 @@ export default function Sidebar( {activeItem, setActiveItem} ){
         }
     }
 
-    return <div className="sidebar-wrapper">
-                <div className="sidebar-container">
-                    <div className={`sidebar-item ${activeItem === 'dashboard' ? 'active' : ''}`} onClick={() => handleItemClick('dashboard')}>
-                        <img src={Menu} className="sidebar-icon"/>
-                    </div>
-                    {screenWidth > 750 ? 
-                        <div className={`sidebar-item ${activeItem === 'settings' ? 'active' : ''}`} onClick={() => handleItemClick('settings')}>
-                            <img src={Settings} className="sidebar-icon"/>
-                        </div> 
-                    : null}
-                    <div className="logout sidebar-item" onClick={() => handleItemClick('logout')}>
-                        <img src={Logout} className="sidebar-icon"/>
-                    </div>
+    return (
+        <div className={styles["sidebar-wrapper"]}>
+            <div className={styles["sidebar-container"]}>
+                <div className={`${styles["sidebar-item"]} ${activeItem === 'dashboard' ? styles['active'] : ''}`} onClick={() => handleItemClick('dashboard')}>
+                    <img src={SidebarImages.menu} className={styles["sidebar-icon"]}/>
+                </div>
+                {screenWidth > 750 ? 
+                    <div className={`${styles["sidebar-item"]} ${activeItem === 'settings' ? styles['active'] : ''}`} onClick={() => handleItemClick('settings')}>
+                        <img src={SidebarImages.settings} className={styles["sidebar-icon"]}/>
+                    </div> 
+                : null}
+                <div className={`${styles["logout"]} ${styles["sidebar-item"]}`} onClick={() => handleItemClick('logout')}>
+                    <img src={SidebarImages.logout} className={styles["sidebar-icon"]}/>
                 </div>
             </div>
+        </div>
+    )
 }

@@ -3,7 +3,7 @@ import ZaraStartFinal from "./ZaraStartFinal";
 import ZaraStartMain from "./ZaraStartMain";
 import ZaraStartSecond from "./ZaraStartSecond";
 
-export default function Start({ setError, setFadeOut}){
+export default function Start({ setError, setFadeOut, styles}){
     const [index, setIndex] = useState(0)
     const [selectedOptions, setSelectedOptions] = useState({
         industry: 'software-engineering',
@@ -12,7 +12,7 @@ export default function Start({ setError, setFadeOut}){
         questions: '3',
     });
 
-    const screens = [<ZaraStartMain setIndex={setIndex}/>, <ZaraStartSecond setIndex={setIndex} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions}/>, <ZaraStartFinal setIndex={setIndex} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions} setError={setError} setFadeOut={setFadeOut}/>]
+    const screens = [<ZaraStartMain setIndex={setIndex} styles={styles}/>, <ZaraStartSecond setIndex={setIndex} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions} styles={styles}/>, <ZaraStartFinal setIndex={setIndex} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions} setError={setError} setFadeOut={setFadeOut} styles={styles}/>]
 
     return screens[index]
 }

@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import DashboardImages from '../../constants/DashboardImages'
-import "../../styles/Dashboard.css";
 
-export default function ZaraStartSecond( {setIndex, selectedOptions, setSelectedOptions} ){
+export default function ZaraStartSecond( {setIndex, selectedOptions, setSelectedOptions, styles} ){
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     let fontSize = '20'
@@ -108,22 +107,22 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
     }
 
     return (
-        <div className="start-zara-second">
-            <h1 className="zara-heading"><span className="green">Z</span>ARA</h1>
-            <h2 className="zara-h2">Interview Setup</h2>
-            <div className="question">
-                <div className="zara-text">
+        <div className={styles["start-zara-second"]}>
+            <h1 className={styles["zara-heading"]}><span className={styles["green"]}>Z</span>ARA</h1>
+            <h2 className={styles["zara-h2"]}>Interview Setup</h2>
+            <div className={styles["question"]}>
+                <div className={styles["zara-text"]}>
                     <p>What industry are{you}<span> working </span> in?</p>    
                 </div>
-                <Select className="zara-dropdown" styles={customStyles} name="industry" id="industry" options={industryOptions} value={industryOptions.find(option => option.value === selectedOptions.industry)} onChange={option => handleSelect(option, 'industry')}/>
+                <Select className={styles["zara-dropdown"]} styles={customStyles} name="industry" id="industry" options={industryOptions} value={industryOptions.find(option => option.value === selectedOptions.industry)} onChange={option => handleSelect(option, 'industry')}/>
             </div>
-            <div className="question">
-                <div className="zara-text">
+            <div className={styles["question"]}>
+                <div className={styles["zara-text"]}>
                     <p>What role are you<span> {interviewing}</span> for?</p>
                 </div>
-                <Select className="zara-dropdown" styles={customStyles} name="roles" menuPlacement="top" id="roles" options={roleOptions} value={roleOptions.find(option => option.value === selectedOptions.role)} onChange={option => handleSelect(option, 'role')}/>
+                <Select className={styles["zara-dropdown"]} styles={customStyles} name="roles" menuPlacement="top" id="roles" options={roleOptions} value={roleOptions.find(option => option.value === selectedOptions.role)} onChange={option => handleSelect(option, 'role')}/>
             </div>
-            <div className="buttons">
+            <div className={styles["buttons"]}>
                 <img src={DashboardImages.back} onClick={() => setIndex((prevIndex) => prevIndex - 1)}/>
                 <img src={DashboardImages.next} onClick={() => setIndex((prevIndex) => prevIndex + 1)}/>
             </div>

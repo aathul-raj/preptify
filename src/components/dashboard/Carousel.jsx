@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-export default function Carousel( {feedback} ){
+export default function Carousel( {feedback, styles} ){
     const [currentScreen, setCurrentScreen] = useState(0);
     const screens = feedback;
     let color = 'negative'
@@ -17,11 +17,11 @@ export default function Carousel( {feedback} ){
     }
     
     return (
-        <div className="carousel">
-            <div className="carousel-screens">
+        <div className={styles["carousel"]}>
+            <div className={styles["carousel-screens"]}>
             {screens[currentScreen]}
             </div>
-            <div className="carousel-indicators">
+            <div className={styles["carousel-indicators"]}>
             {screens.map((_, index) => {
                 if (index == screens.length - 1){
                     color = 'positive'
@@ -31,7 +31,7 @@ export default function Carousel( {feedback} ){
                     <div 
                     key={index}
                     onClick={() => handleClick(index)}
-                    className={`carousel-indicator ${index === currentScreen ? 'active' : ''} ${color}`}
+                    className={`${styles["carousel-indicator"]} ${index === currentScreen ? styles['active'] : ''} ${styles[color]}`}
                     />
                 )
             })}

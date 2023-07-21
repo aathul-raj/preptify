@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react"
-import { useLocation } from "react-router-dom";
 import Tile from "./Tile"
 import Pro from "./Pro"
 import RecentFeedback from "./RecentFeedback"
 import CategoryScores from "./CategoryScores"
 import Graph from "./Graph"
 import { auth } from '../../back-end/Firebase';
-import { doc, getDoc, setDoc, updateDoc, getFirestore, onSnapshot } from "firebase/firestore";
+import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 
 
-export default function Analytics(){
+export default function Analytics( {styles} ){
     const db = getFirestore();
     const currentUser = auth.currentUser; 
-    const userRef = doc(db, 'users', currentUser.uid);
     const [feedbackSummary, setFeedbackSummary] = useState(null);
     const [historicalScores, setHistoricalScores] = useState([]);
     const [historicalResponseTime, setHistoricalResponseTime] = useState([])
@@ -82,16 +80,14 @@ export default function Analytics(){
     }
 
     // TODO: Average word count per answer/most used words (I guess this means look into cleaning up user response whether with deepgram or some other apib )
-
-    
     
     return <>
-        <CategoryScores communication={communication} technical={technical} ps={ps} behavioral={behavioral}/>
-        <Tile name="average-time" heading="Seconds to Answer" subheading={responsePercentChange != "N/A" ? `${Math.abs(responsePercentChange)}% ${responsePercentChange > 0 ? "increase" : "decrease"} after last interview` : "N/A"} score={responseTime} status="increase"/>
-        <Tile name="overall-score" heading="Overall Score" subheading={percentChange != "N/A" ? `${Math.abs(percentChange)}% ${percentChange > 0 ? "increase" : "decrease"} after last interview` : "N/A"} score={overallScore} status={`${percentChange > 0 ? "increase" : "decrease"}`}/>
-        <Graph historicalScores={historicalScores}/>
-        <RecentFeedback recentFeedback={recentFeedback}/>
-        <Pro/>
-        <Tile name="interviews-completed" heading="Interviews Completed" subheading="Keep it going!" score={interviewCount} status="increase"/>
+        <CategoryScores styles={styles} communication={communication} technical={technical} ps={ps} behavioral={behavioral}/>
+        <Tile styles={styles} name="average-time" heading="Seconds to Answer" subheading={responsePercentChange != "N/A" ? `${Math.abs(responsePercentChange)}% ${responsePercentChange > 0 ? "increase" : "decrease"} after last interview` : "N/A"} score={responseTime} status="increase"/>
+        <Tile styles={styles} name="overall-score" heading="Overall Score" subheading={percentChange != "N/A" ? `${Math.abs(percentChange)}% ${percentChange > 0 ? "increase" : "decrease"} after last interview` : "N/A"} score={overallScore} status={`${percentChange > 0 ? "increase" : "decrease"}`}/>
+        <Graph styles={styles} historicalScores={historicalScores}/>
+        <RecentFeedback styles={styles} recentFeedback={recentFeedback}/>
+        <Pro styles={styles}/>
+        <Tile styles={styles} name="interviews-completed" heading="Interviews Completed" subheading="Keep it going!" score={interviewCount} status="increase"/>
     </>
 }

@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import DashboardContent from "../components/dashboard/DashboardContent";
 import Setting from "../components/dashboard/Settings";
 import Sidebar from "../components/dashboard/Sidebar";
-import Popup from '../components/Popup'
+import Popup from '../components/Popup';
 import { auth } from '../back-end/Firebase';
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
-import "../styles/Dashboard.css";
+import styles from "../styles/Dashboard.module.css"
 
 export default function Dashboard(){
   const db = getFirestore();
@@ -50,13 +50,13 @@ export default function Dashboard(){
     }
   }
 
-  const screens = { 'dashboard' : <DashboardContent/>,
-                      'settings' : <Setting/>
+  const screens = { 'dashboard' : <DashboardContent styles={styles}/>,
+                      'settings' : <Setting styles={styles}/>
 }
   
-  return currentUser ? <div className="dashboard-container">
-                  <Sidebar activeItem={activeItem} setActiveItem={setActiveItem}/>
+  return currentUser ? <div className={styles["dashboard-container"]}>
+                  <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} styles={styles}/>
                   {screens[activeItem]}
-                  {showPopup && <Popup onClose={closePopup} />}
+                  {showPopup && <Popup onClose={closePopup} styles={styles}/>}
                 </div> : null
 }

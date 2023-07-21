@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import MainHeader from "../components/global/MainHeader.jsx";
+import Footer from "../components/global/Footer.jsx";
 import HomeImages from "../constants/HomeImages.jsx";
-import "../styles/Home.css";
+import styles from "../styles/Home.module.css";
 
 function Home() {
   const navigate = useNavigate();
@@ -34,128 +36,116 @@ function Home() {
   return (
     <>
       <main>
-        <div className="header">
-          <div className="logo-container">
-            <img className="logo-img" src={HomeImages.logo} alt="logo" />
-          </div>
-          <div className="auth-buttons-container">
-            <button
-              onClick={() => navigate("/login")}
-              className="log-in-button"
-            >
-              log in
-            </button>
-          </div>
-        </div>
-        <div className="home-container">
-          <div className="home-content">
+        <MainHeader/>
+        <div className={styles["home-container"]}>
+          <div className={styles["home-content"]}>
             <img
-              className="statue-img parallax-home"
+              className={`${styles["statue-img"]} ${styles["parallax-home"]}`}
               src={HomeImages.statue}
               alt="Roman Statue"
               data-value=".4"
             />
-            <div className="text-container">
-              <div className="slogan-container">
-                <h1 className="slogan">
-                  elevate your <span className="highlight">interview,</span>
+            <div className={styles["text-container"]}>
+              <div className={styles["slogan-container"]}>
+                <h1 className={styles["slogan"]}>
+                  elevate your <span className={styles["highlight"]}>interview,</span>
                 </h1>
-                <h1 className="slogan">elevate your career</h1>
+                <h1 className={styles["slogan"]}>elevate your career</h1>
               </div>
-              <h2 className="mission-statement">
+              <h2 className={styles["mission-statement"]}>
                 Supercharge your career with Zara, our mock interview AI. Join
                 our closed beta
-                <span className="highlight"> FOR FREE</span> - start today!
+                <span className={styles["highlight"]}> FOR FREE</span> - start today!
               </h2>
-              <div className="button-container">
+              <div className={styles["button-container"]}>
                 <button
-                  className="get-started-button"
+                  className={styles["get-started-button"]}
                   onClick={() => navigate("/signup")}
                 >
                   get started
                 </button>
                 <button
                   onClick={() => navigate("/pricing")}
-                  className="learn-more-button"
+                  className={styles["learn-more-button"]}
                 >
                   pricing
                 </button>
               </div>
             </div>
           </div>
-          <div className="scroll-down"></div>
+          <div className={styles["scroll-down"]}></div>
         </div>
 
-        <div className="learn-more-container">
-          <div className="home-block-1">
-            <div className="text-container">
-              <div className="intro-text">
+        <div className={styles["learn-more-container"]}>
+          <div className={styles["home-block-1"]}>
+            <div className={styles["text-container"]}>
+              <div className={styles["intro-text"]}>
                 empowering careers, one{" "}
-                <span className="highlight">interview</span> at a time.
+                <span className={styles["highlight"]}>interview</span> at a time.
               </div>
-              <div className="intro-text-2">
+              <div className={styles["intro-text-2"]}>
                 We help you achieve career excellence through our AI-enhanced
                 interview tool, Zara.
               </div>
-              <div className="feature-container">
-                <img className="icon" src={HomeImages.book}></img>
-                <h2 className="feature-text">
+              <div className={styles["feature-container"]}>
+                <img className={styles["icon"]} src={HomeImages.book}></img>
+                <h2 className={styles["feature-text"]}>
                   Streamline your interview preparation with our AI-enhanced
                   interview tool, Zara.
                 </h2>
               </div>
-              <div className="feature-container">
-                <img className="icon" src={HomeImages.speech}></img>
-                <h2 className="feature-text">
+              <div className={styles["feature-container"]}>
+                <img className={styles["icon"]} src={HomeImages.speech}></img>
+                <h2 className={styles["feature-text"]}>
                   Gain the skills and confidence you need to excel in your
                   career.
                 </h2>
               </div>
-              <div className="feature-container">
-                <img className="icon" src={HomeImages.check}></img>
-                <h2 className="feature-text">
+              <div className={styles["feature-container"]}>
+                <img className={styles["icon"]} src={HomeImages.check}></img>
+                <h2 className={styles["feature-text"]}>
                   Unlock your potential through personalized interview guidance
                   and support
                 </h2>
               </div>
             </div>
             <img
-              className="learn-more-ai-img"
+              className={styles["learn-more-ai-img"]}
               src={HomeImages.careers}
               alt="AI"
             />
           </div>
-          <div className="home-block-2">
-            <img className="features-img" src={HomeImages.features} alt="AI" />
+          <div className={styles["home-block-2"]}>
+            <img className={styles["features-img"]} src={HomeImages.features} alt="AI" />
 
-            <div className="text-container">
-              <div className="intro-text">
+            <div className={styles["text-container"]}>
+              <div className={styles["intro-text"]}>
                 our
-                <span className="highlight"> features</span>.
+                <span className={styles["highlight"]}> features</span>.
               </div>
-              <div className="intro-text-2">
+              <div className={styles["intro-text-2"]}>
                 Discover a trove of innovative features meticulously crafted to
                 catapult you towards acing your impending job interview.
               </div>
 
-              <div className="feature-container">
-                <img className="icon" src={HomeImages.clock}></img>
-                <h2 className="feature-text">
+              <div className={styles["feature-container"]}>
+                <img className={styles["icon"]} src={HomeImages.clock}></img>
+                <h2 className={styles["feature-text"]}>
                   Zara creates authentic interview scenarios, allowing users to
                   practice and refined answers.
                 </h2>
               </div>
-              <div className="feature-container">
-                <img className="icon" src={HomeImages.idea}></img>
-                <h2 className="feature-text">
+              <div className={styles["feature-container"]}>
+                <img className={styles["icon"]} src={HomeImages.idea}></img>
+                <h2 className={styles["feature-text"]}>
                   By analyzing user responses, we provide detailed feedback at
                   the end of every interview.
                 </h2>
               </div>
-              <div className="feature-container">
-                <img className="icon" src={HomeImages.shield}></img>
+              <div className={styles["feature-container"]}>
+                <img className={styles["icon"]} src={HomeImages.shield}></img>
 
-                <h2 className="feature-text">
+                <h2 className={styles["feature-text"]}>
                   Preptify offers a safe environment to practice, helping users
                   overcome anxiety and develop interview skills for optimal
                   performance.
@@ -164,35 +154,31 @@ function Home() {
             </div>
           </div>
 
-          <div className="home-block-3">
-            <div className="step-container">
-              <h1 className="intro-text text-bottom">
+          <div className={styles["home-block-3"]}>
+            <div className={styles["step-container"]}>
+              <h1 className={styles["intro-text text-bottom"]}>
                 Take the first step towards interview success and{" "}
-                <span className="highlight">unlock</span> your career potential
-                with Zara <span className="highlight">today</span>.
+                <span className={styles["highlight"]}>unlock</span> your career potential
+                with Zara <span className={styles["highlight"]}>today</span>.
               </h1>
               <img
-                className="squiggle-img"
+                className={styles["squiggle-img"]}
                 src={HomeImages.squiggle}
                 alt="Squiggle"
               ></img>
               <div>
                 <button
-                  className="get-started-button"
+                  className={styles["get-started-button"]}
                   onClick={() => navigate("/signup")}
                 >
                   get started
                 </button>
-                <button className="learn-more-button">pricing</button>
+                <button className={styles["learn-more-button"]}>pricing</button>
               </div>
             </div>
           </div>
         </div>
-        <div className="footer">
-          <button onClick={() => navigate("/about")}> about </button>
-          <button> faq </button>
-          <button> contact </button>
-        </div>
+        <Footer/>
       </main>
     </>
   );

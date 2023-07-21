@@ -11,56 +11,19 @@ body::-webkit-scrollbar {
 
 body {
   width: auto;
-  font-family: 'Roboto', sans-serif;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
   height: 100%; 
   margin: 0;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-button{
-  border-radius: 50px;
-  font-size: 1.5em;
-  font-family: 'Poppins';
-  padding: 1rem 2rem;
-  cursor: pointer;
-  transition: 1s ease;
-}
-
-
-button:hover{
-  transform: scale(1.03);
-}
-
 .main {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  /* width: 80%; */
   text-align: left;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 2rem;
-  width: 100%;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-left: 3rem;
-}
-
-.logo-img{
-  width: 150px;
 }
 
 .home-container {
@@ -70,9 +33,7 @@ button:hover{
   align-items: center;
   width: 100%;
   height: 100vh;
-  /* margin: auto; */
   flex-wrap: wrap;
-  /* min-height: 90vh; */
   font-family: 'Poppins';
 }
 
@@ -82,6 +43,7 @@ button:hover{
 }
 
 .slogan {
+  font-weight: bold;
   text-align: left;
   margin: 20px 0;
   color: white;
@@ -108,6 +70,7 @@ button:hover{
   height: 13px;
   border-bottom: 2px solid #fff;
   border-right: 2px solid #fff;
+  transform: translate(-50%, 0) rotate(45deg);
   -webkit-transform: translate(-50%, 0) rotate(45deg);
   animation: fade_move_down 3s cubic-bezier(0.19, 1, 0.22, 1) infinite;
 }
@@ -187,59 +150,19 @@ button:hover{
   max-width: 400px;
 }
 
-.footer {
-  font-family: 'Poppins';
-  display: flex;
-  justify-content: right;
-  color: gray;
-  padding: 20px 0;
-  position: inherit;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid gray; 
-  /* padding-right: 5%; */
-
-}
-
-.footer button {
-  background: none;
-  border: none;
-  color: gray;
-  cursor: pointer;
-  font-weight: bolder;
-}
-
 .text-container {
   flex-basis: 50%;
   margin: 40px;
 }
 
-.auth-buttons-container {
-  margin-right: 3rem;
-  display: flex;
-  align-items: center;
+.step-container h1{
+  font-weight: bold;
 }
 
-.log-in-button,
-.sign-up-button {
-  color: black ;
-  background-color: white;
-  transition: all 0.55s ease-in-out;
-  padding: 10px 20px;
-  border-radius: 41px;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.log-in-button:hover{
-  transform: scale(1.02);
-}
-
-.intro-text {
+.intro-text{
   color: white;
   font-size: 3rem;
-  font-weight:bold ;
+  font-weight:bold;
 }
 
 .text-bottom{
@@ -359,9 +282,6 @@ button:hover{
 }
 
 @media(max-width: 750px){
-  .footer {
-    justify-content: center;
-  }
 
   body{
     flex-direction: column;
@@ -381,11 +301,6 @@ button:hover{
     display: flex;
     flex-direction: column;
     padding: 40px;
-  }
-
-  .header{
-    align-items: center;
-    justify-content: center;
   }
 
   .statue-img{
@@ -467,14 +382,6 @@ button:hover{
   .step-container button{
     margin-left: 0;
     width: 100%;
-  }
-
-  .footer button{
-    font-size: 20px;
-  }
-
-  .logo-container{
-    margin-left: 1rem;
   }
 
   .auth-buttons-container{

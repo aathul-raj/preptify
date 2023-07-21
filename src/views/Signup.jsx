@@ -4,7 +4,7 @@ import { auth } from "../back-end/Firebase";
 import { createUserWithEmailAndPassword, setPersistence, browserLocalPersistence, updateProfile } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import EntryImages from "../constants/EntryImages";
-import "../styles/Signup.css";
+import styles from "../styles/Signup.module.css";
 
 function Signup() {
   const [firstName, setFirstName] = useState("");
@@ -57,21 +57,21 @@ function Signup() {
   };
   
   return (
-    <div className="main-container">
-      <div className="header">
-        <div className="logo-container">
+    <div className={styles['main-container']}>
+      <div className={styles['header']}>
+        <div className={styles['logo-container']}>
           <Link to="/">
-            <img className="logo-img" src={EntryImages.logo} alt="logo" />
+            <img className={styles['logo-img']} src={EntryImages.logo} alt="logo" />
           </Link>
         </div>
       </div>
-      <div className="signup-container">
-        <div className="input-group">
+      <div className={styles['signup-container']}>
+        <div className={styles['input-group']}>
           <div>
             <label>
-              what is your <span className="highlight">name?</span>
+              what is your <span className={styles['highlight']}>name?</span>
             </label>
-            <div className="name-group">
+            <div className={styles['name-group']}>
               <input
                 type="text"
                 value={firstName}
@@ -90,18 +90,18 @@ function Signup() {
           </div>
           <div>
             <label>
-              what is your <span className="highlight">email?</span>
+              what is your <span className={styles['highlight']}>email?</span>
             </label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="example@gmail.ccom"
+              placeholder="example@gmail.com"
               required
             />
           </div>
         </div>
-        <div className="input-group">
+        <div className={styles['input-group']}>
           <div>
             <label>create password</label>
             <input
@@ -123,17 +123,16 @@ function Signup() {
             />
           </div>
         </div>
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
-
-        <button className="signup-button" onClick={handleSignup}>
+        {errorMessage && <div className={styles['error-message']}>{errorMessage}</div>}
+        <button className={styles['signup-button']} onClick={handleSignup}>
           sign up
         </button>
-        <p className="login-link">
+        <p className={styles['login-link']}>
           already have an account? <a href="/login">log in</a>
         </p>
       </div>
     </div>
-  );
+)
 }
 
 export default Signup;

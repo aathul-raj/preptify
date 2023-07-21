@@ -1,5 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 3rem;
+}
+
+.logo-img{
+    width: 160px;
+}
+
 .signup-container {
     display: flex;
     flex-direction: column;
@@ -159,5 +178,9 @@ label {
   @media(max-width: 750px){
     .signup-text{
         font-size: .85rem;
+    }
+
+    .name-group{
+        flex-direction: column;
     }
   }
