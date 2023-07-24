@@ -10,7 +10,7 @@ export default function useEngine( {feedback, responseTimes, lagTimes, userTrans
     let commBank = ["uh", "like", "hm"]
     let behavioralBank = ["we achieved", "together", "collaboratively"]
     let psBank = ["the problem is", "we need to solve"]
-    let roleBank = { "basic" : ["coding", "software", "tech"]}
+    let roleBank = ["coding", "software", "tech"]
     let commCounter = 0
     let behavioralCounter = 0
     let psCounter = 0
@@ -24,7 +24,7 @@ export default function useEngine( {feedback, responseTimes, lagTimes, userTrans
             behavioralCounter++
         } else if (psBank.includes(word)){
             psCounter++
-        } else if (roleBank[role].includes(word)){
+        } else if (roleBank.includes(word)){
             roleCounter++
         }
     })
