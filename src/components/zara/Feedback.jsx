@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import Category from './Category'
+import useEngine from '../hooks/ZaraEngine'
 import { doc, updateDoc, getDoc, increment, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import CountUp from 'react-countup';
 import ZaraImages from '../../constants/ZaraImages';
 import styles from "../../styles/Feedback.module.css"
 
-export default function Feedback( {feedback, responseTimes} ){
+export default function Feedback( {feedback, setFeedback, responseTimes, lagTimes, userTranscript, role} ){
     const db = getFirestore()
     const auth = getAuth()
     const currentUser = auth.currentUser
@@ -22,12 +23,27 @@ export default function Feedback( {feedback, responseTimes} ){
     let navigate = useNavigate()
     const responseTimeSum = responseTimes.reduce((a, b) => a + b, 0);
     const questionCount = responseTimes.length
-    
+
     useEffect(() => {
+        console.log(feedback)
+
+        const adjustments = useEngine({feedback, responseTimes, lagTimes, userTranscript, role});
+        const adjScore = score + adjustments["overall"]
+
+        console.log(adjustments)
+        setFeedback(prevFeedback => {
+            const adjComm = prevFeedback["communication"] + adjustments["comm"]
+            const adjTech = prevFeedback["technical"] + adjustments["tech"]
+            const adjPS = prevFeedback["ps"] + adjustments["ps"]
+            const adjBehavioral = prevFeedback["behavioral"] + adjustments["behavioral"]
+
+            return {...prevFeedback, "behavioral" : adjBehavioral, "technical" : adjTech, "ps" : adjPS, "communication" : adjComm}
+        })
+
         const userRef = doc(db, 'users', currentUser.uid);
         updateDoc(userRef, {
             interviewsCompleted: increment(1),
-            recentFeedback: {...feedback, "overallScore": score, "responseTime" : responseTimeSum}
+            recentFeedback: {...feedback, "overallScore": score + adjScore, "responseTime" : responseTimeSum}
         });
 
         const handleMouseMove = (e) => {
