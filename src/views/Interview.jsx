@@ -7,6 +7,9 @@ export default function Interview(){
     const [isDone, setIsDone] = useState(false)
     const [feedback, setFeedback] = useState()
     const [responseTimes, setResponseTimes] = useState([])
+    const [lagTimes, setLagTimes] = useState([])
+    const [userTranscript, setUserTranscript] = useState("")
+    const [role, setRole] = useState("")
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -19,7 +22,7 @@ export default function Interview(){
 
     return (
         isDone 
-        ? <Feedback feedback={feedback} responseTimes={responseTimes}/> 
-        : <Zara setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes}/>
+        ? <Feedback feedback={feedback} setFeedback={setFeedback} responseTimes={responseTimes} lagTimes={lagTimes} userTranscript={userTranscript} role={role}/> 
+        : <Zara setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes} lagTimes={lagTimes} setLagTimes={setLagTimes} setUserTranscript={setUserTranscript} setRole={setRole}/>
     )
 }

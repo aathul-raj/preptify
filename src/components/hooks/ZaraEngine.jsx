@@ -1,0 +1,51 @@
+export default function useEngine( {feedback, responseTimes, lagTimes, userTranscript, role} ) {
+    console.log(feedback)
+    const responseTimeSum = responseTimes.reduce((a, b) => a + b, 0)
+    const averageResponseTime = responseTimeSum / responseTimes.length
+
+    const lagTimeSum = lagTimes.reduce((a, b) => a + b, 0)
+    const averageLagTime = lagTimeSum / lagTimes.length
+
+    const transcriptWords = userTranscript.toLowerCase().split(/\W+/)
+    let commBank = ["uh", "like", "hm"]
+    let behavioralBank = ["we achieved", "together", "collaboratively"]
+    let psBank = ["the problem is", "we need to solve"]
+    let roleBank = { "basic" : ["coding", "software", "tech"]}
+    let commCounter = 0
+    let behavioralCounter = 0
+    let psCounter = 0
+    let roleCounter = 0
+    const adjustments = {"comm" : 0, "ps" : 0, "tech" : 0, "behavioral": 0, "overall" : 0}
+
+    transcriptWords.forEach(word => {
+        if (commBank.includes(word)){
+            commCounter++
+        } else if (behavioralBank.includes(word)){
+            behavioralCounter++
+        } else if (psBank.includes(word)){
+            psCounter++
+        } else if (roleBank[role].includes(word)){
+            roleCounter++
+        }
+    })
+
+    if (averageResponseTime <= 10){
+        adjustments["overall"] = adjustments["overall"] - 2
+    } else if (averageResponseTime <= 20) {
+        adjustments["comm"] = adjustments["comm"] - 1.5
+        adjustments["behavioral"] = adjustments["behavioral"] - 2
+    }
+
+    if (averageLagTime <= 10){
+        adjustments["comm"] = adjustments["comm"] - 1
+    }
+
+    adjustments["comm"] = adjustments["comm"] - (commCounter * .5)
+
+    adjustments["behavioral"] = adjustments["behavioral"] + (behavioralCounter > 10 ? 2 : behavioralCounter * .2)
+    adjustments["tech"] = adjustments["tech"] + (roleCounter > 10 ? 2 : roleCounter * .2)
+    adjustments["ps"] = adjustments["ps"] + (psCounter > 5 ? 2 : psCounter * .4)
+
+    console.log(adjustments)
+    return adjustments
+}

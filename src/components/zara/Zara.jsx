@@ -12,7 +12,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import ZaraImages from "../../constants/ZaraImages";
 import styles from "../../styles/Zara.module.css"
 
-function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
+function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTimes, setLagTimes, setUserTranscript, setRole} ) {
   
   let navigate = useNavigate()
   let location = useLocation()
@@ -21,6 +21,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
   const [isLoading, setIsLoading] = useState(true) // State to track loading status
   const queryParam = new URLSearchParams(location.search)
   const role = queryParam.get('role')
+  setRole(role)
   // const industry = queryParam.get('industry')
   // const difficulty = queryParam.get('difficulty')
   const questions = queryParam.get('questions')
@@ -43,6 +44,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
             updateInterviewLog({'Server' : response.data.response})
             setTranscript(response.data.response);
             setResponseTimes([Date.now()])
+            setLagTimes([Date.now()])
             setIsLoading(false); // Set loading to false once data is received
           }) 
           .catch(err => {
@@ -55,7 +57,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
     })
   }, []);
 
-  useEffect(() => {console.log(responseTimes)}, [responseTimes])
+  useEffect(() => {console.log(lagTimes)}, [lagTimes])
 
   const createUserInterviewLog = async () => {
     await setDoc(doc(db, 'users', auth.currentUser.uid), {
@@ -81,7 +83,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes} ) {
           {isLoading ? <Preloader/> : <img className={`${styles["ai-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} src={ZaraImages.ai} />}
           <Transcript className={isLoading ? styles['hidden'] : styles['visible']} transcript={transcript} isLoading={isLoading} styles={styles}/>
         </div>
-        <MicButton className={`${styles["mic-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes}/>
+        <MicButton className={`${styles["mic-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes} lagTimes={lagTimes} setLagTimes={setLagTimes} setUserTranscript={setUserTranscript}/>
         </main>
     </>
   );

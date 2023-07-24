@@ -16,7 +16,7 @@ export default function Transcript({ transcript, isLoading, styles }) {
             autoStart: true,
             loop: false,
             cursor: "|",
-            delay: 35,
+            delay: 20,
           }}
         />
       }

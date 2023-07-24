@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
 import styles from "../../styles/MicButton.module.css"
 
-function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes }) {
+function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes, lagTimes, setLagTimes, setUserTranscript }) {
 
   const db = getFirestore();
   const [isListening, setIsListening] = useState(false);
@@ -62,6 +62,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
         updateInterviewLog({'Server' : response.data.response});
         setTranscript(response.data.response);
         setResponseTimes((prevResponseTimes) => [...prevResponseTimes, Date.now()])
+        setLagTimes((prevLagTimes) => [...prevLagTimes, Date.now()])
       }
     })
     .catch(err => {
@@ -72,6 +73,12 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
   const toggleListening = () => {
     if (!isListening) {
       console.log("Starting to listen...");
+      let startTime = lagTimes[lagTimes.length - 1]
+      let responseTime = Date.now() - startTime
+      setLagTimes((prevLagTimes) => {
+        prevLagTimes[prevLagTimes.length - 1] = responseTime / 1000
+        return prevLagTimes
+      })
       navigator.mediaDevices.getUserMedia({ audio: true }).then(stream => {
         mediaStream.current = stream; // Save the stream
         mediaRecorder.current = new MediaRecorder(stream);
@@ -89,6 +96,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
           if (transcript && received.is_final) {
             console.log(`TRANSCRIPT: ${transcript}`);
             setUserResponse(prevResponse => prevResponse + `\n` + transcript);
+            setUserTranscript(prevTranscript => prevTranscript + '\n' + transcript)
             clearTimeout(transcriptTimer.current);
             transcriptTimer.current = setTimeout(stopListening, 30000); // restart the timer whenever there is speech
           }
