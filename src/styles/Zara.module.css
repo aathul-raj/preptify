@@ -21,12 +21,12 @@ main{
 
 .hidden {
   opacity: 0;
-  transition: opacity 1.5s ease-in;
+  transition: opacity .5s ease-in;
 }
 
 .visible {
   opacity: 1;
-  transition: opacity 1.5s ease-in;
+  transition: opacity 1s ease-in;
 }
 
 .container{
@@ -80,6 +80,95 @@ main{
   animation: blink 0.1s step-end infinite; /* increase speed of blink */
 }
 
+/* Tutorial */
+
+.tutorialContainer{
+  height: 100%;
+  width: 100vw;
+  position: absolute;
+  z-index: 2;
+  background-color: #000000be;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tutorialBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #252525;
+  border-radius: 25px;
+  font-family: 'Poppins';
+  width: 33vw;
+  text-align: center;
+}
+
+.tutorialHeader{
+  cursor: default;
+  color: #15D59F;
+  font-size: 1.6vw;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.tutorialText{
+  cursor: default;
+  margin: .5;
+  font-size: 1.1vw;
+  color: #fff;
+  padding: 0 2rem;
+}
+
+.tutorialButton{
+  font-size: 1vw;
+  background: white;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 41px;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-align: center;  /* To center the text inside the buttons */
+  margin: .5rem 0 2rem 0;
+  transition: all 0.55s ease-in-out;
+}
+
+.tutorialButton:hover{
+  transform: scale(1.02);
+}
+
+.tutorialTwo{
+  transform: translate(-75%, -35%);
+}
+
+.tutorialThree{
+  transform: translate(-75%, 85%);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1), 
+                0 0 10px rgba(255, 255, 255, 0.1), 
+                0 0 15px rgba(255, 255, 255, 0.1), 
+                0 0 20px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1), 
+                0 0 20px rgba(255, 255, 255, 0.2), 
+                0 0 30px rgba(255, 255, 255, 0.2), 
+                0 0 40px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.highlight{
+  z-index: 3;
+  position: relative;
+  pointer-events: none;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
 @keyframes blink {
   from, to {
     color: transparent
@@ -114,6 +203,33 @@ main{
   }
 }
 
+@media(max-width: 1250px){
+  .tutorialHeader{
+    font-size: 1.5rem;
+  }
+
+  .tutorialText{
+    font-size: 1rem;
+  }
+
+  .tutorialBox{
+    width: 40vw;
+  }
+
+  .tutorialButton{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .tutorialTwo{
+    transform: translate(-55%, -35%);
+  }
+  
+  .tutorialThree{
+    transform: translate(-55%, 55%);
+  }
+}
+
 @media(max-width: 750px){
   .transcript{
     width: 90vw;
@@ -132,13 +248,29 @@ main{
   .ai-img{
     width: 13rem;
   }
-}
 
-/* .logo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  margin: 0;
-  padding: 0;
-  transform: none;
-} */
+  .tutorialHeader{
+    font-size: 1rem;
+  }
+
+  .tutorialText{
+    font-size: .85rem;
+  }
+
+  .tutorialBox{
+    width: 80vw;
+  }
+
+  .tutorialButton{
+    font-size: .85rem;
+    margin-bottom: 1rem;
+  }
+
+  .tutorialTwo{
+    transform: translate(0, -100%);
+  }
+  
+  .tutorialThree{
+    transform: translate(0, 0);
+  }
+}

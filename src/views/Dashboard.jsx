@@ -11,7 +11,7 @@ import styles from "../styles/Dashboard.module.css"
 export default function Dashboard(){
   const db = getFirestore();
   const [activeItem, setActiveItem] = useState('dashboard');
-  const [showPopup, setShowPopup] = useState(false);
+  // const [showPopup, setShowPopup] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
 
@@ -42,13 +42,13 @@ export default function Dashboard(){
     console.log(activeItem)
   }, [activeItem])
 
-  const closePopup = () => {
-    setShowPopup(false);
-    if (currentUser) {
-      // set the tutorialShown field to true
-      setDoc(doc(db, "users", currentUser.uid), { tutorialShown: true }, { merge: true });
-    }
-  }
+  // const closePopup = () => {
+  //   setShowPopup(false);
+  //   if (currentUser) {
+  //     // set the tutorialShown field to true
+  //     setDoc(doc(db, "users", currentUser.uid), { tutorialShown: true }, { merge: true });
+  //   }
+  // }
 
   const screens = { 'dashboard' : <DashboardContent styles={styles}/>,
                       'settings' : <Setting styles={styles}/>
@@ -57,6 +57,6 @@ export default function Dashboard(){
   return currentUser ? <div className={styles["dashboard-container"]}>
                   <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} styles={styles}/>
                   {screens[activeItem]}
-                  {showPopup && <Popup onClose={closePopup} styles={styles}/>}
+                  {/* {showPopup && <Popup onClose={closePopup} styles={styles}/>} */}
                 </div> : null
 }
