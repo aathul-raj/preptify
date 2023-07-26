@@ -20,7 +20,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
   const db = getFirestore()
   const [transcript, setTranscript] = useState("")
   const [isLoading, setIsLoading] = useState(true) // State to track loading status
-  const [showPopup, setShowPopup] = useState(true);
+  const [showPopup, setShowPopup] = useState(false);
   const [index, setIndex] = useState(0);
   const queryParam = new URLSearchParams(location.search)
   const role = queryParam.get('role')
