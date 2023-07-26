@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
 import styles from "../../styles/MicButton.module.css"
 
-function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes, lagTimes, setLagTimes, setUserTranscript }) {
+function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes, lagTimes, setLagTimes, setUserTranscript, index }) {
 
   const db = getFirestore();
   const [isListening, setIsListening] = useState(false);
@@ -61,7 +61,6 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
         // Update interviewLog in Firestore
         updateInterviewLog({'Server' : response.data.response});
         setTranscript(response.data.response);
-        setResponseTimes((prevResponseTimes) => [...prevResponseTimes, Date.now()])
         setLagTimes((prevLagTimes) => [...prevLagTimes, Date.now()])
       }
     })
@@ -75,6 +74,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
       console.log("Starting to listen...");
       let startTime = lagTimes[lagTimes.length - 1]
       let responseTime = Date.now() - startTime
+      setResponseTimes((prevResponseTimes) => [...prevResponseTimes, Date.now()])
       setLagTimes((prevLagTimes) => {
         prevLagTimes[prevLagTimes.length - 1] = responseTime / 1000
         return prevLagTimes
@@ -119,7 +119,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
   };
 
   return (
-    <button className={`${styles["btn"]} ${isListening ? styles['animate'] : ''} ${isLoading ? styles['hidden'] : styles['visible']}`} onClick={toggleListening}>
+    <button className={`${styles["btn"]} ${isListening ? styles['animate'] : ''} ${isLoading ? styles['hidden'] : styles['visible']} ${index === 2 ? styles['highlight'] : ''}`} onClick={toggleListening}>
       <div className={styles["pulse-ring"]}></div>
       <FontAwesomeIcon icon={faMicrophone}/>
     </button>

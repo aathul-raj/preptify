@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import Category from './Category'
-import useEngine from '../hooks/ZaraEngine'
+import useEngine from '../../hooks/ZaraEngine'
 import { doc, updateDoc, getDoc, increment, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import CountUp from 'react-countup';
@@ -25,6 +25,8 @@ export default function Feedback( {feedback, setFeedback, responseTimes, lagTime
     const questionCount = responseTimes.length
 
     useEffect(() => {
+        console.log(`LAG TIMES: ${lagTimes}`)
+        console.log(`RESPONSE TIMES: ${responseTimes}`)
         console.log(feedback)
 
         const adjustments = useEngine({feedback, responseTimes, lagTimes, userTranscript, role});

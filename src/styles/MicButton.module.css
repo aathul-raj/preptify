@@ -8,7 +8,7 @@
     color: #fff;
     background: radial-gradient(circle at center, #000000, #464646);
     position: relative;
-    z-index: 999;
+    z-index: 1;
     display: inline-block;
     line-height: 70px;
     text-align: center;
@@ -27,6 +27,28 @@
     position: absolute;
     z-index: -1;
     opacity: 0;
+}
+
+@keyframes glow {
+    0% {
+      box-shadow: 0 0 5px rgba(255, 255, 255, 0.1), 
+                  0 0 10px rgba(255, 255, 255, 0.1), 
+                  0 0 15px rgba(255, 255, 255, 0.1), 
+                  0 0 20px rgba(255, 255, 255, 0.1);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1), 
+                  0 0 20px rgba(255, 255, 255, 0.2), 
+                  0 0 30px rgba(255, 255, 255, 0.2), 
+                  0 0 40px rgba(255, 255, 255, 0.2);
+    }
+  }
+  
+.highlight{
+z-index: 3;
+position: relative;
+pointer-events: none;
+animation: glow 1s ease-in-out infinite alternate;
 }
 
 .animate .pulse-ring {

@@ -18,7 +18,7 @@ export default function Interview(){
             // if from button state doesnt exist, redirect to dashboard
             navigate('/dashboard')
         }
-    }, [])
+    }, [location])
 
     return (
         isDone 
