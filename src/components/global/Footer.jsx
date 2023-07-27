@@ -3,7 +3,7 @@ import "../../styles/Footer.css";
 import logoImg from "../../img/preptify_cropped.png";
 import instaIcon from "../../img/icons/instagram.png";
 import linkedinIcon from "../../img/icons/linkedin.png";
-import threadsIcon from "../../img/icons/threads.png";
+// import threadsIcon from "../../img/icons/threads.png";
 import tikTokIcon from "../../img/icons/tik-tok.png";
 import twitterIcon from "../../img/icons/twitter.png";
 
