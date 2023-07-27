@@ -42,28 +42,6 @@
     transform: scale(1.02);
 }
   
-/* Footer */
-
-.footer {
-    font-family: 'Poppins';
-    display: flex;
-    justify-content: right;
-    color: gray;
-    padding: 20px 0;
-    position: inherit;
-    bottom: 0;
-    width: 100%;
-    border-top: 1px solid gray; 
-  }
-  
-.footer button {
-background: none;
-border: none;
-color: gray;
-cursor: pointer;
-font-weight: bolder;
-}
-
 /* Button */
 
 button{
