@@ -76,6 +76,11 @@ function Signup() {
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                      handleSignup();
+                  }
+                }}
                 placeholder="first name"
                 required
               />
@@ -83,6 +88,11 @@ function Signup() {
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    handleSignup();
+                  }
+                }}
                 placeholder="last name"
                 required
               />
@@ -96,6 +106,11 @@ function Signup() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSignup();
+                }
+              }}
               placeholder="example@gmail.com"
               required
             />
@@ -108,6 +123,11 @@ function Signup() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSignup();
+                }
+              }}
               placeholder="12345678"
               required
             />
@@ -118,6 +138,11 @@ function Signup() {
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  handleSignup();
+                }
+              }}
               placeholder="12345678"
               required
             />

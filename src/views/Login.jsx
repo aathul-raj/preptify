@@ -56,6 +56,11 @@ function Login() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    handleLogin();
+                }
+              }}
               placeholder="example@gmail.com"
               required
             />
@@ -68,6 +73,11 @@ function Login() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                    handleLogin();
+                }
+              }}
               placeholder="12345678"
               required
             />
