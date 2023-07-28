@@ -8,6 +8,7 @@ import Dashboard from "./views/Dashboard.jsx";
 import Interview from "./views/Interview.jsx";
 import Pricing from "./views/Pricing.jsx";
 import About from "./views/About.jsx";
+import Terms from "./views/Terms.jsx";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/interview" element={<Interview />} />
+        <Route path="/terms" element={<Terms />} />
       </Routes>
       <Analytics />
     </Router>

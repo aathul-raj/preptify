@@ -125,9 +125,20 @@ body {
   transform: scale(1.02);
 }
 
+.white-get-started{
+  background-color: #fff;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 41px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  flex: none;
+  white-space: nowrap;
+}
 
 .get-started-button {
-  background: white;
+  background-color: #15D59F;
   color: black;
   padding: 10px 20px;
   border-radius: 41px;
@@ -224,18 +235,19 @@ body {
 
 .squiggle-img {
   height: 10rem;
-  transform: translateY(-10rem);
+  transform: translateY(-5rem);
 }
 
 .icon {
   height: 2rem;
-  margin-right: 1rem;
+  margin-right: 2rem;
 }
 
 .feature-container {
   display: flex;
   align-items: center;
-  height: 100%; /* Adjust the height as needed */
+  height: 100%;
+  margin-bottom: 1rem;
 }
 
 /* Responsive */
@@ -387,6 +399,10 @@ body {
   .auth-buttons-container{
     margin-right: 1rem;
     margin-bottom: .5rem;
+  }
+
+  .white-get-started{
+    font-size: 1.2rem;
   }
 }
 
