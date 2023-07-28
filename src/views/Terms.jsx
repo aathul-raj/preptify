@@ -293,7 +293,7 @@ function Terms() {
                     <br/>- Preptify LLC
                     <br/>- 3451 Mayfield Ranch Blvd
                     <br/>- Unit 305
-                    <br/>- Roundrock, TX 7868`
+                    <br/>- Round Rock, TX 78681
                     <br/>- United States
                     <br/>- Phone: 5122997821
                     <br/>- preptifyco@gmail.com
