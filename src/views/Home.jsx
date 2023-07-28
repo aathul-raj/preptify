@@ -64,12 +64,12 @@ function Home() {
                 >
                   get started
                 </button>
-                <button
+                {/* <button
                   onClick={() => navigate("/pricing")}
                   className={styles["learn-more-button"]}
                 >
                   pricing
-                </button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -81,24 +81,23 @@ function Home() {
             <div className={styles["text-container"]}>
               <div className={styles["intro-text"]}>
                 empowering careers, one{" "}
-                <span className={styles["highlight"]}>interview</span> at a time.
+                <span className={styles["highlight"]}>interview</span> at a time
               </div>
               <div className={styles["intro-text-2"]}>
-                We help you achieve career excellence through our AI-enhanced
-                interview tool, Zara.
+              we believe everyone deserves a successful career 
+              - enter <span className={styles["highlight"]}>z</span>ara, our first step in this mission
               </div>
               <div className={styles["feature-container"]}>
                 <img className={styles["icon"]} src={HomeImages.book}></img>
                 <h2 className={styles["feature-text"]}>
-                  Streamline your interview preparation with our AI-enhanced
-                  interview tool, Zara.
+                  Streamline your interview preparation with our all in one platform
                 </h2>
               </div>
               <div className={styles["feature-container"]}>
                 <img className={styles["icon"]} src={HomeImages.speech}></img>
                 <h2 className={styles["feature-text"]}>
                   Gain the skills and confidence you need to excel in your
-                  career.
+                  career
                 </h2>
               </div>
               <div className={styles["feature-container"]}>
@@ -121,34 +120,32 @@ function Home() {
             <div className={styles["text-container"]}>
               <div className={styles["intro-text"]}>
                 our
-                <span className={styles["highlight"]}> features</span>.
+                <span className={styles["highlight"]}> features</span>
               </div>
               <div className={styles["intro-text-2"]}>
-                Discover a trove of innovative features meticulously crafted to
-                catapult you towards acing your impending job interview.
+                <span className={styles["highlight"]}>z</span>ara is loaded with features and crafted to ensure that you'll ace your impending interviews
               </div>
 
               <div className={styles["feature-container"]}>
                 <img className={styles["icon"]} src={HomeImages.clock}></img>
                 <h2 className={styles["feature-text"]}>
-                  Zara creates authentic interview scenarios, allowing users to
-                  practice and refined answers.
+                  Immerse yourself in authentic interview scenarios, allowing you to
+                  practice and refine answers
                 </h2>
               </div>
               <div className={styles["feature-container"]}>
                 <img className={styles["icon"]} src={HomeImages.idea}></img>
                 <h2 className={styles["feature-text"]}>
-                  By analyzing user responses, we provide detailed feedback at
-                  the end of every interview.
+                  By analyzing responses, zara provides detailed feedback at
+                  the end of every interview and tracks your progress over time
                 </h2>
               </div>
               <div className={styles["feature-container"]}>
                 <img className={styles["icon"]} src={HomeImages.shield}></img>
 
                 <h2 className={styles["feature-text"]}>
-                  Preptify offers a safe environment to practice, helping users
-                  overcome anxiety and develop interview skills for optimal
-                  performance.
+                  Zara offers a safe environment to practice, helping you
+                  overcome anxiety and achieve peak performance
                 </h2>
               </div>
             </div>
@@ -157,7 +154,7 @@ function Home() {
           <div className={styles["home-block-3"]}>
             <div className={styles["step-container"]}>
               <h1 className={styles["intro-text text-bottom"]}>
-                Take the first step towards interview success and{" "}
+                take the first step towards interview success and{" "}
                 <span className={styles["highlight"]}>unlock</span> your career potential
                 with Zara <span className={styles["highlight"]}>today</span>.
               </h1>
@@ -168,12 +165,18 @@ function Home() {
               ></img>
               <div>
                 <button
-                  className={styles["get-started-button"]}
-                  onClick={() => navigate("/signup")}
+                  className={`${styles["white-get-started"]}`}
+                  onClick={() => {
+                    navigate('/signup')
+                    window.scrollTo(0, 0);
+                  }}
                 >
                   get started
                 </button>
-                <button className={styles["learn-more-button"]}>pricing</button>
+                <button className={styles["learn-more-button"]} onClick={() => {
+                  navigate('/pricing')
+                  window.scrollTo(0, 0);
+                }}>pricing</button>
               </div>
             </div>
           </div>

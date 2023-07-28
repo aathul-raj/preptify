@@ -22,6 +22,9 @@ function TempSignup() {
         <p className={styles["login-link"]}>
           already have an account? <a href="/login">log in</a>
         </p>
+        <p className={styles["login-link"]}>
+          want more from zara? <a href="/pricing">see pricing</a>
+        </p>
       </div>
       <Footer/>
     </div>

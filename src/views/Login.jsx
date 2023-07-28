@@ -91,6 +91,9 @@ function Login() {
         <p className={styles['login-link']}>
           dont have an account? <a href="/signup">sign up</a>
         </p>
+        <p className={styles["login-link"]}>
+          want more from zara? <a href="/pricing">see pricing</a>
+        </p>
       </div>
       <Footer/>
     </div>
