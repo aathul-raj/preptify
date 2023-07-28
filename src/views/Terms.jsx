@@ -18,11 +18,11 @@ function Terms() {
                 <p>
                     <p className={styles["body-subheading"]}>AGREEMENT TO OUR LEGAL TERMS</p>
 
-                    <br/>We are Preptify LLC ("Company," "we," "us," "our"), a company registered in Texas, United States at 3451 Mayfield Ranch Blvd , Unit 305, Roundrock, TX 7868`.
+                    <br/>We are Preptify LLC ("Company," "we," "us," "our"), a company registered in Texas, United States at 3451 Mayfield Ranch Blvd , Roundrock, TX 78681.
 
                     We operate the website https://www.preptify.com/ (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
 
-                    You can contact us by phone at 5122997821, email at preptifyco@gmail.com, or by mail to 3451 Mayfield Ranch Blvd , Unit 305, Roundrock, TX 7868`, United States.
+                    You can contact us by phone at 5122997821, email at preptifyco@gmail.com, or by mail to 3451 Mayfield Ranch Blvd , Roundrock, TX 78681, United States.
 
                     <br/>These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and Preptify LLC, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.
 
@@ -292,7 +292,6 @@ function Terms() {
 
                     <br/>- Preptify LLC
                     <br/>- 3451 Mayfield Ranch Blvd
-                    <br/>- Unit 305
                     <br/>- Round Rock, TX 78681
                     <br/>- United States
                     <br/>- Phone: 5122997821
