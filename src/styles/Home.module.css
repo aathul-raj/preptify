@@ -195,7 +195,7 @@ body {
   /* margin-bottom: 20px; */
 }
 
-.home-block-1, .home-block-2, .home-block-3 {
+.home-block-1, .home-block-2, .home-block-3, .home-block-4 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -356,6 +356,14 @@ body {
   }
 
   .home-block-3{
+    padding: 40px;
+  }
+
+
+  
+  .home-block-4{
+    display: flex;
+    flex-direction: column;
     padding: 40px;
   }
 

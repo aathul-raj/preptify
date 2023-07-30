@@ -4,6 +4,8 @@ import MainHeader from "../components/global/MainHeader.jsx";
 import Footer from "../components/global/Footer.jsx";
 import HomeImages from "../constants/HomeImages.jsx";
 import styles from "../styles/Home.module.css";
+//import {IconContext} from "react-icons";
+//import {FiPlus, FiMinus} from "react-icons/fi"
 
 function Home() {
   const navigate = useNavigate();
@@ -150,6 +152,20 @@ function Home() {
               </div>
             </div>
           </div>
+          <div className={styles["home-block-4"]}>
+            <div className={styles["step-container"]}>
+              {promptAnswer.map((item, i) => (
+                  <div className="item">
+                    <div className="title">
+                      <h2>{item.prompt}</h2>
+                    </div>
+                    <div className="content">
+                      {item.answer}
+                    </div>
+                  </div>
+                ))}
+            </div>
+          </div>
 
           <div className={styles["home-block-3"]}>
             <div className={styles["step-container"]}>
@@ -187,4 +203,35 @@ function Home() {
   );
 }
 
+
+const promptAnswer = [
+  {
+    prompt: 'what do we do?',
+    answer: 'We work hard'
+  },
+  {
+    prompt: 'getting started with Zara',
+    answer: 'We work hard'
+  },
+  {
+    prompt: 'what do we do?',
+    answer: 'We work hard'
+  },
+  {
+    prompt: 'is there a free trial?',
+    answer: 'We work hard'
+  },
+  {
+    prompt: 'what is your cancellation policy?',
+    answer: 'We work hard'
+  },
+  {
+    prompt: 'can I use Zara if I\'m a Med student?',
+    answer: 'We work hard'
+  },
+  {
+    prompt: 'what\'s in the future for Zara?',
+    answer: 'We work hard'
+  },
+]
 export default Home;
