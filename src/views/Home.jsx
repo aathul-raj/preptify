@@ -87,26 +87,6 @@ function Home() {
               we believe everyone deserves a successful career 
               - enter <span className={styles["highlight"]}>z</span>ara, our first step in this mission
               </div>
-              <div className={styles["feature-container"]}>
-                <img className={styles["icon"]} src={HomeImages.book}></img>
-                <h2 className={styles["feature-text"]}>
-                  Streamline your interview preparation with our all in one platform
-                </h2>
-              </div>
-              <div className={styles["feature-container"]}>
-                <img className={styles["icon"]} src={HomeImages.speech}></img>
-                <h2 className={styles["feature-text"]}>
-                  Gain the skills and confidence you need to excel in your
-                  career
-                </h2>
-              </div>
-              <div className={styles["feature-container"]}>
-                <img className={styles["icon"]} src={HomeImages.check}></img>
-                <h2 className={styles["feature-text"]}>
-                  Unlock your potential through personalized interview guidance
-                  and support
-                </h2>
-              </div>
             </div>
             <img
               className={styles["learn-more-ai-img"]}
@@ -122,10 +102,7 @@ function Home() {
                 our
                 <span className={styles["highlight"]}> features</span>
               </div>
-              <div className={styles["intro-text-2"]}>
-                <span className={styles["highlight"]}>z</span>ara is loaded with features and crafted to ensure that you'll ace your impending interviews
-              </div>
-
+              
               <div className={styles["feature-container"]}>
                 <img className={styles["icon"]} src={HomeImages.clock}></img>
                 <h2 className={styles["feature-text"]}>
