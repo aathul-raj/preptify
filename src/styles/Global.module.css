@@ -52,6 +52,13 @@ button{
     cursor: pointer;
     transition: 1s ease;
 }
+
+img{
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+}
   
   
 button:hover{
