@@ -9,6 +9,7 @@ import Interview from "./views/Interview.jsx";
 import Pricing from "./views/Pricing.jsx";
 import About from "./views/About.jsx";
 import Terms from "./views/Terms.jsx";
+import PaymentConfirmed from "./views/PaymentConfirmed.jsx"
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/interview" element={<Interview />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="/payment-confirmed" element={<PaymentConfirmed/>}/>
         </Routes>
         <Analytics />
       </Router>
