@@ -1,9 +1,18 @@
-import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { auth } from "../back-end/Firebase";
+import LoginSignup from "../components/checkout/LoginSignup";
 import getStripe from "../back-end/getStripe";
 
-export default function StandardCheckout() {
+function Checkout() {
 
-    let navigate = useNavigate()
+    useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            handleCheckout()
+        }
+    });
+    }, []);
+
     async function handleCheckout(){
         const stripe = await getStripe()
         const { error } = await stripe.redirectToCheckout({
@@ -15,14 +24,13 @@ export default function StandardCheckout() {
             ],
             mode: 'subscription',
             successUrl: 'http://localhost:5173/payment-confirmed',
-            cancelUrl: 'http://localhost:5173/about',
+            cancelUrl: 'http://localhost:5173/pricing',
             // ADD FUNCTIONALITY TO MAKE SURE USER IS SIGNED IN SO YOU CAN PUT customerEmail: 'customer@email.com',
         })
         console.warn(error.message);
     }
-  
-    return <button onClick={() => {
-        window.scrollTo(0, 0);
-        navigate("/checkout")}
-    }>subscribe</button>;
-  }
+
+    return <LoginSignup/>
+}
+
+export default Checkout;

@@ -10,6 +10,7 @@ import Pricing from "./views/Pricing.jsx";
 import About from "./views/About.jsx";
 import Terms from "./views/Terms.jsx";
 import PaymentConfirmed from "./views/PaymentConfirmed.jsx"
+import Checkout from "./views/Checkout.jsx";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="/interview" element={<Interview />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/payment-confirmed" element={<PaymentConfirmed/>}/>
+          <Route path="/checkout" element={<Checkout/>}/>
         </Routes>
         <Analytics />
       </Router>
