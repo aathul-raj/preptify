@@ -202,6 +202,84 @@ body {
   margin:auto;
   margin-bottom: 80px;
 }
+.home-block-4{
+  flex-direction: row;
+  padding: 40px;
+  justify-content: center;
+}
+
+.faq{
+  flex: .5;
+  color: white;
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.faq-highlight{
+  color: rgb(0, 255, 187);
+}
+
+.faq-sub{
+  font-size: 30px;;
+}
+
+.faq-squiggle{
+  height: 10rem;
+  transform: translateX(18rem) translateY(-30rem);
+  rotate: 45deg;
+}
+
+.accordian{
+  width: 500px; 
+  padding-left: 50px;;
+}
+
+.item{
+  background: #0e0f12;
+  
+}
+
+.item-show{
+  background-color: #252525;
+}
+
+.title{
+  color: white;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+}
+
+.title-show{
+  color: white;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+  background: #252525;
+}
+
+.prompt{
+  padding-left: 10px;
+}
+
+.content{
+  color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.content-show{
+  color: white;
+  height: auto;
+  max-height: 9999;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+  padding-left: 20px;
+}
+
 
 .step-container {
   display: flex;
@@ -356,14 +434,6 @@ body {
   }
 
   .home-block-3{
-    padding: 40px;
-  }
-
-
-  
-  .home-block-4{
-    display: flex;
-    flex-direction: column;
     padding: 40px;
   }
 

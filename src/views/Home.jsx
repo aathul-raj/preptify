@@ -1,13 +1,26 @@
 import React, { useEffect } from "react";
+import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import MainHeader from "../components/global/MainHeader.jsx";
 import Footer from "../components/global/Footer.jsx";
 import HomeImages from "../constants/HomeImages.jsx";
 import styles from "../styles/Home.module.css";
-//import {IconContext} from "react-icons";
-//import {FiPlus, FiMinus} from "react-icons/fi"
 
 function Home() {
+
+const[selected, setSelected] = useState(null)
+
+  const toggle = (i) => {
+    console.log(selected)
+    if(selected === i){
+      return setSelected(null)
+    }
+
+    setSelected(i)
+  }
+
+
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -153,18 +166,24 @@ function Home() {
             </div>
           </div>
           <div className={styles["home-block-4"]}>
-            <div className={styles["step-container"]}>
-              {promptAnswer.map((item, i) => (
-                  <div className="item">
-                    <div className="title">
-                      <h2>{item.prompt}</h2>
+            <h1 className={styles["faq"]}>
+            frequently asked <span className={styles["faq-highlight"]}>questions.</span>
+              <h2 className={styles['faq-sub']}>things that are commonly asked.</h2>
+            </h1>
+              <div className={styles["accordian"]}>
+                {promptAnswer.map((item, i) => (
+                    <div className={selected === i ? styles['item-show'] : styles['item']}>
+                      <div className={selected === i ? styles['title-show'] : styles['title']} onClick={() => toggle(i)}>
+                        <span>{selected === i ? '-' : '+'}</span>
+                        
+                        <h2 className={styles['prompt']}>{item.prompt}</h2>
+                      </div>
+                      <div className={selected === i ? styles['content-show'] : styles['content']}>
+                          {item.answer}
+                      </div>
                     </div>
-                    <div className="content">
-                      {item.answer}
-                    </div>
-                  </div>
-                ))}
-            </div>
+                  ))}
+              </div>
           </div>
 
           <div className={styles["home-block-3"]}>
