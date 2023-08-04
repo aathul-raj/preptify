@@ -23,8 +23,8 @@ function Checkout() {
                 }
             ],
             mode: 'subscription',
-            successUrl: 'http://preptify.com/payment-confirmed',
-            cancelUrl: 'http://preptify.com/pricing',
+            successUrl: 'http://www.preptify.com/payment-confirmed',
+            cancelUrl: 'http://www.preptify.com/pricing',
             customerEmail: email
         })
         console.warn(error.message);
