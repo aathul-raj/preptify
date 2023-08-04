@@ -8,12 +8,12 @@ function Checkout() {
     useEffect(() => {
     auth.onAuthStateChanged((user) => {
         if (user) {
-            handleCheckout()
+            handleCheckout(user.email)
         }
     });
     }, []);
 
-    async function handleCheckout(){
+    async function handleCheckout(email){
         const stripe = await getStripe()
         const { error } = await stripe.redirectToCheckout({
             lineItems: [
@@ -23,9 +23,9 @@ function Checkout() {
                 }
             ],
             mode: 'subscription',
-            successUrl: 'http://localhost:5173/payment-confirmed',
-            cancelUrl: 'http://localhost:5173/pricing',
-            // ADD FUNCTIONALITY TO MAKE SURE USER IS SIGNED IN SO YOU CAN PUT customerEmail: 'customer@email.com',
+            successUrl: 'http://preptify/payment-confirmed',
+            cancelUrl: 'http://preptify/pricing',
+            customerEmail: email
         })
         console.warn(error.message);
     }
