@@ -19,7 +19,7 @@
 
 .login-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     height: 80vh;
@@ -28,6 +28,68 @@
     backdrop-filter: blur(5px);
     margin: 10px;
 }
+
+.login-container-left {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img-container {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%; /* Adjust this value as per your preference */
+  }
+  
+  .green-lady-img {
+    max-width: 60%; /* Set the maximum width to 100% to fit the container */
+    height: auto;
+  }
+
+  .squiggle-img-2 {
+    max-width: 30%; /* Set the maximum width to 100% to fit the container */
+    height: auto;
+    transform: translateX(-70%) translateY(-80%);
+
+}
+
+  .squiggle-img-3 {
+    max-width: 30%; /* Set the maximum width to 100% to fit the container */
+    height: auto;
+    transform: translateX(50%) translateY(80%);
+}
+  
+  
+
+.login-welcome-text {
+    color: white;
+    font-size: 3rem;
+    font-weight: bolder;
+    margin: 0; /* Add this line to remove the space under the "hey there." text */
+  }
+
+
+.login-prompt-text {
+    color: white;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+  
+.login-container-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* Center the text horizontally */
+  
+    /* Add these properties to center and limit the width */
+    width: 80%; /* You can adjust the width value as per your preference */
+    margin: 0 auto;
+    margin-right: 60px; /* Adjust this value to move the container to the left */
+  }
+  
 
 .login-input-group {
     display: flex;
@@ -107,6 +169,34 @@ label {
   }
 
   @media(max-width: 750px){
+
+    .login-container {
+        flex-direction: column;
+        
+        height: auto;
+        min-height: 90vh;
+
+    }
+
+    .img-container {
+        transform: translateX(-7%)
+    }
+    
+    .login-container-left {
+        margin-bottom: 30px;
+    }
+    
+    .login-welcome-text {
+        font-size: 2.5rem;
+    }
+    
+    .login-container-right {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    
+    }
+      
     .login-input-group{
         display: flex;
         flex-direction: column;

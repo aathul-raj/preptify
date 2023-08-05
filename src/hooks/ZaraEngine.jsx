@@ -1,5 +1,4 @@
 export default function useEngine( {feedback, responseTimes, lagTimes, userTranscript, role} ) {
-    console.log(feedback)
     const responseTimeSum = responseTimes.reduce((a, b) => a + b, 0)
     const averageResponseTime = responseTimeSum / responseTimes.length
 
@@ -41,11 +40,9 @@ export default function useEngine( {feedback, responseTimes, lagTimes, userTrans
     }
 
     adjustments["comm"] = adjustments["comm"] - (commCounter * .5)
-
     adjustments["behavioral"] = adjustments["behavioral"] + (behavioralCounter > 10 ? 2 : behavioralCounter * .2)
     adjustments["tech"] = adjustments["tech"] + (roleCounter > 10 ? 2 : roleCounter * .2)
     adjustments["ps"] = adjustments["ps"] + (psCounter > 5 ? 2 : psCounter * .4)
 
-    console.log(adjustments)
     return adjustments
 }

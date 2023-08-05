@@ -39,7 +39,6 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
           if (userDoc.exists()) {
             const userData = userDoc.data();
             if (userData.tutorialShown != undefined && !userData.tutorialShown) {
-              console.log('showing tutorial');
               setShowPopup(true);
             }
           }
@@ -70,8 +69,6 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
     };
 }, []);
 
-
-  useEffect(() => {console.log(lagTimes)}, [lagTimes])
 
   const createUserInterviewLog = async () => {
     await setDoc(doc(db, 'users', auth.currentUser.uid), {

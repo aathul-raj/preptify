@@ -9,22 +9,29 @@ import Interview from "./views/Interview.jsx";
 import Pricing from "./views/Pricing.jsx";
 import About from "./views/About.jsx";
 import Terms from "./views/Terms.jsx";
+import PaymentConfirmed from "./views/PaymentConfirmed.jsx"
+import Checkout from "./views/Checkout.jsx";
+import { AuthContextProvider } from "./context/AuthContext.jsx";
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/signup" element={<TempSignup />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/beta-user-signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/interview" element={<Interview />} />
-        <Route path="/terms" element={<Terms />} />
-      </Routes>
-      <Analytics />
-    </Router>
+    <AuthContextProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<TempSignup />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/beta-user-signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/interview" element={<Interview />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/payment-confirmed" element={<PaymentConfirmed/>}/>
+          <Route path="/checkout" element={<Checkout/>}/>
+        </Routes>
+        <Analytics />
+      </Router>
+    </AuthContextProvider>
   );
 }

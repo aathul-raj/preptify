@@ -5,7 +5,7 @@ import Setting from "../components/dashboard/Settings";
 import Sidebar from "../components/dashboard/Sidebar";
 import Popup from '../components/Popup';
 import { auth } from '../back-end/Firebase';
-import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
+import { getFirestore, onSnapshot, doc, setDoc, getDoc } from "firebase/firestore";
 import styles from "../styles/Dashboard.module.css"
 
 export default function Dashboard(){
@@ -21,17 +21,15 @@ export default function Dashboard(){
         navigate('/login');
       } else {
         setCurrentUser(user);
-        console.log('fetching')
         // fetch the user's document from Firestore
         getDoc(doc(db, "users", user.uid)).then(async userDoc => {
           if (userDoc.exists()) {
-            console.log('user doc exists')
             const userData = userDoc.data();
-            // show the popup if the tutorial hasn't been shown yet
             if (!userData.tutorialShown) {
-              console.log('showing tutorials')
-              setShowPopup(true);
+              // show the popup if the tutorial hasn't been shown yet
+              //setShowPopup(true);
             }
+            
           }
         });
       }
@@ -39,8 +37,29 @@ export default function Dashboard(){
   }, []);
 
   useEffect(() => {
-    console.log(activeItem)
-  }, [activeItem])
+    // Tracks user's subscription status
+    let unsubscribeSubscription;
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        const userDocRef = doc(db, 'users', user.uid);
+        unsubscribeSubscription = onSnapshot(userDocRef, (docSnapshot) => {
+          if (docSnapshot.exists()) {
+            const userData = docSnapshot.data();
+            const subscriptionData = userData.subscription; // Access subscription field
+          } else {
+            // do something if user document doesn't exist -- can potentially delete this
+          }
+        });
+      }
+    });
+  
+    // Cleanup listener when the component is unmounted
+    return () => {
+      if (unsubscribeSubscription) {
+        unsubscribeSubscription();
+      }
+    };
+  }, []);
 
   // const closePopup = () => {
   //   setShowPopup(false);

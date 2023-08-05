@@ -4,6 +4,7 @@ import MainHeader from "../components/global/MainHeader"
 import Footer from "../components/global/Footer"
 import PricingImages from "../constants/PricingImages";
 import styles from "../styles/Pricing.module.css"
+import StandardCheckout from "../components/StandardCheckout";
 
 function Pricing() {
   const navigate = useNavigate();
@@ -98,7 +99,7 @@ function Pricing() {
               <h2>Ad-Free Experience</h2>
             </div>
           </div>
-          <button>coming soon</button>
+          <StandardCheckout/>
           <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
         </div>
       </div>
