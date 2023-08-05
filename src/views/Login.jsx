@@ -26,7 +26,7 @@ function Login() {
     try {
       await googleSignIn();
     } catch (error) {
-      // Error has occuring signing in
+      // Error has occurred signing in
     }
   };
 

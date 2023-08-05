@@ -15,7 +15,7 @@ export default function LoginSignup(){
         try {
           await googleSignIn();
         } catch (error) {
-          console.log(error);   
+          // Error has occurred signing in
         }
       };
       
