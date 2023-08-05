@@ -166,6 +166,18 @@ const[selected, setSelected] = useState(null)
             </div>
           </div>
           <div className={styles["home-block-4"]}>
+            <img
+                  className={styles["faq-squiggle"]}
+                  src={HomeImages.squiggle}
+                  alt="Squiggle"
+                >
+            </img>
+            <img
+                  className={styles["faq-arrow-squiggle"]}
+                  src={HomeImages.arrow_squiggle}
+                  alt="Arrow-squiggle"
+                >
+            </img>
             <h1 className={styles["faq"]}>
             frequently asked <span className={styles["faq-highlight"]}>questions.</span>
               <h2 className={styles['faq-sub']}>things that are commonly asked.</h2>
@@ -174,7 +186,12 @@ const[selected, setSelected] = useState(null)
                 {promptAnswer.map((item, i) => (
                     <div className={selected === i ? styles['item-show'] : styles['item']}>
                       <div className={selected === i ? styles['title-show'] : styles['title']} onClick={() => toggle(i)}>
-                        <span>{selected === i ? '-' : '+'}</span>
+                        <img
+                              className={styles["faq-arrow"]}
+                              src={selected === i ? HomeImages.faq_up_arrow : HomeImages.faq_down_arrow}
+                              alt="faq_up_arrow"
+                            >
+                        </img>
                         
                         <h2 className={styles['prompt']}>{item.prompt}</h2>
                       </div>
@@ -230,27 +247,27 @@ const promptAnswer = [
   },
   {
     prompt: 'getting started with Zara',
-    answer: 'We work hard'
+    answer: 'We make dreams come true'
   },
   {
     prompt: 'what do we do?',
-    answer: 'We work hard'
+    answer: 'We make saharsh proud'
   },
   {
     prompt: 'is there a free trial?',
-    answer: 'We work hard'
+    answer: 'We got a gyatt'
   },
   {
     prompt: 'what is your cancellation policy?',
-    answer: 'We work hard'
+    answer: 'We are them'
   },
   {
     prompt: 'can I use Zara if I\'m a Med student?',
-    answer: 'We work hard'
+    answer: 'nah pham'
   },
   {
     prompt: 'what\'s in the future for Zara?',
-    answer: 'We work hard'
+    answer: 'lots more'
   },
 ]
 export default Home;

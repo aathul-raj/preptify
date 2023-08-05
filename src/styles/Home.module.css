@@ -209,7 +209,7 @@ body {
 }
 
 .faq{
-  flex: .5;
+  flex: .8;
   color: white;
   font-size: 45px;
   font-weight: 600;
@@ -225,22 +225,31 @@ body {
 
 .faq-squiggle{
   height: 10rem;
-  transform: translateX(18rem) translateY(-30rem);
   rotate: 45deg;
+  translate: 16rem -15rem;
+}
+
+.faq-arrow-squiggle{
+  height: 10rem;
+  translate: 12rem 13rem;
+}
+
+.faq-arrow{
+  padding-left: 10px;
 }
 
 .accordian{
   width: 500px; 
-  padding-left: 50px;;
+  padding-left: 50px;
 }
 
 .item{
   background: #0e0f12;
-  
 }
 
 .item-show{
   background-color: #252525;
+  border-radius: .9rem;
 }
 
 .title{
@@ -258,6 +267,7 @@ body {
   align-items: center;
   cursor: pointer;
   background: #252525;
+  border-radius: .9rem;
 }
 
 .prompt{
@@ -277,7 +287,7 @@ body {
   max-height: 9999;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
-  padding-left: 20px;
+  padding-left: 40px;
 }
 
 
