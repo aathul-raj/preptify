@@ -41,8 +41,6 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
                     await setDoc(doc(db, "users", user.uid), { tutorialShown: false }, { merge: true });
                     setInterviewsCompleted(0)
                 }        
-            } else {
-                console.log("No such document!");
             }
         }
 

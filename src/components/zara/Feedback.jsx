@@ -25,14 +25,9 @@ export default function Feedback( {feedback, setFeedback, responseTimes, lagTime
     const questionCount = responseTimes.length
 
     useEffect(() => {
-        console.log(`LAG TIMES: ${lagTimes}`)
-        console.log(`RESPONSE TIMES: ${responseTimes}`)
-        console.log(feedback)
-
         const adjustments = useEngine({feedback, responseTimes, lagTimes, userTranscript, role});
         const adjScore = score + adjustments["overall"]
 
-        console.log(adjustments)
         setFeedback(prevFeedback => {
             const adjComm = prevFeedback["communication"] + adjustments["comm"]
             const adjTech = prevFeedback["technical"] + adjustments["tech"]
@@ -98,7 +93,6 @@ export default function Feedback( {feedback, setFeedback, responseTimes, lagTime
             newFeedbackSummary = {...userData.feedbackSummary}
         }
         
-        console.log(newFeedbackSummary)
         for (let key in recentFeedback) {
             if (key == "responseTime") {
                 newFeedbackSummary[key] = {
