@@ -26,7 +26,7 @@ function Login() {
     try {
       await googleSignIn();
     } catch (error) {
-      console.log(error);
+      // Error has occuring signing in
     }
   };
 
@@ -46,7 +46,6 @@ function Login() {
       navigate("/dashboard");
     } catch (error) {
       setErrorMessage("Failed to log in. Please try again");
-      console.error("Failed to log in", error);
     }
   };
 
