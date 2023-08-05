@@ -31,7 +31,6 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
   }
 
   const stopListening = () => {
-    console.log("Stopping to listen...")
     clearTimeout(transcriptTimer.current);
     let startTime = responseTimes[responseTimes.length - 1]
     let responseTime = Date.now() - startTime
@@ -44,7 +43,6 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
     mediaStream.current.getTracks().forEach(track => track.stop()); // Stop the stream
     socketRef.current.close();
     setIsListening(false);
-    console.log('POSTING')
     axios.post(`${import.meta.env.VITE_SERVER_URL}/api/interview`, {
       response: userResponse
     }, {
@@ -71,7 +69,6 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
 
   const toggleListening = () => {
     if (!isListening) {
-      console.log("Starting to listen...");
       let startTime = lagTimes[lagTimes.length - 1]
       let responseTime = Date.now() - startTime
       setResponseTimes((prevResponseTimes) => [...prevResponseTimes, Date.now()])
@@ -84,7 +81,6 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
         mediaRecorder.current = new MediaRecorder(stream);
         socketRef.current = new WebSocket('wss://api.deepgram.com/v1/listen?smart_format=true', ['token', import.meta.env.VITE_DEEPGRAM_API_KEY]);
         socketRef.current.onopen = () => {
-          console.log({ event: 'onopen' });
           mediaRecorder.current.addEventListener('dataavailable', handleDataAvailable);
           mediaRecorder.current.stop();
           mediaRecorder.current.start(150);
@@ -94,7 +90,6 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
           const received = JSON.parse(message.data);
           const transcript = received.channel.alternatives[0].transcript;
           if (transcript && received.is_final) {
-            console.log(`TRANSCRIPT: ${transcript}`);
             setUserResponse(prevResponse => prevResponse + `\n` + transcript);
             setUserTranscript(prevTranscript => prevTranscript + '\n' + transcript)
             clearTimeout(transcriptTimer.current);
@@ -103,11 +98,11 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
         };
 
         socketRef.current.onclose = () => {
-          console.log({ event: 'onclose' });
+          // do this when the connection is closed
         };
         
         socketRef.current.onerror = (error) => {
-          console.log({ event: 'onerror', error });
+          // do this when the connection receives an error
         };
       });
 
