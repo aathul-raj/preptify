@@ -242,32 +242,24 @@ const[selected, setSelected] = useState(null)
 
 const promptAnswer = [
   {
-    prompt: 'what do we do?',
-    answer: 'We work hard'
+    prompt: 'What is Zara?',
+    answer: 'Zara, by Preptify, is an advanced AI-powered platform for comprehensive career preparation, aiding job seekers to effectively prepare for interviews and improve soft skills.'
   },
   {
-    prompt: 'getting started with Zara',
-    answer: 'We make dreams come true'
+    prompt: 'Is ZARA only for software engineering?',
+    answer: 'Currently, yes. However, very soon we\'ll expand Zara to assist with a variety of job roles and industries, not just software engineering.'
   },
   {
-    prompt: 'what do we do?',
-    answer: 'We make saharsh proud'
+    prompt: 'Do I need to pay to use Zara?',
+    answer: 'Nope! Zara is available as part of our two-tier system. While we offer a basic version, there\'s also a paid subscription called Zara Green. A premium tier with advanced features is launching soon. For detailed pricing, please visit our Pricing Page.'
   },
   {
-    prompt: 'is there a free trial?',
-    answer: 'We got a gyatt'
+    prompt: 'What\'s your cancellation policy?',
+    answer: 'Users can cancel their subscription anytime. Upon cancellation, access will continue until the end of the billing cycle. No refunds for partial months.'
   },
   {
-    prompt: 'what is your cancellation policy?',
-    answer: 'We are them'
-  },
-  {
-    prompt: 'can I use Zara if I\'m a Med student?',
-    answer: 'nah pham'
-  },
-  {
-    prompt: 'what\'s in the future for Zara?',
-    answer: 'lots more'
+    prompt: 'Who can I contact for support or more information?',
+    answer: 'For any queries, issues, or more details, feel free to reach out to our support team at preptifyco@gmail.com. We\'re here to help!'
   },
 ]
 export default Home;

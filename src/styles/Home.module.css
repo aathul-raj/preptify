@@ -195,21 +195,23 @@ body {
   /* margin-bottom: 20px; */
 }
 
-.home-block-1, .home-block-2, .home-block-3, .home-block-4 {
+.home-block-1, .home-block-2, .home-block-3 {
   display: flex;
   justify-content: center;
   align-items: center;
   margin:auto;
   margin-bottom: 80px;
 }
+
 .home-block-4{
-  flex-direction: row;
-  padding: 40px;
-  justify-content: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 8rem;
+  margin-bottom: 15rem;
 }
 
 .faq{
-  flex: .8;
   color: white;
   font-size: 45px;
   font-weight: 600;
@@ -224,32 +226,39 @@ body {
 }
 
 .faq-squiggle{
-  height: 10rem;
+  position: absolute;
   rotate: 45deg;
-  translate: 16rem -15rem;
+  height: 10rem;
+  translate: -6rem -10rem;  
 }
 
 .faq-arrow-squiggle{
+  position: absolute;
   height: 10rem;
-  translate: 12rem 13rem;
+  translate: -20rem 10rem
+  
 }
 
 .faq-arrow{
-  padding-left: 10px;
+  margin: 0 1rem;
 }
 
 .accordian{
   width: 500px; 
-  padding-left: 50px;
+  padding-left: 0px;
 }
 
 .item{
   background: #0e0f12;
+  width: 100%;
+  display:flex;
+  align-items: center;
 }
 
 .item-show{
   background-color: #252525;
   border-radius: .9rem;
+  padding: 1.5rem 1.5rem 1.5rem 0;
 }
 
 .title{
@@ -268,10 +277,13 @@ body {
   cursor: pointer;
   background: #252525;
   border-radius: .9rem;
+  margin-top: 0;
 }
 
 .prompt{
   padding-left: 10px;
+  width: 20vw;
+  font-weight: bold;
 }
 
 .content{
@@ -287,7 +299,7 @@ body {
   max-height: 9999;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0, 1, 0, 1);
-  padding-left: 40px;
+  padding-left: 4rem;
 }
 
 
