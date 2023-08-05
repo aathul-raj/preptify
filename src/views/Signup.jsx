@@ -50,20 +50,17 @@ function Signup() {
       const errorMessage = error.message;
 
       if (errorCode === "auth/email-already-in-use") {
-        console.log("Email address is already in use.");
         // You can also set an error message in your state to display this in your UI
         setErrorMessage(
           "Email address is already in use. Do you already have an account?"
         );
       } else if (errorCode === "auth/weak-password") {
-        console.log("The password is too weak.");
         // You can also set an error message in your state to display this in your UI
         setErrorMessage(
           "The password is too weak. It should be at least 6 characters."
         );
       } else {
         setErrorMessage("Failed to sign up. Please try again");
-        console.log(errorMessage);
       }
     }
   };
