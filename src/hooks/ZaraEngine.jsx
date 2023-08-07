@@ -1,7 +1,7 @@
 export default function useEngine( {feedback, responseTimes, lagTimes, userTranscript, role} ) {
     const responseTimeSum = responseTimes.reduce((a, b) => a + b, 0)
     const averageResponseTime = responseTimeSum / responseTimes.length
-
+    
     const lagTimeSum = lagTimes.reduce((a, b) => a + b, 0)
     const averageLagTime = lagTimeSum / lagTimes.length
 
