@@ -580,6 +580,7 @@
   cursor: default;
   color: #15D59F;
   font-size: 2rem;
+  font-weight: bold; 
 }
 
 .logoutModal p{
