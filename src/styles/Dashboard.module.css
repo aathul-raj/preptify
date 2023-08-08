@@ -632,6 +632,19 @@
   padding-bottom: 2rem;
 }
 
+/* LOADING */
+.loading{
+  width:85vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading h1{
+  color: white;
+  font-weight: bold;
+}
 
 /* Responsive */
 

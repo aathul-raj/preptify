@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import DashboardContent from "../components/dashboard/DashboardContent";
+import GreenDashContent from "../components/dashboard/green-user/GreenDashContent";
+import BasicDashContent from "../components/dashboard/basic-user/BasicDashContent";
+import LoadingDash from "../components/dashboard/LoadingDash";
 import Setting from "../components/dashboard/Settings";
 import Sidebar from "../components/dashboard/Sidebar";
-import Popup from '../components/Popup';
 import { auth } from '../back-end/Firebase';
 import { getFirestore, onSnapshot, doc, setDoc, getDoc } from "firebase/firestore";
 import styles from "../styles/Dashboard.module.css"
@@ -11,6 +12,7 @@ import styles from "../styles/Dashboard.module.css"
 export default function Dashboard(){
   const db = getFirestore();
   const [activeItem, setActiveItem] = useState('dashboard');
+  const [sub, setSub] = useState('loading')
   // const [showPopup, setShowPopup] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
@@ -37,6 +39,7 @@ export default function Dashboard(){
   }, []);
 
   useEffect(() => {
+    console.log(sub)
     // Tracks user's subscription status
     let unsubscribeSubscription;
     auth.onAuthStateChanged((user) => {
@@ -45,9 +48,8 @@ export default function Dashboard(){
         unsubscribeSubscription = onSnapshot(userDocRef, (docSnapshot) => {
           if (docSnapshot.exists()) {
             const userData = docSnapshot.data();
-            const subscriptionData = userData.subscription; // Access subscription field
-          } else {
-            // do something if user document doesn't exist -- can potentially delete this
+            setSub(userData.subscription) 
+            // ABOVE, sub field
           }
         });
       }
@@ -61,21 +63,20 @@ export default function Dashboard(){
     };
   }, []);
 
-  // const closePopup = () => {
-  //   setShowPopup(false);
-  //   if (currentUser) {
-  //     // set the tutorialShown field to true
-  //     setDoc(doc(db, "users", currentUser.uid), { tutorialShown: true }, { merge: true });
-  //   }
-  // }
+  const getDash = () => {
+    if (sub === null){
+      return <BasicDashContent styles={styles}/>
+    } else {
+      return <GreenDashContent styles={styles}/>
+    }
+  }
 
-  const screens = { 'dashboard' : <DashboardContent styles={styles}/>,
+  const screens = { 'dashboard' : getDash(),
                       'settings' : <Setting styles={styles}/>
 }
   
-  return currentUser ? <div className={styles["dashboard-container"]}>
+  return sub != 'loading' ? <div className={styles["dashboard-container"]}>
                   <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} styles={styles}/>
                   {screens[activeItem]}
-                  {/* {showPopup && <Popup onClose={closePopup} styles={styles}/>} */}
-                </div> : null
+                </div> : <LoadingDash styles={styles}/>
 }
