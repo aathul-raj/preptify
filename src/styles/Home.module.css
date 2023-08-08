@@ -203,6 +203,106 @@ body {
   margin-bottom: 80px;
 }
 
+.home-block-4{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 8rem;
+  margin-bottom: 15rem;
+}
+
+.faq{
+  color: white;
+  font-size: 45px;
+  font-weight: 600;
+}
+
+.faq-highlight{
+  color: rgb(0, 255, 187);
+}
+
+.faq-sub{
+  font-size: 30px;;
+}
+
+.faq-squiggle{
+  position: absolute;
+  rotate: 45deg;
+  height: 10rem;
+  translate: -6rem -10rem;  
+}
+
+.faq-arrow-squiggle{
+  position: absolute;
+  height: 10rem;
+  translate: -20rem 10rem
+  
+}
+
+.faq-arrow{
+  margin: 0 1rem;
+}
+
+.accordian{
+  width: 500px; 
+  padding-left: 0px;
+}
+
+.item{
+  background: #0e0f12;
+  width: 100%;
+  display:flex;
+  align-items: center;
+}
+
+.item-show{
+  background-color: #252525;
+  border-radius: .9rem;
+  padding: 1.5rem 1.5rem 1.5rem 0;
+}
+
+.title{
+  color: white;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+}
+
+.title-show{
+  color: white;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+  background: #252525;
+  border-radius: .9rem;
+  margin-top: 0;
+}
+
+.prompt{
+  padding-left: 10px;
+  width: 20vw;
+  font-weight: bold;
+}
+
+.content{
+  color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+}
+
+.content-show{
+  color: white;
+  height: auto;
+  max-height: 9999;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0, 1, 0, 1);
+  padding-left: 4rem;
+}
+
+
 .step-container {
   display: flex;
   justify-content: space-between;
@@ -301,7 +401,9 @@ body {
     align-items: center;
   }
 
-
+  .home-block-4{
+    flex-direction: column;
+  }
   .home-content{
     display: flex;
     flex-direction: column;
