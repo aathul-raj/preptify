@@ -63,7 +63,7 @@ function Home() {
               <div className={styles["button-container"]}>
                 <button
                   className={styles["get-started-button"]}
-                  onClick={() => navigate("/signup")}
+                  onClick={() => navigate("/login")}
                 >
                   get started
                 </button>
