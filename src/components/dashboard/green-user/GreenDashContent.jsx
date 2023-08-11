@@ -31,7 +31,7 @@ export default function GreenDashContent( {styles} ){
                     <span>{error}</span>
                 </div>
         }
-        <Header firstName={firstName} styles={styles}/>
+        <Header firstName={firstName + 'GREEN'} styles={styles}/>
         <div className={styles["content-container"]}>
             <Start setError={setError} setFadeOut={setFadeOut} styles={styles}/>
             {screenWidth > 750 ? <GreenAnalytics styles={styles}/> : null}
