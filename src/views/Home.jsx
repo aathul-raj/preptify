@@ -1,11 +1,14 @@
 import React, { useEffect } from "react";
+import { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import MainHeader from "../components/global/MainHeader.jsx";
+import Faq from "../components/Faq.jsx";
 import Footer from "../components/global/Footer.jsx";
 import HomeImages from "../constants/HomeImages.jsx";
 import styles from "../styles/Home.module.css";
 
 function Home() {
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -127,6 +130,7 @@ function Home() {
               </div>
             </div>
           </div>
+          <Faq styles={styles}/>
 
           <div className={styles["home-block-3"]}>
             <div className={styles["step-container"]}>
@@ -163,5 +167,4 @@ function Home() {
     </>
   );
 }
-
 export default Home;

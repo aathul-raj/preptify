@@ -19,6 +19,8 @@ export default function ZaraStartSecond( {setIndex, selectedOptions, setSelected
         { value: 'data-engineering', label: 'Data Engineer' },
         { value: 'cloud-engineering', label: 'Cloud Engineer' },
         { value: 'cpp-engineering', label: 'C++ Dev' },
+        { value: 'zfellow', label: 'ZFellow'},
+        // ABOVE ONLY FOR ZFELLOW
     ]
     const interviewing = '\ninterviewing'
     const you = '\nyou'
