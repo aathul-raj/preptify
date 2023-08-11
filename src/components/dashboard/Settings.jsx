@@ -6,6 +6,7 @@ import { doc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import styles from "../../styles/Settings.module.css"
 import dashboardStyles from "../../styles/Dashboard.module.css"
+import SettingsZaraGreen from "./SettingsZaraGreen"
 
 export default function Setting(){
     let navigate = useNavigate()
@@ -41,13 +42,7 @@ export default function Setting(){
                     <h1>Billing</h1>
                     <h2>Manage your payment methods, subscription, and billing preferences</h2>
                 </div>
-                <div className={styles["billing-block-2"]}>
-                    <div className={styles["plan-container"]}>
-                        <h1><span className={styles["green"]}>Z</span>ARA <span className={styles["green"]}>PRO</span></h1>
-                        <h2>Advanced features for a comprehensive and more effective interview preparation experience</h2>
-                        <button>Coming Soon</button>
-                    </div>
-                </div>
+                <SettingsZaraGreen />
             </div>
         </div>
     );
