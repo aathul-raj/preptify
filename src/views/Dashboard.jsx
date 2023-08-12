@@ -85,7 +85,7 @@ export default function Dashboard(){
   }
 
   const screens = { 'dashboard' : getDash(),
-                      'settings' : <Setting styles={styles}/>
+                      'settings' : <Setting styles={styles} subscriptionStatus={sub}/>
 }
   
   return sub != 'loading' ? <div className={styles["dashboard-container"]}>
