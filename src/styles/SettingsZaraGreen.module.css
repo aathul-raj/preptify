@@ -27,6 +27,10 @@
 }
 
 .billing-block-2{
+    flex: 1;    
+}
+
+.billing-block-3{
     flex: 3;
 }
 
