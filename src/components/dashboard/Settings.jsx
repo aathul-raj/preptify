@@ -8,7 +8,7 @@ import styles from "../../styles/Settings.module.css"
 import dashboardStyles from "../../styles/Dashboard.module.css"
 import SettingsZaraGreen from "./SettingsZaraGreen"
 
-export default function Setting(){
+export default function Setting({subscriptionStatus}){
     let navigate = useNavigate()
     const db = getFirestore()
     const auth = getAuth()
@@ -37,13 +37,7 @@ export default function Setting(){
                     <ToggleSetting heading="Promotions and Offers" subheading="Information on any special offers, discounts, or promotions" userRef={userRef} id="promos"/>
                 </div>
             </div>
-            <div className={styles["billing-container"]}>
-                <div className={styles["billing-block-1"]}>
-                    <h1>Billing</h1>
-                    <h2>Manage your payment methods, subscription, and billing preferences</h2>
-                </div>
-                <SettingsZaraGreen />
-            </div>
+            <SettingsZaraGreen subscriptionStatus={subscriptionStatus}/>
         </div>
     );
 }
