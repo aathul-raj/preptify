@@ -39,7 +39,6 @@ export default function Dashboard(){
   }, []);
 
   useEffect(() => {
-    console.log(sub)
     // Tracks user's subscription status
     let unsubscribeSubscription;
     auth.onAuthStateChanged((user) => {
@@ -86,7 +85,7 @@ export default function Dashboard(){
 
   const screens = { 'dashboard' : getDash(),
                       'settings' : <Setting styles={styles} subscriptionStatus={sub}/>
-}
+  }
   
   return sub != 'loading' ? <div className={styles["dashboard-container"]}>
                   <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} styles={styles}/>
