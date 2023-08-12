@@ -45,11 +45,24 @@ export default function Dashboard(){
     auth.onAuthStateChanged((user) => {
       if (user) {
         const userDocRef = doc(db, 'users', user.uid);
-        unsubscribeSubscription = onSnapshot(userDocRef, (docSnapshot) => {
+        unsubscribeSubscription = onSnapshot(userDocRef, async (docSnapshot) => {
           if (docSnapshot.exists()) {
             const userData = docSnapshot.data();
+
+            if (userData.subscription === undefined) {
+              // If it doesn't exist, create it with a value of null
+              await setDoc(doc(db, "users", user.uid), {
+                subscription: null
+              }, { merge: true });
+            }
+            
             setSub(userData.subscription) 
             // ABOVE, sub field
+          } else {
+            // NEW USER, INIT DOC
+            await setDoc(doc(db, "users", user.uid), {
+              subscription: null
+            });
           }
         });
       }
