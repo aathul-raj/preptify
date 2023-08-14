@@ -32,7 +32,7 @@ export default function BasicDashContent( {styles} ){
                 </div>
         }
         <Header firstName={firstName} styles={styles}/>
-        <div className={styles["content-container"]}>
+        <div className={styles["basic-content-container"]}>
             <Start setError={setError} setFadeOut={setFadeOut} styles={styles}/>
             {screenWidth > 750 ? <BasicAnalytics styles={styles}/> : null}
         </div>
