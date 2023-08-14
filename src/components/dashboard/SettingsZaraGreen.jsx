@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../../styles/SettingsZaraGreen.module.css"
 
 export default function SettingsZaraGreen({subscriptionStatus}) {
-
+    
     function manageAccount() {
             // Open the billing link in new tab 
             window.open("https://billing.stripe.com/p/login/fZe4iRd9Z0ZxdPycMM", "_blank");
@@ -19,7 +19,7 @@ export default function SettingsZaraGreen({subscriptionStatus}) {
             <div className={styles["billing-container"]}>
                 <div className={styles["billing-block-1"]}>
                     <h1>Billing</h1>
-                    <h2>Manage your payment methods, subscription, and billing preferences</h2>
+                    <h2>Manage your payment methods, <br/>subscription, and billing preferences</h2>
                 </div>
                 <div className={styles["billing-block-2"]}>
                     <div className={styles["plan-container"]}>
@@ -34,7 +34,7 @@ export default function SettingsZaraGreen({subscriptionStatus}) {
                     <h1>Billing</h1>
                     <h2>Manage your payment methods, subscription, and billing preferences</h2>
                 </div>
-                <div className={styles["billing-block-2"]}> 
+                <div className={styles["billing-block-3"]}> 
                     <div className={styles["plan-container"]}>
                         <h1><span className={styles["green"]}>Z</span>ARA <span className={styles["green"]}>GREEN</span></h1>
                         <h2>Advanced features for a comprehensive and more effective interview preparation experience</h2>
