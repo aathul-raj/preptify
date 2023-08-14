@@ -11,8 +11,11 @@ import axios from 'axios';
 import { getFirestore, doc, setDoc, updateDoc, getDoc, arrayUnion, onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import ZaraImages from "../../constants/ZaraImages";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import styles from "../../styles/Zara.module.css"
 import ZaraAnimation from "./ZaraAnimation";
+import ExitModal from "./ExitModal";
 
 function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTimes, setLagTimes, setUserTranscript, setRole} ) {
   
@@ -24,6 +27,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
   const [isLoading, setIsLoading] = useState(true) // State to track loading status
   const [showPopup, setShowPopup] = useState(false);
   const [index, setIndex] = useState(0);
+  const [showExit, setShowExit] = useState(false)
   const queryParam = new URLSearchParams(location.search)
   const role = queryParam.get('role')
   setRole(role)
@@ -93,8 +97,12 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
 
   return (
     <>   
+        <div className={`${styles["back-arrow"]} ${isLoading ? styles['hidden'] : styles['visible']}`} onClick={() => {setShowExit(true)}}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </div>
         <main>
         {showPopup && <Tutorial styles={styles} isLoading={isLoading} index={index} setIndex={setIndex} handleTutorial={handleTutorial}/>}
+        {showExit && <ExitModal setShowExit={setShowExit} showExit={showExit}/>}
         <div className={styles["container"]}>
           <div className={`${styles["heading"]} ${isLoading ? styles['hidden'] : styles['visible']}`}>
             <Title styles={styles}/>

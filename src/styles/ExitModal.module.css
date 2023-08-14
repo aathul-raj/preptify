@@ -1,0 +1,107 @@
+.exit-modal-overlay{
+    height: 100%;
+    width: 100vw;
+    position: absolute;
+    z-index: 2;
+    background-color: #000000be;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit-modal{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #151516;
+    border: 3px solid #282828;
+    border-radius: 25px;
+    font-family: 'Poppins';
+    width: 40vw;
+    text-align: center;
+    padding: 1.5rem 0;
+}
+
+.exit-heading{
+    cursor: default;
+    color: #15D59F;
+    font-size: 1.5vw;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.exit-subheading{
+    cursor: default;
+    margin: .5;
+    font-size: 1.1vw;
+    color: #fff;
+    padding: 0 2rem;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; 
+    margin-top: 1rem;
+}
+
+.action-icon{ 
+    color: white;
+    cursor: pointer;
+    font-size: 2rem; /* increased icon size */
+    width: 2rem;
+}
+
+.exit-button:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.exit-button{
+    border-radius: 50px;
+    background-color: #151516;
+    border: 2px solid #282828;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    padding: 0 25px;
+    user-select: none;
+    line-height: 70px;
+    text-align: center;
+    margin: 0 2rem;
+}
+
+.exit-button-text{
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+@media(max-width: 1450px){
+    .exit-modal{
+        padding: 1rem;
+    }
+    .exit-heading{
+        font-size: 1.5rem;
+    }
+
+    .exit-subheading{
+        font-size: 1rem;
+    }
+}
+
+@media(max-width: 750px){
+    .exit-modal{
+        height: 70%;
+        width: 90vw;
+    }
+
+    .exit-heading{
+        font-size: 2rem;
+    }
+
+    .exit-subheading{
+        font-size: 1.5rem;
+    }
+}
