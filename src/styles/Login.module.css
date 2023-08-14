@@ -10,10 +10,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 3rem;
+    margin-left: 8rem;
 }
 
 .logo-img{
+    cursor: pointer;
     width: 160px;
 }
 
@@ -149,8 +150,12 @@ label {
     font-size: 18px;
 }
 
-.main-container {
-    width: 100vw;
+.main-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .login-link a {
@@ -176,6 +181,15 @@ label {
         height: auto;
         min-height: 90vh;
 
+    }
+
+    .logo-container{
+        margin-left: .9rem;
+    }
+
+    .header{
+        align-items: center;
+        justify-content: space-between;
     }
 
     .img-container {
