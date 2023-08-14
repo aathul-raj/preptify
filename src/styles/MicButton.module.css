@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap');
 .btn {
+    margin-top: 1rem;
     border: none;
     padding: 0;
-    border-radius: 50%;
-    width: 70px;
     height: 70px;
     font-size: 2em;
     color: #fff;
-    background: radial-gradient(circle at center, #000000, #464646);
+    background: #151516;
     position: relative;
     z-index: 1;
     display: inline-block;
@@ -14,19 +14,25 @@
     text-align: center;
     cursor: pointer;
     user-select: none;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #282828;
+    display: flex;          /* Use flex to horizontally align content */
+    justify-content: center;/* Center content horizontally */
+    align-items: center;    /* Center content vertically */
+    padding: 0 25px;
 }
 
-.pulse-ring {
-    content: '';
-    width: 100%;
-    height: 100%;
-    background: #00422b;
-    border: 5px solid #404243;
-    border-radius: 50%;
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
+.btn:hover{
+    transform: scale(1.05);
+}
+
+.icon {
+    margin-right: 15px; /* Spacing between the icon and the text */
+}
+
+.record-text {
+    font-family: 'Poppins';
+    color: #fff;  /* Text color */
+    font-size: 1.5rem; /* Adjust the font size as needed */
 }
 
 @keyframes glow {
@@ -51,23 +57,17 @@ pointer-events: none;
 animation: glow 1s ease-in-out infinite alternate;
 }
 
-.animate .pulse-ring {
-    border: 1px solid #38D59F;
-    animation: pulsate 1.5s infinite;
-}
-
 .hidden {
     opacity: 0;
     transition: opacity 1.5s ease-in;
 }
 
-@keyframes pulsate {
-    0% {
-    transform: scale(1, 1);
-    opacity: 1;
-    }
-    100% {
-    transform: scale(2, 2);
-    opacity: 0;
-    }
+.blink-red {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { color: #fff; }
+    50% { color: red; }
+    100% { color: #fff; }
 }

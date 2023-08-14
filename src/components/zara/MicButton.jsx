@@ -3,10 +3,10 @@ import { auth } from '../../back-end/Firebase';
 import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
+import { faMicrophone, faStop } from '@fortawesome/free-solid-svg-icons'
 import styles from "../../styles/MicButton.module.css"
 
-function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes, lagTimes, setLagTimes, setUserTranscript, index }) {
+function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes, lagTimes, setLagTimes, setUserTranscript, index, eyesOn, setEyesOn }) {
 
   const db = getFirestore();
   const [isListening, setIsListening] = useState(false);
@@ -68,6 +68,7 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
   };
 
   const toggleListening = () => {
+    setEyesOn(!eyesOn)
     if (!isListening) {
       let startTime = lagTimes[lagTimes.length - 1]
       let responseTime = Date.now() - startTime
@@ -114,10 +115,21 @@ function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setRespon
   };
 
   return (
-    <button className={`${styles["btn"]} ${isListening ? styles['animate'] : ''} ${isLoading ? styles['hidden'] : styles['visible']} ${index === 2 ? styles['highlight'] : ''}`} onClick={toggleListening}>
-      <div className={styles["pulse-ring"]}></div>
-      <FontAwesomeIcon icon={faMicrophone}/>
-    </button>
+    <button className={`${styles["btn"]} ${isLoading ? styles['hidden'] : styles['visible']} ${index === 2 ? styles['highlight'] : ''}`} onClick={toggleListening}>
+    {
+        isListening ?
+        <>
+            <FontAwesomeIcon icon={faStop} className={`${styles["icon"]} ${styles["blink-red"]}`}/> {/* Stop icon when recording */}
+            <span className={styles["record-text"]}>submit</span> 
+        </>
+        :
+        <>
+            <FontAwesomeIcon icon={faMicrophone} className={styles["icon"]}/> {/* Microphone icon when not recording */}
+            <span className={styles["record-text"]}>record</span>
+        </>
+    }
+</button>
+
   )
 }
 
