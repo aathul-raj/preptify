@@ -70,7 +70,7 @@ function Pricing() {
               <h2>Ad Supported</h2>
             </div>
           </div>
-          <button onClick={() => navigate('/signup')}>start</button>
+          <button onClick={() => navigate('/login')}>start</button>
           <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
         </div>
         <div className={styles["standard-card"]}>

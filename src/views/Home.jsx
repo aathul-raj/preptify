@@ -148,7 +148,7 @@ function Home() {
                 <button
                   className={`${styles["white-get-started"]}`}
                   onClick={() => {
-                    navigate('/signup')
+                    navigate('/login')
                     window.scrollTo(0, 0);
                   }}
                 >
