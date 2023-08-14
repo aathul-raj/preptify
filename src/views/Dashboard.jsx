@@ -39,7 +39,6 @@ export default function Dashboard(){
   }, []);
 
   useEffect(() => {
-    console.log(sub)
     // Tracks user's subscription status
     let unsubscribeSubscription;
     auth.onAuthStateChanged((user) => {

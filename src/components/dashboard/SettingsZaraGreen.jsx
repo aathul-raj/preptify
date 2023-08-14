@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../../styles/SettingsZaraGreen.module.css"
 
 export default function SettingsZaraGreen({subscriptionStatus}) {
-  
+
     function manageAccount() {
             // Open the billing link in new tab 
             window.open("https://billing.stripe.com/p/login/fZe4iRd9Z0ZxdPycMM", "_blank");

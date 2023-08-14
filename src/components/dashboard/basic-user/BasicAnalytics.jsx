@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react"
-import Tile from "../Tile"
-import Pro from "../Pro"
-import RecentFeedback from "../RecentFeedback"
-import CategoryScores from "../CategoryScores"
-import Graph from "../Graph"
+import TileBasic from "../TileBasic"
+import ZaraGreen from "../ZaraGreen"
+import Ads from "../Ads"
 import { auth } from '../../../back-end/Firebase';
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 
@@ -82,12 +80,9 @@ export default function BasicAnalytics( {styles} ){
     // TODO: Average word count per answer/most used words (I guess this means look into cleaning up user response whether with deepgram or some other apib )
     
     return <>
-        <CategoryScores styles={styles} communication={communication} technical={technical} ps={ps} behavioral={behavioral}/>
-        <Tile styles={styles} name="average-time" heading="Seconds to Answer" subheading={responsePercentChange != "N/A" ? `${Math.abs(responsePercentChange)}% ${responsePercentChange > 0 ? "increase" : "decrease"} after last interview` : "N/A"} score={responseTime} status="increase"/>
-        <Tile styles={styles} name="overall-score" heading="Overall Score" subheading={percentChange != "N/A" ? `${Math.abs(percentChange)}% ${percentChange > 0 ? "increase" : "decrease"} after last interview` : "N/A"} score={overallScore} status={`${percentChange > 0 ? "increase" : "decrease"}`}/>
-        <Graph styles={styles} historicalScores={historicalScores}/>
-        <RecentFeedback styles={styles} recentFeedback={recentFeedback}/>
-        <Pro styles={styles}/>
-        <Tile styles={styles} name="interviews-completed" heading="Interviews Completed" subheading="Keep it going!" score={interviewCount} status="increase"/>
+        <TileBasic styles={styles} name="overall-score" heading="Overall Score" subheading={percentChange != "N/A" ? `${Math.abs(percentChange)}% ${percentChange > 0 ? "increase" : "decrease"} after last interview` : "N/A"} score={overallScore} status={`${percentChange > 0 ? "increase" : "decrease"}`}/>
+        <TileBasic styles={styles} name="interviews-completed" heading="Interviews Completed" subheading="Keep it going!" score={interviewCount} status="increase"/>
+        <ZaraGreen styles={styles}/>
+        <Ads styles={styles}/>
     </>
 }
