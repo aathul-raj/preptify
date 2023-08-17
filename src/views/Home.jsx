@@ -43,10 +43,10 @@ function Home() {
         <div className={styles["home-container"]}>
           <div className={styles["home-content"]}>
             <img
-              className={`${styles["statue-img"]} ${styles["parallax-home"]}`}
+              className={`${styles["statue-img"]} parallax-home`}
               src={HomeImages.statue}
               alt="Roman Statue"
-              data-value=".4"
+              data-value=".2"
             />
             <div className={styles["text-container"]}>
               <div className={styles["slogan-container"]}>
