@@ -10,23 +10,11 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
     const user = auth.currentUser;
     let navigate = useNavigate();
     const [interviewsCompleted, setInterviewsCompleted] = useState(0);
-    const difficultyOptions = [
-        { value: 'dynamic', label: 'Dynamic' },
+    const resume = [
+        { value: false, label: 'No' },
     ];
-    const numQuestions = [
-        { value: '1', label: "1" },
-        { value: '2', label: '2' },
-        { value: '3', label: '3' },
-        { value: '4', label: '4' },
-        { value: '5', label: '5' },
-        { value: '6', label: '6' },
-        { value: '7', label: '7' },
-        { value: '8', label: '8' },
-        { value: '9', label: '9' },
-        { value: '10', label: '10' },
-    ]
-    const should = '\nshould'
-    const interview = '\ninterview'
+
+    const resumeText = '\nresume'
 
 
     useEffect(() => {
@@ -50,9 +38,9 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
     function handleStartInterview() {
         if(interviewsCompleted < 3) {
             // Convert the object to a query string
-            const queryParam = new URLSearchParams(selectedOptions).toString();
-        
-            navigate(`/interview?${queryParam}`, { state: { fromButton: true } });
+            // const queryParam = new URLSearchParams().toString();
+            console.log(selectedOptions)
+            navigate(`/interview`, { state: { fromButton: true, queryParam: selectedOptions, } });
         } else {
             setError("Interview limit reached. Please provide your feedback via the Google form.")
             setTimeout(() => {
@@ -136,15 +124,9 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             <h2 className={styles["zara-h2"]}>Interview Setup</h2>
             <div className={styles["question"]}>
                 <div className={styles["zara-text"]}>
-                    <p>What should the{interview}<span> difficulty</span> be?</p>    
+                    <p>Should this be a {resumeText}<span> based</span> interview?</p>    
                 </div>
-                <Select className={styles["zara-dropdown"]} styles={customStyles} name="difficulty" id="difficulty" options={difficultyOptions} value={difficultyOptions.find(option => option.value === selectedOptions.difficulty)} onChange={option => handleSelect(option, 'difficulty')}/>
-            </div>
-            <div className={styles["question"]}>
-                <div className={styles["zara-text"]}>
-                    <p>How many<span> questions</span>{should} be asked?</p>
-                </div>
-                <Select className={styles["zara-dropdown"]} styles={customStyles} name="questions" menuPlacement="top" id="questions" options={numQuestions} value={numQuestions.find(option => option.value === selectedOptions.questions)} onChange={option => handleSelect(option, 'questions')}/>
+                <Select className={styles["zara-dropdown"]} styles={customStyles} name="resume" id="resume" options={resume} value={resume.find(option => option.value === selectedOptions.resume)} onChange={option => handleSelect(option, 'resume')}/>
             </div>
             <div className={styles["buttons"]}>
                 <img src={DashboardImages.back} onClick={() => setIndex((prevIndex) => prevIndex - 1)}/>

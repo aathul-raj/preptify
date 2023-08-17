@@ -28,12 +28,13 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
   const [showPopup, setShowPopup] = useState(false);
   const [index, setIndex] = useState(0);
   const [showExit, setShowExit] = useState(false)
-  const queryParam = new URLSearchParams(location.search)
-  const role = queryParam.get('role')
+  const queryParam = location.state?.queryParam;
+  const role = queryParam['role']
+  const resumeInterview = queryParam['resume']
   setRole(role)
   // const industry = queryParam.get('industry')
   // const difficulty = queryParam.get('difficulty')
-  const questions = queryParam.get('questions')
+  const questions = queryParam['questions']
   
   useEffect(() => {
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
@@ -49,10 +50,13 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
             }
           }
         });
+        
+        let resume = false;
 
         axios.post(`${import.meta.env.VITE_SERVER_URL}/api/start-interview`, {
           role: role,
-          questions: questions
+          questions: questions,
+          resume: resume,
         }, {
           withCredentials: true
         })
