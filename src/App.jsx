@@ -11,6 +11,7 @@ import About from "./views/About.jsx";
 import Terms from "./views/Terms.jsx";
 import PaymentConfirmed from "./views/PaymentConfirmed.jsx"
 import Checkout from "./views/Checkout.jsx";
+import Admin from "./views/Admin.jsx";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/payment-confirmed" element={<PaymentConfirmed/>}/>
           <Route path="/checkout" element={<Checkout/>}/>
+          <Route path="/admin" element={<Admin/>}/>
         </Routes>
         <Analytics />
       </Router>
