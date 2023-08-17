@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: "www.preptify.com",
+  authDomain: "auth.preptify.com",
   projectId: "preptify-7467a",
   storageBucket: "preptify-7467a.appspot.com",
   messagingSenderId: "1020172948335",
