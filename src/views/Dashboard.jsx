@@ -77,9 +77,9 @@ export default function Dashboard(){
 
   const getDash = () => {
     if (sub === null){
-      return <BasicDashContent styles={styles}/>
+      return <BasicDashContent sub={sub} styles={styles}/>
     } else {
-      return <GreenDashContent styles={styles}/>
+      return <GreenDashContent sub={sub} styles={styles}/>
     }
   }
 
