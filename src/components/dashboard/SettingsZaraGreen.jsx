@@ -5,7 +5,7 @@ export default function SettingsZaraGreen({subscriptionStatus}) {
     
     function manageAccount() {
             // Open the billing link in new tab 
-            window.open("https://billing.stripe.com/p/login/fZe4iRd9Z0ZxdPycMM", "_blank");
+            window.open("https://billing.stripe.com/p/login/fZe3fX4Xp3cefks288", "_blank");
     }
 
     function pricing() {
