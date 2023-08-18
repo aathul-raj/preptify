@@ -34,13 +34,13 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
   const sub = location.state?.sub;
   const role = queryParam['role']
   const resumeInterview = queryParam['resume']
-
-  setRole(role)
   // const industry = queryParam.get('industry')
   // const difficulty = queryParam.get('difficulty')
   const questions = queryParam['questions']
   
   useEffect(() => {
+    setTextInterview(!queryParam['micInterview'])
+    setRole(role)
     const unsubscribeAuth = onAuthStateChanged(auth, async (user) => {
       if (user) {
         createUserInterviewLog();
@@ -120,7 +120,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
           <Transcript className={`${isLoading ? styles['hidden'] : styles['visible']}`} transcript={transcript} isLoading={isLoading} styles={styles} index={index}/>
         </div>
         {textInterview ? (
-          <Textbox className={styles} index={index} setTranscript={setTranscript} setIsDone={setIsDone} setFeedback={setFeedback}/>
+          <Textbox index={index} setTranscript={setTranscript} setIsDone={setIsDone} setFeedback={setFeedback} isLoading={isLoading}/>
         ) : (
           <MicButton className={`${styles["mic-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} index={index} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes} lagTimes={lagTimes} setLagTimes={setLagTimes} setUserTranscript={setUserTranscript} eyesOn={eyesOn} setEyesOn={setEyesOn}/>
         )}

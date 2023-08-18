@@ -15,7 +15,13 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
         { value: false, label: 'No' },
     ];
 
+    const micInterview = [
+        { value: true, label: 'Mic' },
+        { value: false, label: 'Type'},
+    ];
+
     const resumeText = '\nresume'
+    const yourText = '\nyour'
 
 
     useEffect(() => {
@@ -130,6 +136,12 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
                     <p>Should this be a <span>{resumeText}</span> based interview?</p>    
                 </div>
                 <Select className={styles["zara-dropdown"]} styles={customStyles} name="resume" id="resume" options={resume} value={resume.find(option => option.value === selectedOptions.resume)} onChange={option => handleSelect(option, 'resume')}/>
+            </div>
+            <div className={styles["question"]}>
+                <div className={styles["zara-text"]}>
+                    <p>Do you want to use {yourText} <span>mic</span> or  <span>type</span>?</p>    
+                </div>
+                <Select className={styles["zara-dropdown"]} styles={customStyles} name="micInterview" id="micInterview" options={micInterview} value={micInterview.find(option => option.value === selectedOptions.micInterview)} onChange={option => handleSelect(option, 'micInterview')}/>
             </div>
             <div className={styles["buttons"]}>
                 <img src={DashboardImages.back} onClick={() => setIndex((prevIndex) => prevIndex - 1)}/>

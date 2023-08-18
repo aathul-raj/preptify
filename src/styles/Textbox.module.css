@@ -3,29 +3,33 @@
 .textboxContainer{
     display: flex;
     align-items: center; 
+    transition: border-color 0.3s;
+    width: 80vw; 
+    background-color: #151516; 
+    border-radius: 30px;
+    border: 3px solid #282828;
+    position: absolute;
+    bottom: 25px;
 }
 
 .textArea::placeholder{
     color: #5F6368;
-
 }
 
 .textArea{ 
+    max-height: 10vw; 
+    background-color: #151516; 
+    border: none;
+    border-radius: 30px;
+    width: 95%;
     color: white; 
     padding: 20px; 
     font-size: 20px;
     font-family: 'Poppins'; 
     resize: none; /* Disable textarea resizing */
-    transition: border-color 0.3s;
     outline: none;
-    overflow-y: hidden;
-    width: 60vw; 
-    max-height: 21.25vw; 
-    padding-right: 6.15vw; 
-    margin-left: -3.07vw; 
-    background-color: #141519; 
-    border-radius: 4.92vw;
-    border: 3px solid rgba(255, 255, 255, 0.20);
+    overflow-y: auto;
+    /* padding-right: 6.15vw;  */
 }
 
 .textArea:focus {
@@ -33,13 +37,49 @@
 }
 
 .sendButton{
+    margin-left: .5rem;
     width: 2vw;
     height: 2vw;
     flex-shrink: 0;
-    margin-left: -4.92vw; 
+    transition: .5s ease;
+}
 
+.hidden {
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
 }
 
 .sendButton:hover {
-    background-color: #0056b3;
+    cursor: pointer;
+    transform: scale(1.08);
+}
+
+.textArea::-webkit-scrollbar {
+    width: 10px; /* or whatever width you want */
+    background: transparent; /* makes the background transparent */
+}
+
+.textArea::-webkit-scrollbar-thumb {
+    background: #282828; /* or any color you prefer */
+    border-radius: 5px; /* optional: if you want rounded corners */
+}
+
+.textArea::-webkit-scrollbar-thumb:hover {
+    background: #555; /* color on hover */
+}
+
+.textArea {
+    scrollbar-width: thin;
+    scrollbar-color: #282828 transparent; /* thumb color and track color */
+}
+
+@media (max-width: 800px){
+    .sendButton{
+        width: 1rem;
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+    .textboxContainer{
+        width: 90vw;
+    }
 }
