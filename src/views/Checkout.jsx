@@ -26,7 +26,6 @@ function Checkout() {
             successUrl: 'http://www.preptify.com/payment-confirmed',
             cancelUrl: 'http://www.preptify.com/pricing',
             customerEmail: email,
-            allow_promotion_codes: true,
         })
         console.warn(error.message);
     }
