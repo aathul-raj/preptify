@@ -76,6 +76,7 @@
   z-index: 1000;  /* ensure popup is above everything else */
   animation: fade-in 0.5s;
   opacity: 1;
+  text-align: center;
 }
 
 @keyframes fade-in {

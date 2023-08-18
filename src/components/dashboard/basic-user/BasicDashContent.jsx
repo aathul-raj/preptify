@@ -4,7 +4,7 @@ import Start from '../Start'
 import BasicAnalytics from './BasicAnalytics'
 import { auth } from '../../../back-end/Firebase';
 
-export default function BasicDashContent( {styles} ){
+export default function BasicDashContent( {styles, sub} ){
     const [error, setError] = useState("");
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [fadeOut, setFadeOut] = useState(false);
@@ -33,7 +33,7 @@ export default function BasicDashContent( {styles} ){
         }
         <Header firstName={firstName} styles={styles}/>
         <div className={styles["basic-content-container"]}>
-            <Start setError={setError} setFadeOut={setFadeOut} styles={styles}/>
+            <Start setError={setError} setFadeOut={setFadeOut} styles={styles} sub={sub}/>
             {screenWidth > 750 ? <BasicAnalytics styles={styles}/> : null}
         </div>
     </div>
