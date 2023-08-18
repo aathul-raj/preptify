@@ -4,7 +4,7 @@ import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from 'axios';
 import styles from "../../styles/Textbox.module.css"; 
 
-function Textbox({ setTranscript, setIsDone, setFeedback, isLoading }) {
+function Textbox({ setTranscript, setIsDone, setFeedback, isLoading, index}) {
   const db = getFirestore();
   const [userResponse, setUserResponse] = useState("");
   
@@ -91,7 +91,7 @@ function Textbox({ setTranscript, setIsDone, setFeedback, isLoading }) {
   };
 
   return (
-    <div className={`${styles["textboxContainer"]} ${isLoading ? styles['hidden'] : styles['visible']}`}>
+    <div className={`${styles["textboxContainer"]} ${isLoading ? styles['hidden'] : styles['visible']} ${index === 2 ? styles['highlight'] : ''}`}>
       <textarea
         className={`${styles["textArea"]}`}
         value={userResponse}

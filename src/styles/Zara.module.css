@@ -150,6 +150,10 @@ main{
   transform: translate(-75%, 85%);
 }
 
+.tutorialThreeText{
+  transform: translate(-75%, 35%);
+}
+
 @keyframes glow {
   0% {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.1), 
@@ -253,9 +257,10 @@ main{
     transform: translate(-55%, -35%);
   }
   
-  .tutorialThree{
+  .tutorialThree, .tutorialThreeText{
     transform: translate(-55%, 55%);
   }
+  
 }
 
 @media(max-width: 750px){
@@ -302,7 +307,7 @@ main{
     transform: translate(0, -100%);
   }
   
-  .tutorialThree{
+  .tutorialThree, .tutorialThreeText{
     transform: translate(0, 0);
   }
 

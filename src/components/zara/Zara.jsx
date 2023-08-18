@@ -109,7 +109,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
           <FontAwesomeIcon icon={faArrowLeft} />
         </div>
         <main>
-        {showPopup && <Tutorial styles={styles} isLoading={isLoading} index={index} setIndex={setIndex} handleTutorial={handleTutorial}/>}
+        {showPopup && <Tutorial textInterview={textInterview} styles={styles} isLoading={isLoading} index={index} setIndex={setIndex} handleTutorial={handleTutorial}/>}
         {showExit && <ExitModal sub={sub} setShowExit={setShowExit} showExit={showExit}/>}
         <div className={styles["container"]}>
           <div className={`${styles["heading"]} ${isLoading ? styles['hidden'] : styles['visible']}`}>
