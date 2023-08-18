@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
 import DashboardImages from '../../constants/DashboardImages'
 
-export default function ZaraStartThird( {setIndex, selectedOptions, setSelectedOptions, styles} ){
+export default function ZaraStartThird( {setIndex, selectedOptions, setSelectedOptions, styles, sub} ){
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     let fontSize = '20'
@@ -10,18 +10,28 @@ export default function ZaraStartThird( {setIndex, selectedOptions, setSelectedO
         { value: 'dynamic', label: 'Dynamic' },
         // { value: 'business', label: 'Business' },
     ];
-    const numQuestions = [
-        { value: '1', label: "1" },
-        { value: '2', label: '2' },
-        { value: '3', label: '3' },
-        { value: '4', label: '4' },
-        { value: '5', label: '5' },
-        { value: '6', label: '6' },
-        { value: '7', label: '7' },
-        { value: '8', label: '8' },
-        { value: '9', label: '9' },
-        { value: '10', label: '10' },
-    ]
+    
+    let numQuestions;
+
+    if (sub){
+        numQuestions = [
+            { value: '1', label: "1" },
+            { value: '2', label: '2' },
+            { value: '3', label: '3' },
+            { value: '4', label: '4' },
+            { value: '5', label: '5' },
+            { value: '6', label: '6' },
+            { value: '7', label: '7' },
+        ]
+    } else {
+        numQuestions = [
+            { value: '1', label: "1" },
+            { value: '2', label: '2' },
+            { value: '3', label: '3' },
+            { value: '4', label: '4' },
+        ]
+    }
+
     const should = '\nshould'
     const interview = '\ninterview'
 

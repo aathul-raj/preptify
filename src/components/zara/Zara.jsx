@@ -30,8 +30,9 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
   const [index, setIndex] = useState(0);
   const [showExit, setShowExit] = useState(false)
   const [textInterview, setTextInterview] = useState(true); 
-  const queryParam = new URLSearchParams(location.search)
-  const role = queryParam.get('role')
+  const queryParam = location.state?.queryParam;
+  const sub = location.state?.sub;
+  const role = queryParam['role']
   const resumeInterview = queryParam['resume']
 
   setRole(role)
@@ -109,7 +110,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
         </div>
         <main>
         {showPopup && <Tutorial styles={styles} isLoading={isLoading} index={index} setIndex={setIndex} handleTutorial={handleTutorial}/>}
-        {showExit && <ExitModal setShowExit={setShowExit} showExit={showExit}/>}
+        {showExit && <ExitModal sub={sub} setShowExit={setShowExit} showExit={showExit}/>}
         <div className={styles["container"]}>
           <div className={`${styles["heading"]} ${isLoading ? styles['hidden'] : styles['visible']}`}>
             <Title styles={styles}/>

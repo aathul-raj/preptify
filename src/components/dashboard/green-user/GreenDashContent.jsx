@@ -4,7 +4,7 @@ import Start from '../Start'
 import GreenAnalytics from './GreenAnalytics'
 import { auth } from '../../../back-end/Firebase';
 
-export default function GreenDashContent( {styles} ){
+export default function GreenDashContent( {styles, sub} ){
     const [error, setError] = useState("");
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [fadeOut, setFadeOut] = useState(false);
@@ -33,7 +33,7 @@ export default function GreenDashContent( {styles} ){
         }
         <Header firstName={firstName} styles={styles}/>
         <div className={styles["content-container"]}>
-            <Start setError={setError} setFadeOut={setFadeOut} styles={styles}/>
+            <Start setError={setError} setFadeOut={setFadeOut} styles={styles} sub={sub}/>
             {screenWidth > 750 ? <GreenAnalytics styles={styles}/> : null}
         </div>
     </div>

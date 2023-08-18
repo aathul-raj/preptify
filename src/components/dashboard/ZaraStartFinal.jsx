@@ -5,11 +5,12 @@ import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import Select from 'react-select';
 import DashboardImages from "../../constants/DashboardImages";
 
-export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions, setError, setFadeOut, styles} ){
+export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions, setError, setFadeOut, styles, sub} ){
     const db = getFirestore();
     const user = auth.currentUser;
     let navigate = useNavigate();
     const [interviewsCompleted, setInterviewsCompleted] = useState(0);
+    const [lastInterviewDate, setLastInterviewDate] = useState(null);
     const resume = [
         { value: false, label: 'No' },
     ];
@@ -18,31 +19,33 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
 
 
     useEffect(() => {
-        const fetchInterviewsCompleted = async () => {
+        const fetchLastInterviewDate = async () => {
             const docRef = doc(db, "users", user.uid);
             const docSnap = await getDoc(docRef);
 
             if (docSnap.exists()) {
-                if (docSnap.data().interviewsCompleted){
-                    setInterviewsCompleted(docSnap.data().interviewsCompleted);
+                if (docSnap.data().lastInterviewDate){
+                    setLastInterviewDate(docSnap.data().lastInterviewDate);
                 } else{
                     await setDoc(doc(db, "users", user.uid), { tutorialShown: false }, { merge: true });
-                    setInterviewsCompleted(0)
                 }        
             }
         }
-
-        fetchInterviewsCompleted();
+        
+        fetchLastInterviewDate();
     }, []);
 
     function handleStartInterview() {
-        if(interviewsCompleted < 3) {
+        const currentDate = new Date().toISOString().split('T')[0];
+        console.log(currentDate)
+        if(lastInterviewDate !== currentDate || sub == "zara green") {
             // Convert the object to a query string
             // const queryParam = new URLSearchParams().toString();
-            console.log(selectedOptions)
-            navigate(`/interview`, { state: { fromButton: true, queryParam: selectedOptions, } });
+            const userDocRef = doc(db, "users", user.uid);
+            setDoc(userDocRef, { lastInterviewDate: currentDate }, { merge: true });
+            navigate(`/interview`, { state: { fromButton: true, queryParam: selectedOptions, sub: sub } });
         } else {
-            setError("Interview limit reached. Please provide your feedback via the Google form.")
+            setError("You can only take one interview per day without Zara Green. Please come back tomorrow.")
             setTimeout(() => {
                 setFadeOut(true); // trigger fade-out
                 setTimeout(() => {
@@ -124,7 +127,7 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             <h2 className={styles["zara-h2"]}>Interview Setup</h2>
             <div className={styles["question"]}>
                 <div className={styles["zara-text"]}>
-                    <p>Should this be a {resumeText}<span> based</span> interview?</p>    
+                    <p>Should this be a <span>{resumeText}</span> based interview?</p>    
                 </div>
                 <Select className={styles["zara-dropdown"]} styles={customStyles} name="resume" id="resume" options={resume} value={resume.find(option => option.value === selectedOptions.resume)} onChange={option => handleSelect(option, 'resume')}/>
             </div>
