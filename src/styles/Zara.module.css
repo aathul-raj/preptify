@@ -194,6 +194,31 @@ main{
   margin: .3rem;
 }
 
+.back-arrow {
+  position: absolute;
+  top: 3rem;
+  left: 3rem;
+  width: 50px; /* Adjust width and height as needed */
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* This makes it circular */
+  border: 3px solid #282828;
+  background-color: #151516;
+  cursor: pointer;
+  transition: 3s ease;
+}
+
+.back-arrow svg {
+  color: white;
+  font-size: 20px; /* Adjust size of arrow as needed */
+}
+
+.back-arrow:hover{
+  transform: scale(1.1);
+}
+
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -234,6 +259,10 @@ main{
 }
 
 @media(max-width: 750px){
+  .back-arrow{
+    left: 1rem;
+    top: 1rem;
+  }
   .transcript{
     width: 90vw;
     font-size: 24px;

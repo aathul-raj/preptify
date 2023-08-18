@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap');
 .btn {
     margin-top: 1rem;
-    border: none;
     padding: 0;
     height: 70px;
     font-size: 2em;
@@ -22,7 +21,7 @@
 }
 
 .btn:hover{
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 
 .icon {

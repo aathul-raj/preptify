@@ -70,7 +70,7 @@ function Pricing() {
               <h2>Ad Supported</h2>
             </div>
           </div>
-          <button onClick={() => navigate('/signup')}>start</button>
+          <button onClick={() => navigate('/login')}>start</button>
           <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
         </div>
         <div className={styles["standard-card"]}>
@@ -79,10 +79,10 @@ function Pricing() {
             <img src={PricingImages.star} alt="star"/>
           </div>
           <div className={styles["card-heading"]}>
-            <h1>Standard</h1>
+            <h1>Zara Green</h1>
             <h2>Additional features for detailed preparation</h2>
           </div>
-          <h2 className={styles["pricing"]}>${active === "monthly" ? "9.99" : "189.99"}<span>/per {active === "monthly" ? "month" : "year" }</span></h2>
+          <h2 className={styles["pricing"]}>${active === "monthly" ? "14.99" : "159.99"}<span>/per {active === "monthly" ? "month" : "year" }</span></h2>
           <div className={styles["line"]}></div>
           <div className={styles["features-container"]}>
             <h1>Features</h1>
