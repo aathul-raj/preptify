@@ -12,6 +12,7 @@ export default function Start({ setError, setFadeOut, styles, sub}){
         difficulty: 'dynamic',
         questions: '3',
         resume: false,
+        micInterview: false,
     });
 
     const screens = [<ZaraStartMain setIndex={setIndex} styles={styles}/>, <ZaraStartSecond setIndex={setIndex} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions} styles={styles}/>,<ZaraStartThird sub={sub} setIndex={setIndex} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions} styles={styles}/>, <ZaraStartFinal setIndex={setIndex} selectedOptions={selectedOptions} setSelectedOptions={setSelectedOptions} setError={setError} setFadeOut={setFadeOut} styles={styles} sub={sub}/>]

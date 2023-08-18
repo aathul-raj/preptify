@@ -4,7 +4,7 @@ import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from 'axios';
 import styles from "../../styles/Textbox.module.css"; 
 
-function Textbox({ setTranscript, setIsDone, setFeedback }) {
+function Textbox({ setTranscript, setIsDone, setFeedback, isLoading }) {
   const db = getFirestore();
   const [userResponse, setUserResponse] = useState("");
   
@@ -19,6 +19,9 @@ function Textbox({ setTranscript, setIsDone, setFeedback }) {
   // Sends user input to server (send button)
   const sendResponse = (event) => {
     event.preventDefault();
+    if (!userResponse.trim()) {  // Check if userResponse is empty or only whitespace
+      return;  // Exit the function
+    }
     onSubmit();
 
     // Reset the textbox
@@ -27,6 +30,9 @@ function Textbox({ setTranscript, setIsDone, setFeedback }) {
 
   // Sends user input to server (enter)
   const onSubmit = () => {
+    if (!userResponse.trim()) {  // Check if userResponse is empty or only whitespace
+      return;  // Exit the function
+    }
     console.log(userResponse); 
     axios.post(`${import.meta.env.VITE_SERVER_URL}/api/interview`, {
       response: userResponse
@@ -58,24 +64,34 @@ function Textbox({ setTranscript, setIsDone, setFeedback }) {
   };
 
   // Handles textbox height adjustment 
-  const adjustTextAreaHeight = (textArea) => {  
+  const adjustTextAreaHeight = (textArea) => {
+    const prevHeight = textArea.style.height.replace('px', '');
+    
     textArea.style.height = 'auto';
-    textArea.style.height = textArea.scrollHeight + 'px';
-  };
+    const newHeight = textArea.scrollHeight;
+    
+    textArea.style.height = newHeight + 'px';
+    
+    // Adjust the bottom position so it grows upwards
+    textArea.style.bottom = parseInt(prevHeight) - newHeight + 'px';
+};
 
   // If Enter is pressed, user input is sent to server 
   const handleKeyPress = (event) => {
     if (event.key === 'Enter' && !event.shiftKey) {
       event.preventDefault();
+      if (!userResponse.trim()) {  // Check if userResponse is empty or only whitespace
+        return;  // Exit the function
+      }
       onSubmit();
-
+      event.target.value = '';
       // Reset the textbox
       event.target.style.height = 'auto'; 
     }
   };
 
   return (
-    <div className={`${styles["textboxContainer"]}`}>
+    <div className={`${styles["textboxContainer"]} ${isLoading ? styles['hidden'] : styles['visible']}`}>
       <textarea
         className={`${styles["textArea"]}`}
         value={userResponse}
