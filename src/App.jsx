@@ -5,6 +5,7 @@ import Signup from "./views/Signup.jsx";
 import TempSignup from "./views/TempSignup.jsx";
 import Login from "./views/Login.jsx";
 import Dashboard from "./views/Dashboard.jsx";
+import Resume from "./views/Resume.jsx";
 import Interview from "./views/Interview.jsx";
 import Pricing from "./views/Pricing.jsx";
 import About from "./views/About.jsx";
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/resume" element={<Resume />} />
           <Route path="/interview" element={<Interview />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/payment-confirmed" element={<PaymentConfirmed/>}/>

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+.form {
+    font-family: 'Poppins';
+    background-color : transparent;
+    outline: none;
+    border: 1px solid #929191;
+    border-radius: 20px;
+    color: white;
+    height: 41px;
+    width: 300px;
+    font-size: 23px;
+    padding: 12px;
+    margin-right: 25px;
+}
+
+.form::placeholder {
+    color: #5F6368;
+    font-weight: 350;
+}
+
+.multiline-form {
+    font-family: 'Poppins';
+    background-color : transparent;
+    outline: none;
+    border: 1px solid #929191;
+    border-radius: 20px;
+    color: white;
+    height: 41px;
+
+    font-size: 25px;
+    padding: 12px;
+    margin-right: 25px;
+    resize: none; /* Disable resizing */
+}
+
+.multiline-form::placeholder {
+    color: #5F6368;
+    font-weight: 350;
+}
+
+@media(max-width: 768px){
+    .multiline-form {
+        max-width: 300px;
+    }
+
+    .form {
+        margin-bottom: 20px;
+        max-width: 300px;
+    }
+  }
