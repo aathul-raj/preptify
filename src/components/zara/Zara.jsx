@@ -4,6 +4,7 @@ import Title from "./Title";
 import Subheading from "./Subheading";
 import Transcript from "./Transcript";
 import MicButton from "./MicButton";
+import Textbox from "./Textbox";
 import Preloader from "./Preloader";
 import Tutorial from "./Tutorial";
 import { auth } from '../../back-end/Firebase';
@@ -24,6 +25,7 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
   const [isLoading, setIsLoading] = useState(true) // State to track loading status
   const [showPopup, setShowPopup] = useState(false);
   const [index, setIndex] = useState(0);
+  const [textInterview, setTextInterview] = useState(true); 
   const queryParam = new URLSearchParams(location.search)
   const role = queryParam.get('role')
   setRole(role)
@@ -103,7 +105,11 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
           {isLoading ? <Preloader/> : <ZaraAnimation className={`${styles["ai-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} eyesOn={eyesOn}/>}
           <Transcript className={`${isLoading ? styles['hidden'] : styles['visible']}`} transcript={transcript} isLoading={isLoading} styles={styles} index={index}/>
         </div>
-        <MicButton className={`${styles["mic-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} index={index} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes} lagTimes={lagTimes} setLagTimes={setLagTimes} setUserTranscript={setUserTranscript} eyesOn={eyesOn} setEyesOn={setEyesOn}/>
+        {textInterview ? (
+          <Textbox className={styles} index={index} setTranscript={setTranscript} setIsDone={setIsDone} setFeedback={setFeedback}/>
+        ) : (
+          <MicButton className={`${styles["mic-img"]} ${isLoading ? styles['hidden'] : styles['visible']}`} index={index} setTranscript={setTranscript} isLoading={isLoading} setIsDone={setIsDone} setFeedback={setFeedback} setResponseTimes={setResponseTimes} responseTimes={responseTimes} lagTimes={lagTimes} setLagTimes={setLagTimes} setUserTranscript={setUserTranscript} eyesOn={eyesOn} setEyesOn={setEyesOn}/>
+        )}
         </main>
     </>
   );
