@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap');
+
+.textboxContainer{
+    display: flex;
+    align-items: center; 
+}
+
+.textArea::placeholder{
+    color: #5F6368;
+
+}
+
+.textArea{ 
+    color: white; 
+    padding: 20px; 
+    font-size: 20px;
+    font-family: 'Poppins'; 
+    resize: none; /* Disable textarea resizing */
+    transition: border-color 0.3s;
+    outline: none;
+    overflow-y: hidden;
+    width: 60vw; 
+    max-height: 21.25vw; 
+    padding-right: 6.15vw; 
+    margin-left: -3.07vw; 
+    background-color: #141519; 
+    border-radius: 4.92vw;
+    border: 3px solid rgba(255, 255, 255, 0.20);
+}
+
+.textArea:focus {
+    border-color: #15D59F; /* Change border color on focus */
+}
+
+.sendButton{
+    width: 2vw;
+    height: 2vw;
+    flex-shrink: 0;
+    margin-left: -4.92vw; 
+
+}
+
+.sendButton:hover {
+    background-color: #0056b3;
+}
