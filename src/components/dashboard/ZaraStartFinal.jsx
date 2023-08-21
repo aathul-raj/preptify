@@ -23,7 +23,6 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
     const resumeText = '\nresume'
     const yourText = '\nyour'
 
-
     useEffect(() => {
         const fetchLastInterviewDate = async () => {
             const docRef = doc(db, "users", user.uid);
@@ -37,7 +36,7 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
                 }        
             }
         }
-        
+
         fetchLastInterviewDate();
     }, []);
 
