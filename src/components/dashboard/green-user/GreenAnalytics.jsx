@@ -43,7 +43,7 @@ export default function GreenAnalytics( {styles} ){
     let technical = 0
     let ps = 0
     let behavioral = 0
-    let responseTime = 0
+    let responseTime = "N/A"
     if (feedbackSummary){
         responseTime = Math.round((feedbackSummary["responseTime"].total / feedbackSummary["responseTime"].count))
         overallScore = (feedbackSummary["overallScore"].total / feedbackSummary["overallScore"].count).toFixed(1)
@@ -53,6 +53,10 @@ export default function GreenAnalytics( {styles} ){
         behavioral = Math.round(feedbackSummary["behavioral"].total / feedbackSummary["behavioral"].count)
         recentFeedback = [feedbackSummary["negative1"], feedbackSummary["negative2"], feedbackSummary["positive1"]]
         interviewCount = historicalScores.length
+    }
+
+    if (isNaN(responseTime)){
+        responseTime = "N/A"
     }
 
     let percentChange = "N/A"
@@ -75,7 +79,9 @@ export default function GreenAnalytics( {styles} ){
 
             responsePercentChange = ((responseAverage - responseAverageWithoutLast) / responseAverageWithoutLast * 100).toFixed(1)
         } else {
-            responseTime = "60+"
+            if (responseTime != "N/A"){
+                responseTime = "60+"
+            }
         }
     }
 

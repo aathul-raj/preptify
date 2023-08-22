@@ -21,11 +21,20 @@ export default function Feedback( {feedback, setFeedback, responseTimes, lagTime
     let techScore = feedback.technical
     let score = (behaviorScore + problemScore + commScore + techScore) / 4
     let navigate = useNavigate()
-    const responseTimeSum = responseTimes.reduce((a, b) => a + b, 0);
+    let responseTimeSum = false;
+    if (lagTimes.length > 1){
+        responseTimeSum = responseTimes.reduce((a, b) => a + b, 0);
+    }
     const questionCount = responseTimes.length
 
     useEffect(() => {
-        const adjustments = useEngine({feedback, responseTimes, lagTimes, userTranscript, role});
+        let adjustments;
+        if (lagTimes.length == 1){
+            adjustments = useEngine({feedback, userTranscript, role});
+        } else{
+            adjustments = useEngine({feedback, userTranscript, role, responseTimes, lagTimes});
+        }
+        
         const adjScore = score + adjustments["overall"]
 
         setFeedback(prevFeedback => {
@@ -95,10 +104,12 @@ export default function Feedback( {feedback, setFeedback, responseTimes, lagTime
         
         for (let key in recentFeedback) {
             if (key == "responseTime") {
-                newFeedbackSummary[key] = {
-                    ...newFeedbackSummary[key],
-                    total: responseTimeSum + newFeedbackSummary[key].total,
-                    count: questionCount + newFeedbackSummary[key].count
+                if (responseTimeSum){
+                    newFeedbackSummary[key] = {
+                        ...newFeedbackSummary[key],
+                        total: responseTimeSum + newFeedbackSummary[key].total,
+                        count: questionCount + newFeedbackSummary[key].count
+                    }
                 }
             }
             else if (typeof recentFeedback[key] === "number") {
@@ -116,7 +127,12 @@ export default function Feedback( {feedback, setFeedback, responseTimes, lagTime
         historicalScores.push(score);
 
         let historicalResponseTime = userData.historicalResponseTime || []
-        historicalResponseTime = [...historicalResponseTime, ...responseTimes]
+        
+        if (responseTimeSum) {
+            historicalResponseTime = [...historicalResponseTime, ...responseTimes]
+        } else {
+            historicalResponseTime = [...historicalResponseTime]
+        }
 
         if (historicalScores.length > 10) {
             historicalScores.shift()

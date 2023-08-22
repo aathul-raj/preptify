@@ -1,9 +1,16 @@
-export default function useEngine( {feedback, responseTimes, lagTimes, userTranscript, role} ) {
-    const responseTimeSum = responseTimes.reduce((a, b) => a + b, 0)
-    const averageResponseTime = responseTimeSum / responseTimes.length
+export default function useEngine( {feedback, userTranscript, role, responseTimes=null, lagTimes=null,} ) {
+    let responseTimeSum;
+    let averageResponseTime;
+    let averageLagTime;
+    let lagTimeSum;
     
-    const lagTimeSum = lagTimes.reduce((a, b) => a + b, 0)
-    const averageLagTime = lagTimeSum / lagTimes.length
+    if (lagTimes) {
+        responseTimeSum = responseTimes.reduce((a, b) => a + b, 0)
+        averageResponseTime = responseTimeSum / responseTimes.length
+        lagTimeSum = lagTimes.reduce((a, b) => a + b, 0)
+        averageLagTime = lagTimeSum / lagTimes.length
+    }
+    
 
     const transcriptWords = userTranscript.toLowerCase().split(/\W+/)
     let commBank = ["uh", "like", "hm"]
@@ -28,16 +35,20 @@ export default function useEngine( {feedback, responseTimes, lagTimes, userTrans
         }
     })
 
-    if (averageResponseTime <= 10){
-        adjustments["overall"] = adjustments["overall"] - 2
-    } else if (averageResponseTime <= 20) {
-        adjustments["comm"] = adjustments["comm"] - 1.5
-        adjustments["behavioral"] = adjustments["behavioral"] - 2
+    if (lagTimes){
+        if (averageResponseTime <= 10){
+            adjustments["overall"] = adjustments["overall"] - 2
+        } else if (averageResponseTime <= 20) {
+            adjustments["comm"] = adjustments["comm"] - 1.5
+            adjustments["behavioral"] = adjustments["behavioral"] - 2
+        }
+    
+        if (averageLagTime <= 10){
+            adjustments["comm"] = adjustments["comm"] - 1
+        }
     }
 
-    if (averageLagTime <= 10){
-        adjustments["comm"] = adjustments["comm"] - 1
-    }
+    console.log(lagTimes)
 
     adjustments["comm"] = adjustments["comm"] - (commCounter * .5)
     adjustments["behavioral"] = adjustments["behavioral"] + (behavioralCounter > 10 ? 2 : behavioralCounter * .2)
