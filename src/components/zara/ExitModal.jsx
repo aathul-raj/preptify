@@ -6,7 +6,7 @@ import { doc, updateDoc, getDoc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import styles from '../../styles/ExitModal.module.css'
 
-export default function ExitModal( {setShowExit, showExit} ){
+export default function ExitModal( {setShowExit, showExit, sub} ){
     let navigate = useNavigate()
 
     const handleExit = () => {
