@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import copyImg from '../../img/copy.png'
 import exitImg from '../../img/exit.png'
 import styles from "../../styles/Dashboard.module.css";
 
 const ReferralModal = ({ isOpen, handleClose, copyLink }) => {
   const modalRef = useRef();
+  const [text, setText] = useState("copy link")
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -20,6 +21,11 @@ const ReferralModal = ({ isOpen, handleClose, copyLink }) => {
     };
   }, [isOpen]);
 
+  const handleClick = () => {
+    copyLink();
+    setText("copied")
+  }
+
   if (!isOpen) {
     return null;
   }
@@ -30,9 +36,9 @@ const ReferralModal = ({ isOpen, handleClose, copyLink }) => {
         <img src={exitImg} className={styles["exitReferralModal"]} onClick={handleClose}/>
         <h1><span className={styles["green"]}>Invite</span> Your Friends!</h1>
         <p>Share the love! Introduce your friends to Zara.</p>
-        <button onClick={copyLink}>
+        <button onClick={handleClick}>
           <img src={copyImg} className={styles["buttonImg"]}/>
-          <p className={styles["buttonWriting"]}>copy link</p>
+          <p className={styles["buttonWriting"]}>{text}</p>
         </button>
       </div>
     </div>

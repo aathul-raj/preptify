@@ -778,6 +778,7 @@ button .buttonImg{
   width: 20px; 
   height: 20px; 
   margin-left: -15px; 
+  
 }
 
 button .buttonWriting{
@@ -795,7 +796,8 @@ button .buttonWriting{
 }
 
 .exitReferralModal:hover{
-  transform: scale(1.15);
+  transform: scale(1.05);
+  cursor: pointer;
 }
 
 
