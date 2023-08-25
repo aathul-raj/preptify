@@ -14,7 +14,7 @@ function Resume() {
     name: "",
     email: "",
     education: "",
-    description: "",
+    descriptions: "",
     workExperience1: "",
     workExperience2: "",
     skills: "",
@@ -71,7 +71,7 @@ function Resume() {
       ...resumeObject,
       name: resume.profile.name,
       email: resume.profile.email,
-      description: resume.profile.summary,
+      descriptions: resume.profile.summary,
       skills: resume.skills,
       education: edu,
       workExperience1: work1,
@@ -118,7 +118,7 @@ function Resume() {
               </div>
               <div className={styles["form-section-description"]}>
                 <h2 className={styles["form-data"]}> description </h2>
-                  <Form size="625px" height="174px" multiline placeholder="detail oriented individual who..." />
+                  <Form size="625px" height="174px" multiline placeholder="detail oriented individual who..." customText={resumeObject.descriptions}/>
               </div>
             </div>
 
