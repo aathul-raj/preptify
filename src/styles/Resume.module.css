@@ -16,6 +16,10 @@
   resize: none; /* Disable resizing */
 }
 
+.upload-btn {
+  display:none;
+}
+
 .popup-overlay {
   z-index: 200;
   position: fixed;
