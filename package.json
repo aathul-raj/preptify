@@ -14,6 +14,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@reduxjs/toolkit": "^1.9.5",
     "@stripe/stripe-js": "^1.54.2",
     "@vercel/analytics": "^1.0.1",
     "@visx/axis": "^3.1.0",
@@ -30,6 +31,8 @@
     "firebase": "^9.14.0",
     "framer-motion": "^10.15.1",
     "openai": "^3.2.1",
+    "pdfjs": "^2.5.2",
+    "pdfjs-dist": "^3.9.179",
     "react": "^18.2.0",
     "react-countup": "^6.4.2",
     "react-dom": "^18.2.0",
@@ -38,6 +41,7 @@
     "react-select": "^5.7.3",
     "recharts": "^2.7.1",
     "stripe": "^12.17.0",
+    "typescript": "^5.2.2",
     "typewriter-effect": "^2.20.1"
   },
   "devDependencies": {
