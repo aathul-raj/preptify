@@ -19,15 +19,12 @@ function Resume() {
     workExperience2: "",
     skills: "",
   });
-  
 
-  const popUpClosed = () => {
+  const onPageLoad = () => {
     var resume = JSON.parse(localStorage.getItem('resume'))
-    console.log(resume);
+    // console.log(resume); <-- resume object
     if(resume == null)
       return;
-    // setting education and work experiences
-    console.log(resume.educations.length);
     var work1 = {
       company: "",
       date: "",
@@ -79,10 +76,14 @@ function Resume() {
     });
   }
 
+  useEffect(() => {
+    onPageLoad(); // set up form fields when the page is mounted
+  }, []); 
+
+
   return (
     <>
       <main>
-        <Popup onClose={popUpClosed}/>
         <div className={styles["header"]}>
           <div className={styles["logo-container"]}>
             <Link to="/">

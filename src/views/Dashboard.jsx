@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import GreenDashContent from "../components/dashboard/green-user/GreenDashContent";
 import BasicDashContent from "../components/dashboard/basic-user/BasicDashContent";
 import LoadingDash from "../components/dashboard/LoadingDash";
+import Popup from "../components/ResumePopup"
 import Setting from "../components/dashboard/Settings";
 import Sidebar from "../components/dashboard/Sidebar";
 import { auth } from '../back-end/Firebase';
@@ -16,6 +17,7 @@ export default function Dashboard(){
   // const [showPopup, setShowPopup] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
+  const showResumePrompt = true;
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
@@ -88,6 +90,7 @@ export default function Dashboard(){
   }
   
   return sub != 'loading' ? <div className={styles["dashboard-container"]}>
+                  {showResumePrompt && <Popup/>}
                   <Sidebar activeItem={activeItem} setActiveItem={setActiveItem} styles={styles}/>
                   {screens[activeItem]}
                 </div> : <LoadingDash styles={styles}/>
