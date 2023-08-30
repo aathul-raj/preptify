@@ -7,7 +7,7 @@
 .popup-btn {
   border: 3px solid rgb(75, 75, 75); /* Add a white border */
   font-family: 'Roboto';
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 400;
   display: flex;
   text-align: right;
@@ -48,8 +48,8 @@
 }
 
 .main-text {
-  font-family: 'Roboto';
-  font-size: 50px;
+  font-family: 'Poppins';
+  font-size: 40px;
   font-weight: 700;
   letter-spacing: 0.2px;
   margin-bottom: 0px;
@@ -60,7 +60,7 @@
 
 .description-text {
   font-family: 'Poppins';
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 500;
   letter-spacing: 0.2px;
   justify-content: center;
