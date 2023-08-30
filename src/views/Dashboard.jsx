@@ -17,7 +17,7 @@ export default function Dashboard(){
   // const [showPopup, setShowPopup] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const navigate = useNavigate();
-  const showResumePrompt = false;
+  const showResumePrompt = true;
 
   useEffect(() => {
     auth.onAuthStateChanged(user => {
