@@ -1,15 +1,17 @@
 import styles from "../styles/Resume.module.css";
 import UploadImage from "../img/icons/upload.png";
+import ExitImage from "../img/icons/x-button.png";
 import { parseResumeFromPdf } from "../lib/parse-resume-from-pdf";
 import React, { useRef, useState } from 'react';
 import { cx } from "../lib/cx";
 import { deepClone } from "../lib/deep-clone";
+import { useNavigate } from 'react-router-dom';
 
 interface PopupProps {
     onClose: () => void; // Callback to notify the parent component
   }
   
-export default function ResumePopup({onClose}) {
+export default function ResumePopup() {
     const defaultFileState = {
         name: "",
         size: 0,
@@ -37,37 +39,48 @@ export default function ResumePopup({onClose}) {
 
         const { name, size } = newFile;
         const fileUrl = URL.createObjectURL(newFile);
-        console.log('Uploaded file:', newFile);
         const resume = await parseResumeFromPdf(fileUrl);
         localStorage.setItem('resume', JSON.stringify(resume));
-        //console.log(resume);
-        closeDialog();
+        redirectToResume();
+    };
+
+    const navigate = useNavigate();
+
+    const redirectToResume = () => {
+        navigate('/resume')
     };
 
     const closeDialog = () => {
         setIsDialogOpen(false);
-        onClose();
     };
 
     return (
         <div>
             {isDialogOpen && (
-                <div className={styles["popup-overlay"]}>
-                    <div className={styles["popup-content"]}>
-                        <h2>Upload Your <span className={styles["highlight"]}>Resume</span></h2>
-                        <input
-                            type="file"
-                            ref={fileInputRef}
-                            className={styles["upload-btn"]}
-                            onChange={handleFileUpload}
-                        />
-                        <button type="button" onClick={handleButtonClick} className={styles["popup-btn"]}>
-                            <img src={UploadImage} className={styles["popup-img"]} alt="Upload" />
-                            upload
+                    <div className={styles["popup-overlay"]}>
+                        <div className={styles["popup-content"]}>
+                            <h2 className={styles["main-text"]}>
+                                Want <span className={styles["highlight"]}>resume</span>-based interviews?
+                            </h2>
+                            <h2 className={styles["description-text"]}>
+                                You can always do this later
+                                in your settings.
+                            </h2>
+                            <input
+                                type="file"
+                                ref={fileInputRef}
+                                className={styles["upload-btn"]}
+                                onChange={handleFileUpload}
+                            />
+                            <button type="button" onClick={handleButtonClick} className={styles["popup-btn"]}>
+                                upload your resume
+                            </button>
+                            {/* eventually, change this button to upload and parse a resume with openresume */}
+                        </div>
+                        <button type="button" onClick={closeDialog} className={styles["exit-btn"]}>
+                            <img src={ExitImage} className={styles["popup-exit-img"]} alt="Upload" />
                         </button>
-                        {/* eventually, change this button to upload and parse a resume with openresume */}
                     </div>
-                </div>
             )}
         </div>
     );
