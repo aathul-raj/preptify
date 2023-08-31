@@ -734,12 +734,12 @@
   border-radius: 25px;
   font-family: 'Poppins';
   width: 402.73px;
-  height: 200px; /* Add a fixed height */
+  padding-bottom: 2rem;
   text-align: center;
 }
 
 .referralModal h1{
-  margin-top: -7px; 
+  margin-top: 0;
   color: #FFF;
   font-family: 'Roboto';
   font-size: 35px;
