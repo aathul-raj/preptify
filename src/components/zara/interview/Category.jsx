@@ -1,5 +1,5 @@
 import CountUp from 'react-countup';
-import styles from "../../styles/Feedback.module.css"
+import styles from "../../../styles/zara/Feedback.module.css"
 
 export default function Category( {category, score} ){
     const words = category.split(" ");

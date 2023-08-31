@@ -1,4 +1,4 @@
-import lockImg from "../../img/lock.png"; 
+import lockImg from "../../../img/lock.png"; 
 
 export default function ZaraGreen( {styles} ){
     function pricing() {

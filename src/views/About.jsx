@@ -2,7 +2,7 @@ import React from "react";
 import MainHeader from "../components/global/MainHeader"
 import Footer from "../components/global/Footer"
 import OrganizationImage from "../img/organization.png";
-import styles from "../styles/About.module.css"
+import styles from "../styles/views/About.module.css"
 
 function About() {
 

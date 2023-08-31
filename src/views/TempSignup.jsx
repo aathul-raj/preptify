@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../components/global/Footer"
 import EntryImages from "../constants/EntryImages";
-import styles from "../styles/Signup.module.css"
+import styles from "../styles/views/Signup.module.css"
 
 function TempSignup() {
   return (

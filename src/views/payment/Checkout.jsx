@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { auth } from "../back-end/Firebase";
-import LoginSignup from "../components/checkout/LoginSignup";
-import getStripe from "../back-end/getStripe";
+import { auth } from "../../back-end/Firebase";
+import LoginSignup from "../../components/checkout/LoginSignup";
+import getStripe from "../../back-end/getStripe";
 
 function Checkout() {
 

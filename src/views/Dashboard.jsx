@@ -4,11 +4,11 @@ import GreenDashContent from "../components/dashboard/green-user/GreenDashConten
 import BasicDashContent from "../components/dashboard/basic-user/BasicDashContent";
 import LoadingDash from "../components/dashboard/LoadingDash";
 import Popup from "../components/ResumePopup"
-import Setting from "../components/dashboard/Settings";
+import Setting from "../components/dashboard/settings/Settings";
 import Sidebar from "../components/dashboard/Sidebar";
 import { auth } from '../back-end/Firebase';
 import { getFirestore, onSnapshot, doc, setDoc, getDoc } from "firebase/firestore";
-import styles from "../styles/Dashboard.module.css"
+import styles from "../styles/views/Dashboard.module.css"
 
 export default function Dashboard(){
   const db = getFirestore();

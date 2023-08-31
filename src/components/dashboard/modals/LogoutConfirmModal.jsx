@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import styles from "../../styles/Dashboard.module.css";
+import styles from "../../../styles/views/Dashboard.module.css";
 
 const LogoutConfirmModal = ({ isOpen, handleClose, handleLogout }) => {
   const modalRef = useRef();

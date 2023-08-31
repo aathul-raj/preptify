@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Title from "./Title";
 import Subheading from "./Subheading";
-import Transcript from "./Transcript";
-import MicButton from "./MicButton";
-import Textbox from "./Textbox";
+import Transcript from "./interview/Transcript";
+import MicButton from "./interview/MicButton";
+import Textbox from "./interview/Textbox";
 import Preloader from "./Preloader";
-import Tutorial from "./Tutorial";
+import Tutorial from "./tutorials/Tutorial";
 import { auth } from '../../back-end/Firebase';
 import axios from 'axios';
 import { getFirestore, doc, setDoc, updateDoc, getDoc, arrayUnion, onSnapshot } from "firebase/firestore";
@@ -14,7 +14,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import ZaraImages from "../../constants/ZaraImages";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import styles from "../../styles/Zara.module.css"
+import styles from "../../styles/zara/Zara.module.css"
 import ZaraAnimation from "./ZaraAnimation";
 import ExitModal from "./ExitModal";
 

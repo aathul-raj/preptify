@@ -8,7 +8,7 @@ import {
   browserLocalPersistence,
 } from "firebase/auth";
 import EntryImages from "../constants/EntryImages";
-import styles from "../styles/Login.module.css";
+import styles from "../styles/views/Login.module.css";
 import { GoogleButton } from "react-google-button";
 import { UserAuth } from "../context/AuthContext";
 import greenLadyImg from "../img/green-lady.png";

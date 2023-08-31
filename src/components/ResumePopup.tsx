@@ -1,4 +1,4 @@
-import styles from "../styles/Resume.module.css";
+import styles from "../styles/views/Resume.module.css";
 import UploadImage from "../img/icons/upload.png";
 import ExitImage from "../img/icons/x-button.png";
 import { parseResumeFromPdf } from "../lib/parse-resume-from-pdf";

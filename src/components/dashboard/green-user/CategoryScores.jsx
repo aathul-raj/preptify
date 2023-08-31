@@ -1,4 +1,4 @@
-import ProgressBar from "./ProgressBar"
+import ProgressBar from "../ProgressBar"
 
 export default function CategoryScores({communication, technical, ps, behavioral, styles}){
     return (

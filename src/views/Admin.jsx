@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { auth } from '../back-end/Firebase';
 import { getFirestore, collection, onSnapshot, doc, getDoc } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
-import styles from '../styles/Admin.module.css';
+import styles from '../styles/views/Admin.module.css';
 
 export default function Admin() {
     const navigate = useNavigate();

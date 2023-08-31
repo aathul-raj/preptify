@@ -1,7 +1,7 @@
 import React from "react";
-import MainHeader from "../components/global/MainHeader"
-import Footer from "../components/global/Footer"
-import styles from "../styles/Terms.module.css"
+import MainHeader from "../../components/global/MainHeader"
+import Footer from "../../components/global/Footer"
+import styles from "../../styles/views/Terms.module.css"
 
 function Terms() {
 

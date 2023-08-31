@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef} from "react";
 import { useNavigate } from "react-router-dom";
-import MainHeader from "../components/global/MainHeader"
-import Footer from "../components/global/Footer"
-import PricingImages from "../constants/PricingImages";
-import styles from "../styles/Pricing.module.css"
-import StandardCheckout from "../components/StandardCheckout";
+import MainHeader from "../../components/global/MainHeader"
+import Footer from "../../components/global/Footer"
+import PricingImages from "../../constants/PricingImages";
+import styles from "../../styles/views/Pricing.module.css"
+import StandardCheckout from "../../components/StandardCheckout";
 
 function Pricing() {
   const navigate = useNavigate();

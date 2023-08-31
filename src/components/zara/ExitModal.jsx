@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { doc, updateDoc, getDoc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import styles from '../../styles/ExitModal.module.css'
+import styles from '../../styles/zara/ExitModal.module.css'
 
 export default function ExitModal( {setShowExit, showExit, sub} ){
     let navigate = useNavigate()
