@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
-import copyImg from '../../img/copy.png'
-import exitImg from '../../img/exit.png'
-import styles from "../../styles/Dashboard.module.css";
+import copyImg from '../../../img/copy.png'
+import exitImg from '../../../img/exit.png'
+import styles from "../../../styles/views/Dashboard.module.css";
 
 const ReferralModal = ({ isOpen, handleClose, copyLink }) => {
   const modalRef = useRef();

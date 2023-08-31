@@ -5,7 +5,7 @@ import MainHeader from "../components/global/MainHeader.jsx";
 import Faq from "../components/Faq.jsx";
 import Footer from "../components/global/Footer.jsx";
 import HomeImages from "../constants/HomeImages.jsx";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/views/Home.module.css";
 
 function Home() {
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { updateDoc, getDoc } from "firebase/firestore";
-import styles from "../../styles/Settings.module.css"
+import styles from "../../../styles/settings/Settings.module.css"
 
 export default function ToggleSetting({heading, subheading, userRef, id}){
     const [isChecked, setChecked] = useState(false);

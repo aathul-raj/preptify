@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
-import Zara from '../components/zara/Zara'
-import Feedback from '../components/zara/Feedback'
+import Zara from '../../components/zara/Zara'
+import Feedback from '../../components/zara/interview/Feedback'
 
 export default function Interview(){
     const [isDone, setIsDone] = useState(false)

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import styles from '../../styles/ZaraAnimation.module.css';
+import styles from '../../styles/zara/ZaraAnimation.module.css';
 
 export default function ZaraAnimation( {eyesOn} ) {
 

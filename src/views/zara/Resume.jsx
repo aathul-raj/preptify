@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
-import EntryImages from "../constants/EntryImages";
-import Form from "../components/Form";
-import styles from "../styles/Resume.module.css";
-import Popup from "../components/ResumePopup"
+import EntryImages from "../../constants/EntryImages";
+import Form from "../../components/Form";
+import styles from "../../styles/views/Resume.module.css";
+import Popup from "../../components/ResumePopup"
 
 function Resume() {
   const navigate = useNavigate();

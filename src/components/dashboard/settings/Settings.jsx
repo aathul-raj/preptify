@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-import DashboardImages from '../../constants/DashboardImages'
+import DashboardImages from '../../../constants/DashboardImages'
 import ToggleSetting from './ToggleSetting'
 import { doc, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
-import styles from "../../styles/Settings.module.css"
-import dashboardStyles from "../../styles/Dashboard.module.css"
+import styles from "../../../styles/settings/Settings.module.css"
+import dashboardStyles from "../../../styles/views/Dashboard.module.css"
 import SettingsZaraGreen from "./SettingsZaraGreen"
 
 export default function Setting({subscriptionStatus}){

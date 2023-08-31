@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react"
-import Tile from "../Tile"
-import Pro from "../Pro"
-import RecentFeedback from "../RecentFeedback"
-import CategoryScores from "../CategoryScores"
-import Graph from "../Graph"
+import Tile from "./Tile"
+import Pro from "./Pro"
+import RecentFeedback from "./RecentFeedback"
+import CategoryScores from "./CategoryScores"
+import Graph from "./Graph"
 import { auth } from '../../../back-end/Firebase';
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 

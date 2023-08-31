@@ -1,10 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { auth } from '../../back-end/Firebase';
+import { auth } from '../../../back-end/Firebase';
 import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMicrophone, faStop } from '@fortawesome/free-solid-svg-icons'
-import styles from "../../styles/MicButton.module.css"
+import styles from "../../../styles/zara/MicButton.module.css"
 
 function MicButton({ setTranscript, isLoading, setIsDone, setFeedback, setResponseTimes, responseTimes, lagTimes, setLagTimes, setUserTranscript, index, eyesOn, setEyesOn }) {
 

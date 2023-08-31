@@ -5,13 +5,13 @@ import Signup from "./views/Signup.jsx";
 import TempSignup from "./views/TempSignup.jsx";
 import Login from "./views/Login.jsx";
 import Dashboard from "./views/Dashboard.jsx";
-import Resume from "./views/Resume.jsx";
-import Interview from "./views/Interview.jsx";
-import Pricing from "./views/Pricing.jsx";
+import Resume from "./views/zara/Resume.jsx";
+import Interview from "./views/zara/Interview.jsx";
+import Pricing from "./views/payment/Pricing.jsx";
 import About from "./views/About.jsx";
-import Terms from "./views/Terms.jsx";
-import PaymentConfirmed from "./views/PaymentConfirmed.jsx"
-import Checkout from "./views/Checkout.jsx";
+import Terms from "./views/payment/Terms.jsx";
+import PaymentConfirmed from "./views/payment/PaymentConfirmed.jsx"
+import Checkout from "./views/payment/Checkout.jsx";
 import Admin from "./views/Admin.jsx";
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 

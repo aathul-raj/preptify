@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { auth } from '../../back-end/Firebase';
+import { auth } from '../../../back-end/Firebase';
 import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
 import axios from 'axios';
-import styles from "../../styles/Textbox.module.css"; 
+import styles from "../../../styles/zara/Textbox.module.css"; 
 
 function Textbox({ setTranscript, setIsDone, setFeedback, isLoading, index}) {
   const db = getFirestore();

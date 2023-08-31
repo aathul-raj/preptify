@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
 import SidebarImages from "../../constants/SidebarImages";
-import LogoutConfirmModal from "./LogoutConfirmModal"; // import the LogoutConfirmModal
-import ReferralModal from "./ReferralModal" // import the ReferralModal 
-import styles from "../../styles/Dashboard.module.css";
+import LogoutConfirmModal from "./modals/LogoutConfirmModal"; // import the LogoutConfirmModal
+import ReferralModal from "./modals/ReferralModal" // import the ReferralModal 
+import styles from "../../styles/views/Dashboard.module.css";
 
 export default function Sidebar({ activeItem, setActiveItem }) {
   const navigate = useNavigate();

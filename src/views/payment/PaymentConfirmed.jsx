@@ -1,8 +1,8 @@
 import React from "react";
-import MainHeader from "../components/global/MainHeader"
-import Footer from "../components/global/Footer"
-import Check from "../img/icons/green-check.png"
-import styles from "../styles/PaymentConfirmed.module.css"
+import MainHeader from "../../components/global/MainHeader"
+import Footer from "../../components/global/Footer"
+import Check from "../../img/icons/green-check.png"
+import styles from "../../styles/views/PaymentConfirmed.module.css"
 import { useNavigate } from "react-router-dom";
 
 export default function PaymentConfirmed() {

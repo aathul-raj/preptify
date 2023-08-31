@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../Header'
-import Start from '../Start'
+import Start from '../zara-start/Start'
 import BasicAnalytics from './BasicAnalytics'
 import { auth } from '../../../back-end/Firebase';
 

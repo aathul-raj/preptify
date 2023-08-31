@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "../../styles/SettingsZaraGreen.module.css"
+import styles from "../../../styles/settings/SettingsZaraGreen.module.css"
 
 export default function SettingsZaraGreen({subscriptionStatus}) {
     

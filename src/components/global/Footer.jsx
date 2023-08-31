@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/Footer.module.css";
+import styles from "../../styles/global/Footer.module.css";
 import logoImg from "../../img/preptify_cropped.png";
 import instaIcon from "../../img/icons/instagram.png";
 import linkedinIcon from "../../img/icons/linkedin.png";

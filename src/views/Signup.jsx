@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { getFirestore, doc, setDoc } from "firebase/firestore";
 import EntryImages from "../constants/EntryImages";
-import styles from "../styles/Signup.module.css";
+import styles from "../styles/views/Signup.module.css";
 
 function Signup() {
   const [firstName, setFirstName] = useState("");

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
-import TileBasic from "../TileBasic"
-import ZaraGreen from "../ZaraGreen"
-import Ads from "../Ads"
+import TileBasic from "./TileBasic"
+import ZaraGreen from "./ZaraGreen"
+import Ads from "./Ads"
 import { auth } from '../../../back-end/Firebase';
 import { doc, getFirestore, onSnapshot } from "firebase/firestore";
 

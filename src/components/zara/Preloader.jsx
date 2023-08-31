@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from "../../styles/Preloader.module.css"
+import styles from "../../styles/zara/Preloader.module.css"
 
 const LoadingAnimation = () => {
     let dots = [];

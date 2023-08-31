@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import HomeImages from "../../constants/HomeImages"
-import styles from "../../styles/Global.module.css";
+import styles from "../../styles/global/Global.module.css";
 
 export default function MainHeader(){
     const navigate = useNavigate();

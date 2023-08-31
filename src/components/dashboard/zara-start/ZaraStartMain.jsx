@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import DashboardImages from '../../constants/DashboardImages'
+import DashboardImages from '../../../constants/DashboardImages'
 
 export default function ZaraStartMain( {setIndex, styles} ){
 

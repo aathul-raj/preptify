@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import Category from './Category'
-import useEngine from '../../hooks/ZaraEngine'
+import useEngine from '../../../hooks/ZaraEngine'
 import { doc, updateDoc, getDoc, increment, getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import CountUp from 'react-countup';
-import ZaraImages from '../../constants/ZaraImages';
-import styles from "../../styles/Feedback.module.css"
+import ZaraImages from '../../../constants/ZaraImages';
+import styles from "../../../styles/zara/Feedback.module.css"
 
 export default function Feedback( {feedback, setFeedback, responseTimes, lagTimes, userTranscript, role} ){
     const db = getFirestore()

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth } from '../../back-end/Firebase';
+import { auth } from '../../../back-end/Firebase';
 import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import Select from 'react-select';
-import DashboardImages from "../../constants/DashboardImages";
+import DashboardImages from "../../../constants/DashboardImages";
 
 export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions, setError, setFadeOut, styles, sub} ){
     const db = getFirestore();

@@ -6,7 +6,7 @@ import greenLadyImg from "../../img/green-lady.png";
 import squiggle3Img from "../../img/squiggle3.png";
 import squiggle2Img from "../../img/squiggle2.png";
 import EntryImages from "../../constants/EntryImages";
-import styles from '../../styles/Login.module.css'
+import styles from '../../styles/views/Login.module.css'
 
 export default function LoginSignup(){
     const { googleSignIn } = UserAuth();

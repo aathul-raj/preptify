@@ -1,39 +1,29 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
-import DashboardImages from '../../constants/DashboardImages'
+import DashboardImages from '../../../constants/DashboardImages'
 
-export default function ZaraStartThird( {setIndex, selectedOptions, setSelectedOptions, styles, sub} ){
+export default function ZaraStartSecond( {setIndex, selectedOptions, setSelectedOptions, styles} ){
 
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     let fontSize = '20'
-    const difficultyOptions = [
-        { value: 'dynamic', label: 'Dynamic' },
+    const industryOptions = [
+        { value: 'software-engineering', label: 'Software Engineering' },
         // { value: 'business', label: 'Business' },
     ];
-    
-    let numQuestions;
-
-    if (sub){
-        numQuestions = [
-            { value: '1', label: "1" },
-            { value: '2', label: '2' },
-            { value: '3', label: '3' },
-            { value: '4', label: '4' },
-            { value: '5', label: '5' },
-            { value: '6', label: '6' },
-            { value: '7', label: '7' },
-        ]
-    } else {
-        numQuestions = [
-            { value: '1', label: "1" },
-            { value: '2', label: '2' },
-            { value: '3', label: '3' },
-            { value: '4', label: '4' },
-        ]
-    }
-
-    const should = '\nshould'
-    const interview = '\ninterview'
+    const roleOptions = [
+        { value: 'basic', label: "Undecided" },
+        { value: 'fe-react', label: 'Front-end React Dev' },
+        { value: 'be-nodejs', label: 'Back-end Node Dev' },
+        { value: 'fullstack-node-react', label: 'Fullstack Dev' },
+        { value: 'security-engineering', label: 'Security Engineer' },
+        { value: 'data-engineering', label: 'Data Engineer' },
+        { value: 'cloud-engineering', label: 'Cloud Engineer' },
+        { value: 'cpp-engineering', label: 'C++ Dev' },
+        { value: 'zfellow', label: 'ZFellow'},
+        // ABOVE ONLY FOR ZFELLOW
+    ]
+    const interviewing = '\ninterviewing'
+    const you = '\nyou'
 
 
     useEffect(() => {
@@ -124,15 +114,15 @@ export default function ZaraStartThird( {setIndex, selectedOptions, setSelectedO
             <h2 className={styles["zara-h2"]}>Interview Setup</h2>
             <div className={styles["question"]}>
                 <div className={styles["zara-text"]}>
-                    <p>What should the{interview}<span> difficulty</span> be?</p>    
+                    <p>What industry are{you}<span> working </span> in?</p>    
                 </div>
-                <Select className={styles["zara-dropdown"]} styles={customStyles} name="difficulty" id="difficulty" options={difficultyOptions} value={difficultyOptions.find(option => option.value === selectedOptions.difficulty)} onChange={option => handleSelect(option, 'difficulty')}/>
+                <Select className={styles["zara-dropdown"]} styles={customStyles} name="industry" id="industry" options={industryOptions} value={industryOptions.find(option => option.value === selectedOptions.industry)} onChange={option => handleSelect(option, 'industry')}/>
             </div>
             <div className={styles["question"]}>
                 <div className={styles["zara-text"]}>
-                    <p>How many<span> questions</span> {should} be asked?</p>
+                    <p>What role are you<span> {interviewing}</span> for?</p>
                 </div>
-                <Select className={styles["zara-dropdown"]} styles={customStyles} name="questions" menuPlacement="top" id="questions" options={numQuestions} value={numQuestions.find(option => option.value === selectedOptions.questions)} onChange={option => handleSelect(option, 'questions')}/>
+                <Select className={styles["zara-dropdown"]} styles={customStyles} name="roles" menuPlacement="top" id="roles" options={roleOptions} value={roleOptions.find(option => option.value === selectedOptions.role)} onChange={option => handleSelect(option, 'role')}/>
             </div>
             <div className={styles["buttons"]}>
                 <img src={DashboardImages.back} onClick={() => setIndex((prevIndex) => prevIndex - 1)}/>
