@@ -102,6 +102,37 @@ function Pricing() {
           <StandardCheckout/>
           <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
         </div>
+
+        <div className={styles["standard-card"]}>
+        <div className={styles["stars"]}>
+            <img src={PricingImages.star} alt="star"/>
+            <img src={PricingImages.star} alt="star"/>
+            <img src={PricingImages.star} alt="star"/>
+          </div>
+          <div className={styles["card-heading"]}>
+            <h1>Zara Green Plus</h1>
+            <h2>Additional features for detailed preparation</h2>
+          </div>
+          <h2 className={styles["pricing"]}>${active === "monthly" ? "24.99" : "270.00"}<span>/per {active === "monthly" ? "month" : "year" }</span></h2>
+          <div className={styles["line"]}></div>
+          <div className={styles["features-container"]}>
+            <h1>Features</h1>
+            <div className={styles["feature"]}> 
+              <h2>Zara Green's benefits</h2>
+            </div>
+            <div className={styles["feature"]}>
+              <h2>Perfect Answer Engine</h2>
+            </div>
+            <div className={styles["feature"]}>
+              <h2>"Next Steps" section</h2>
+            </div>
+            <div className={styles["feature"]}>
+              <h2>Full-length interviews</h2>
+            </div>
+          </div>
+          <button onClick={() => navigate('/login')}>coming soon</button>
+          <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
+        </div>
       </div>
       <Footer/>
     </div>

@@ -179,12 +179,14 @@
 
 .feature h2{
   color: #fff;
-  font-size: 1vw;
+  font-size: vw;
 }
 
 .feature h2::before{
-  content: "-";
-  margin-right: 10px;
+  content: url('../../img/icons/check.png');
+  display: inline-block;
+  vertical-align: middle; /* Adjust vertical alignment as needed */
+  margin-right: 15px;
 }
 
 .basic-card h3{
@@ -213,7 +215,15 @@ h3 a {
   transform: scale(1.005);
 }
 
+@media (max-width: 1380px) {
+  .feature h2::before{
+    content: "-";
+    margin-right: 10px;
+  }
+}
+
 @media (max-width: 800px) {
+
 
   .confetti{
     display: none;
