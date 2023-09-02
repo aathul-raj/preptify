@@ -4,7 +4,7 @@ import Start from '../zara-start/Start'
 import GreenAnalytics from './GreenAnalytics'
 import { auth } from '../../../back-end/Firebase';
 
-export default function GreenDashContent( {styles, sub} ){
+export default function GreenDashContent( {styles, sub, resumeInterviews, resume} ){
     const [error, setError] = useState("");
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [fadeOut, setFadeOut] = useState(false);
@@ -33,7 +33,7 @@ export default function GreenDashContent( {styles, sub} ){
         }
         <Header firstName={firstName} styles={styles}/>
         <div className={styles["content-container"]}>
-            <Start setError={setError} setFadeOut={setFadeOut} styles={styles} sub={sub}/>
+            <Start setError={setError} setFadeOut={setFadeOut} styles={styles} sub={sub} resumeInterviews={resumeInterviews} resume={resume}/>
             {screenWidth > 750 ? <GreenAnalytics styles={styles}/> : null}
         </div>
     </div>

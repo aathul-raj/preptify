@@ -5,15 +5,22 @@ import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore";
 import Select from 'react-select';
 import DashboardImages from "../../../constants/DashboardImages";
 
-export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions, setError, setFadeOut, styles, sub} ){
+export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedOptions, setError, setFadeOut, styles, sub, resumeInterviews, userResume} ){
     const db = getFirestore();
     const user = auth.currentUser;
     let navigate = useNavigate();
     const [interviewsCompleted, setInterviewsCompleted] = useState(0);
     const [lastInterviewDate, setLastInterviewDate] = useState(null);
-    const resume = [
+    let resume = [
         { value: false, label: 'No' },
     ];
+    if (resumeInterviews){
+        resume = [
+            { value: false, label: 'No' },
+            { value: true, label: 'Yes' },
+        ];
+    }
+    
 
     const micInterview = [
         { value: true, label: 'Mic' },
@@ -24,6 +31,7 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
     const yourText = '\nyour'
 
     useEffect(() => {
+        console.log(userResume)
         const fetchLastInterviewDate = async () => {
             const docRef = doc(db, "users", user.uid);
             const docSnap = await getDoc(docRef);
@@ -48,7 +56,7 @@ export default function ZaraStartFinal( {setIndex, selectedOptions, setSelectedO
             // const queryParam = new URLSearchParams().toString();
             const userDocRef = doc(db, "users", user.uid);
             setDoc(userDocRef, { lastInterviewDate: currentDate }, { merge: true });
-            navigate(`/interview`, { state: { fromButton: true, queryParam: selectedOptions, sub: sub } });
+            navigate(`/interview`, { state: { fromButton: true, queryParam: selectedOptions, sub: sub, userResume: userResume } });
         } else {
             setError("You can only take one interview per day without Zara Green. Please come back tomorrow.")
             setTimeout(() => {
