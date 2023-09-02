@@ -130,7 +130,7 @@ function Pricing() {
               <h2>Full-length interviews</h2>
             </div>
           </div>
-          <button onClick={() => navigate('/login')}>coming soon</button>
+          <button>coming soon</button>
           <h3><a href="mailto:preptifyco@gmail.com" target="_blank">Contact Sales</a></h3>
         </div>
       </div>
