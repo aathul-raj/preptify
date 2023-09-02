@@ -10,7 +10,7 @@ import { useNavigate } from 'react-router-dom';
 interface PopupProps {
     onClose: () => void; // Callback to notify the parent component
   }
-  
+
 export default function ResumePopup() {
     const defaultFileState = {
         name: "",

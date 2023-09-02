@@ -37,7 +37,8 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
   // const industry = queryParam.get('industry')
   // const difficulty = queryParam.get('difficulty')
   const questions = queryParam['questions']
-  
+  const [resume, setResume] = useState(location.state?.userResume)
+
   useEffect(() => {
     setTextInterview(!queryParam['micInterview'])
     setRole(role)
@@ -54,14 +55,21 @@ function Zara( {setIsDone, setFeedback, setResponseTimes, responseTimes, lagTime
             }
           }
         });
-        
-        let resume = false;
 
-        axios.post(`${import.meta.env.VITE_SERVER_URL}/api/start-interview`, {
+        if (!resumeInterview){
+          setResume(null)
+        }
+
+        let payload = {
           role: role,
           questions: questions,
-          resume: resume,
-        }, {
+        }
+
+        if (resumeInterview){
+          payload.resume = JSON.stringify(resume)
+        }
+
+        axios.post(`${import.meta.env.VITE_SERVER_URL}/api/start-interview`, payload, {
           withCredentials: true
         })
           .then(response => {

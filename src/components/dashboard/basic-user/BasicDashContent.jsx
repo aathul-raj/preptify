@@ -4,7 +4,7 @@ import Start from '../zara-start/Start'
 import BasicAnalytics from './BasicAnalytics'
 import { auth } from '../../../back-end/Firebase';
 
-export default function BasicDashContent( {styles, sub} ){
+export default function BasicDashContent( {styles, sub, resumeInterviews, resume} ){
     const [error, setError] = useState("");
     const [screenWidth, setScreenWidth] = useState(window.innerWidth);
     const [fadeOut, setFadeOut] = useState(false);
@@ -33,7 +33,7 @@ export default function BasicDashContent( {styles, sub} ){
         }
         <Header firstName={firstName} styles={styles}/>
         <div className={styles["basic-content-container"]}>
-            <Start setError={setError} setFadeOut={setFadeOut} styles={styles} sub={sub}/>
+            <Start setError={setError} setFadeOut={setFadeOut} styles={styles} sub={sub} resumeInterviews={resumeInterviews} resume={resume}/>
             {screenWidth > 750 ? <BasicAnalytics styles={styles}/> : null}
         </div>
     </div>
