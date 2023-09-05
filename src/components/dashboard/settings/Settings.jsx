@@ -7,6 +7,7 @@ import { getAuth } from "firebase/auth";
 import styles from "../../../styles/settings/Settings.module.css"
 import dashboardStyles from "../../../styles/views/Dashboard.module.css"
 import SettingsZaraGreen from "./SettingsZaraGreen"
+import Popup from "../../../components/ResumePopup"
 
 export default function Setting({subscriptionStatus}){
     let navigate = useNavigate()
@@ -37,6 +38,22 @@ export default function Setting({subscriptionStatus}){
                     <ToggleSetting heading="Promotions and Offers" subheading="Information on any special offers, discounts, or promotions" userRef={userRef} id="promos"/>
                 </div>
             </div>
+            
+            <div className={styles["resume-container"]}>
+                <div className={styles["resume-block-1"]}>
+                    <h1>Resume</h1>
+                    <h2>Upload your resume, or update it if <br/> you already have one on file with us <br/> for resume-based interviews.</h2>
+                </div>
+                <div className={styles["resume-block-2"]}>
+                    {/* <button type="button" className={styles["popup-btn"]}>
+                            upload your resume
+                    </button> */}
+                    <Popup getButton="true" />
+                </div>
+                <div className={styles["resume-block-3"]}>
+                </div>
+            </div>
+
             <SettingsZaraGreen subscriptionStatus={subscriptionStatus}/>
         </div>
     );

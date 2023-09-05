@@ -19,6 +19,98 @@ h2{
     font-size: 1.6vw;
 }
 
+.green{
+    color: #43D2A2;
+}
+
+
+.plan-container{
+    padding: 0 2rem;
+    margin-left: 8rem;
+    background-color: #18191D;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.55s ease-in-out;
+}
+
+.plan-container:hover{
+    transform: scale(1.008);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.122);
+}
+
+.plan-container h1{
+    margin: 1rem 0 0 0;
+    font-weight: 700;
+    font-size: 3.4vw;
+    color: #fff;
+    font-style: italic;
+    text-align: center;
+}
+
+.plan-container h2{
+    margin: 0;
+    text-align: center;
+    font-size: 1.3vw;
+    color: #7A7A7A;
+}
+
+.plan-container button{
+    font-size: 1vw;
+    margin: 1rem 0;
+}
+
+
+.popup-btn {
+    border: 3px solid rgb(75, 75, 75);
+    font-family: 'Roboto';
+    font-size: 1.3vw;
+    margin: 0rem 0;
+    width: 18vw;
+    height: 4vw;
+    font-weight: 400;
+    background-color: #141519;
+    color: #fff;
+
+}
+
+ 
+
+.resume-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    border-bottom: 3px solid #232323;
+    padding: 1rem 0;
+    margin: 0 1rem;
+    padding-bottom: 4.75rem;
+}
+
+.resume-block-1{
+    flex: 1.3;
+}
+
+.resume-block-2{
+    flex: 2;
+    margin-left: 10rem;
+    margin-top: 4.3%;
+}
+
+.resume-block-3{
+    flex: 2;
+}
+
+.resume-block-1 h1{
+    font-size: 1.3vw;
+    color: #fff;
+}
+
+.resume-block-1 h2{
+    font-size: 1vw;
+    color: #7A7A7A;
+}
+
 .email-container{
     display: flex;
     justify-content: space-around;
@@ -31,6 +123,7 @@ h2{
 
 .email-block-1{
     flex: 1.3;
+
 }
 
 .email-block-2{
