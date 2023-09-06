@@ -11,7 +11,7 @@ interface PopupProps {
     onClose: () => void; // Callback to notify the parent component
   }
 
-export default function ResumePopup() {
+export default function ResumePopup(props) {
     const defaultFileState = {
         name: "",
         size: 0,
@@ -47,12 +47,29 @@ export default function ResumePopup() {
     const navigate = useNavigate();
 
     const redirectToResume = () => {
+        // navigate to url/resume
         navigate('/resume')
     };
 
     const closeDialog = () => {
         setIsDialogOpen(false);
     };
+
+    if(props.getButton) {
+        return (
+            <div>
+                <input
+                    type="file"
+                    ref={fileInputRef}
+                    className={styles["upload-btn"]}
+                    onChange={handleFileUpload}
+                />
+                <button type="button" onClick={handleButtonClick} className={styles["popup-btn2"]}>
+                    upload your resume
+                </button>
+            </div>
+        );
+    }
 
     return (
         <div>
@@ -75,7 +92,6 @@ export default function ResumePopup() {
                             <button type="button" onClick={handleButtonClick} className={styles["popup-btn"]}>
                                 upload your resume
                             </button>
-                            {/* eventually, change this button to upload and parse a resume with openresume */}
                         </div>
                         <button type="button" onClick={closeDialog} className={styles["exit-btn"]}>
                             <img src={ExitImage} className={styles["popup-exit-img"]} alt="Upload" />
