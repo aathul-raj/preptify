@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Analytics } from "@vercel/analytics/react";
 import Home from "./views/Home.jsx";
+import NotFound from "./views/NotFound.jsx";
 import Signup from "./views/Signup.jsx";
 import TempSignup from "./views/TempSignup.jsx";
 import Login from "./views/Login.jsx";
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/payment-confirmed" element={<PaymentConfirmed/>}/>
           <Route path="/checkout" element={<Checkout/>}/>
           <Route path="/admin" element={<Admin/>}/>
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Analytics />
       </Router>
