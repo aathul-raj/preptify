@@ -11,7 +11,7 @@ function NotFound() {
   }
   return (
     <>
-      <main>
+      <main className={styles["not-found-main"]}>
         <MainHeader />
         <div className={styles["main-container"]}>
           <div className={styles["left-block"]}>
